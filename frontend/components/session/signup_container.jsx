@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {createUser} from '../../actions/session';
+import {createUser} from '../../actions/session_action';
 import Signup from './signup';
 
 const mdp = (dispatch) => ({

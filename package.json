@@ -26,9 +26,23 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --mode=development --watch"
+    "webpack": "webpack --mode=development --watch",
+    "postinstall": "webpack"
+  },
+  "engines": {
+    "node": "14.14.0",
+    "npm": "6.14.8"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SanYung/Full-Stack-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SanYung/Full-Stack-Project/issues"
+  },
+  "homepage": "https://github.com/SanYung/Full-Stack-Project#readme"
 }
