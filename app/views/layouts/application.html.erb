@@ -3,9 +3,11 @@
   <head>
     <title>Quack</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <script type="text/javascript">
+      window.slackURL = "<%= image_url('home.png') %>";
+    </script>
     
     <% if current_user %>
       <script>
