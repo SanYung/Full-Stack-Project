@@ -3,12 +3,9 @@ import React from 'react';
 class Signup extends React.Component {
     constructor(props){
         super(props)
-        this.state = {
-            username: '',
-            email: '',
-            password: '',
-        };
+        this.state = this.props.user
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleDemo = this.handleDemo.bind(this)
     }
 
     handleInput(type){
@@ -20,7 +17,11 @@ class Signup extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createUser(this.state)
-            .then(() => this.props.history.push('/'))
+    }
+
+    handleDemo(e){
+        e.preventDefault();
+        this.props.createSession(this.props.demo)
     }
 
 
@@ -52,6 +53,7 @@ class Signup extends React.Component {
                         />
                     </label>
                     <button onClick={this.handleSubmit}>Sign Up</button>
+                    <button onClick={this.handleDemo}>Sign in as a Demo User</button>
                 </form>
 
             </div>

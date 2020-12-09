@@ -1,6 +1,15 @@
 import React from 'react';
+import { FaLinkedin } from 'react-icons/fa'
+import { AiOutlineLinkedin } from 'react-icons/Ai'
+class Home extends React.Component {
 
-export default () => (
-    <div className="home">
-    </div>
-)
+    render(){
+        return(
+            <div>
+            </div>
+        )
+    }
+
+}
+
+export default Home

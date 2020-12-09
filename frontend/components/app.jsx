@@ -10,7 +10,7 @@ import Home from './home/home'
 export default () => (
     <div>
         <Route path="/" component={NavBarContainer}/>
-        <Route exact path="/" component={Home} />
+        <Route path="/" component={Home} />
         <AuthRoute path="/signup" component={SignupContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
     </div>
