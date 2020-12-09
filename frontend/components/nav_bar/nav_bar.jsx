@@ -7,14 +7,14 @@ class Navbar extends React.Component {
     }
     
     display(){ 
-        return(this.props.user ? (
+        return(this.props.currentUser ? (
         <div>
             <button onClick={this.props.deleteSession}>Log Out</button>
         </div>
     ) : (
             <div>
                 <Link className="btn" to="/signup">Sign Up</Link>
-                <Link className="btn" to="/">Log In</Link>
+                <Link className="btn" to="/login">Log In</Link>
             </div>
         )
     )}

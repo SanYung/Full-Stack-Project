@@ -4,7 +4,7 @@ import Navbar from './nav_bar';
 import { deleteSession } from '../../actions/session_action';
 
 const msp = (state) => ({
-    user: state.session.user
+    currentUser: state.session.currentUser
 });
 
 const mdp = (dispatch) => ({
