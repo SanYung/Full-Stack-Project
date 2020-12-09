@@ -11,7 +11,7 @@ const receiveCurrentUser = (user) => ({
 });
 
 const logoutCurrentUser = () => ({
-    type: RECEIVE_CURRENT_USER
+    type: LOGOUT_CURRENT_USER
 });
 
 //thunk action creators
