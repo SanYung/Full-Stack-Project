@@ -27,33 +27,41 @@ class Signup extends React.Component {
 
     render (){
         return(
-            <div className ='session-form'>
-                <h2>Sign up for Quack</h2>
-                <p>Enter your <b>username</b>, <b>password</b>, and <b>email</b>.</p>
-                <form>
-                    <label>Username:
+            <div className ='formpage'>
+
+                <form className='session-form'> 
+                    <h2 id="formtitle">Sign up</h2>
+                    <p id="formsubtitle"> Enter your <b>display name</b>, <b>email</b>, and <b>password</b>.</p>
+                    <label>
                         <input
+                            id="input-field"
+                            placeholder="display name"
                             type="text"
                             value={this.state.username}
                             onChange={this.handleInput('username')}
                         />
-                    </label>
-                    <label>Email:
+                    </label >
+                    <label >
                         <input
+                            id="input-field"
+                            placeholder="email"
                             type="text"
                             value={this.state.email}
                             onChange={this.handleInput('email')}
                         />
                     </label>
-                    <label>Password:
+                    <label>
                         <input
+                            id="input-field"
+                            placeholder="password"
                             type="password"
                             value={this.state.password}
                             onChange={this.handleInput('password')}
                         />
                     </label>
-                    <button onClick={this.handleSubmit}>Sign Up</button>
-                    <button onClick={this.handleDemo}>Sign in as a Demo User</button>
+                    <button className='session' onClick={this.handleSubmit}>Continue</button>
+                    <button className='button2'onClick={this.handleDemo}>Sign in as a Demo User</button>
+
                 </form>
 
             </div>

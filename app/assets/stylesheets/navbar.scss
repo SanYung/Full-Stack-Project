@@ -1,0 +1,88 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    min-height: 65px;
+    max-height: 65px;
+    font-family: Lato;
+    z-index: 2;
+ 
+}
+
+.btn {
+    // align-items: center;
+    height: 22px;
+    width: 52px;
+    padding: 5px 10px 5px 10px;
+    margin: 5px;
+    background-color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    box-shadow: 0 0 0 0.5px #717274;
+    border-radius: 4px;
+}
+
+.btn1 {
+    // align-items: center;
+    height: 22px;
+    width: 120px;
+    padding: 5px 10px 5px 10px;
+    margin: 5px;
+    background-color: #592446;
+    font-size: 14px;
+    text-decoration: none;
+    color:  white;
+    border: 1px solid black;
+    box-shadow: 0 0 0 0.5px #717274;
+    border-radius: 4px;
+}
+
+.right-nav {
+    margin-right:100px;
+}
+
+.left-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left:75px;
+    font-size: 28px;
+    text-decoration: none;
+}
+
+
+#logo {
+    text-decoration: none;
+    color: black;
+    font-weight: 2000px;
+}
+
+#duck{
+    padding: 5px 10px 5px 10px;
+    font-size: 28px;
+    color: orange;
+    margin-top: 7px;
+}
+
+.loginbutton{
+    display: flex;
+    height: 27px;
+    width: 80px;
+    background-color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    box-shadow: 0 0 0 0.5px #717274;
+    border-radius: 4px;
+    align-items: center;
+    align-content: center;
+    padding: 5px 10px 5px 10px;
+}

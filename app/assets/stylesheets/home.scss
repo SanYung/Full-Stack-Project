@@ -1,0 +1,71 @@
+
+.main{
+    display: flex;
+    background-color: #f6efe8;
+    flex-direction: column;
+}
+
+.col1{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.col2{
+    display:flex;
+    width: 90%;
+}
+
+#text1 {
+    margin-top: 40px;
+}
+#headtext{
+    font-weight: bold;
+    font-size: 55px;
+    font-family: Helvetica Neue;
+    padding: 10px;
+}
+
+#subtext{
+    font-weight: 500px;
+    font-size: 26px;
+    font-family: Helvetica Neue;
+    margin: 0px 30px 0px 0px;
+}
+
+#slack1{
+    height: 700px;
+    width: 700px;
+}
+
+#slack2{
+    height: 700px;
+    width: 700px;
+}
+
+
+
+#footer {
+    font-family: Lato;
+    font-size: 16px;
+    width: 95%;
+    bottom: 0;
+    background: white;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.demo {
+    // align-items: center;
+    height: 40px;
+    width: 50%;
+    margin-top: 25px;
+    margin-left:20%;
+    background-color: #592446;
+    font-size: 25px;
+    text-decoration: none;
+    color:  white;
+    border: 1px solid black;
+    box-shadow: 0 0 0 0.5px #717274;
+    border-radius: 4px;
+}

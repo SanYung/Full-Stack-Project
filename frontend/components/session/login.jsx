@@ -16,39 +16,47 @@ class Login extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createSession(this.state)
+            // .then(() => this.props.history.push('/channels'));
     }
 
 
     render() {
         return (
-            <div className='session-form'>
-                <h2>Log In to Quack</h2>
-                <p>Enter your <b>username</b>, <b>password</b>, and <b>email</b>.</p>
-                <form>
-                    <label>Username:
+            <div className='formpage'>
+
+                <form className='session-form'>
+                    <h2 id="formtitle">Sign in to <br></br> your workplace</h2>
+                    <p id="formsubtitle">Enter your <b>display name</b>, <b>email</b>, and <b>password</b>.</p>
+                    <label>
                         <input
+                            id="input-field"
                             type="text"
+                            placeholder="display name"
                             value={this.state.username}
                             onChange={this.handleInput('username')}
                         />
                     </label>
-                    <label>Email:
+                    <label>
                         <input
+                            id="input-field"
                             type="text"
+                            placeholder="name@example.com"
                             value={this.state.email}
                             onChange={this.handleInput('email')}
                         />
                     </label>
-                    <label>Password:
+                    <label>
                         <input
+                            id="input-field"
                             type="password"
+                            placeholder="password"
                             value={this.state.password}
                             onChange={this.handleInput('password')}
                         />
                     </label>
-                    <button onClick={this.handleSubmit}>Log In</button>
-                </form>
+                    <button className="session" onClick={this.handleSubmit}>Continue</button>
 
+                </form>
             </div>
         )
     }

@@ -5,9 +5,15 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
     <script type="text/javascript">
       window.slackURL = "<%= image_url('home.png') %>";
     </script>
+    <script type="text/javascript">
+      window.slack2URL = "<%= image_url('slack2.jpg') %>";
+    </script>
+
+
     
     <% if current_user %>
       <script>
