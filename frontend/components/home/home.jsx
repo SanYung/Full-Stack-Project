@@ -1,10 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-// import { FaLinkedin } from 'react-icons/fa'
-// import { AiOutlineLinkedin } from 'react-icons/Ai'
-=======
-
->>>>>>> user_auth
 class Home extends React.Component {
     constructor(props){
         super(props)
