@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { GiPlasticDuck } from 'react-icons/Gi'
 
 class Navbar extends React.Component {
     constructor(props){
@@ -8,13 +9,20 @@ class Navbar extends React.Component {
     
     display(){ 
         return(this.props.currentUser ? (
-        <div>
-            <button onClick={this.props.deleteSession}>Log Out</button>
+        <div className="navbar">
+            <button className="loginbutton" onClick={this.props.deleteSession}>Log Out</button>
         </div>
     ) : (
-            <div>
+            <div className="navbar">
+                <span className='left-nav'>
+                        <Link id="duck" to="/"><GiPlasticDuck /></Link>
+                        <Link id="logo" to="/">Quack</Link>
+                </span>
+
+                <span className="right-nav">
                 <Link className="btn" to="/login">Log In</Link>
-                <Link className="btn" to="/signup">GET STARTED</Link>
+                <Link className="btn1" to="/signup">SIGN UP</Link>
+                </span>
             </div>
         )
     )}
