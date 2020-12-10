@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :channels, 
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Channel 
 
   def self.find_by_credentials(username, email, password)
     user = User.find_by(username: username, email:email)
