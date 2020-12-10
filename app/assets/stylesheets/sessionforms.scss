@@ -1,0 +1,79 @@
+ .formpage {
+    background-color: whitesmoke;
+    height: 90vh;
+    align-items: center;
+}
+
+ .session-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 35%;
+    height: 70%;
+    margin-left: 31%;
+    box-shadow: 1px rgba(0,0,0,0.25);
+    top: 60px;
+    background-color: white;
+ }
+
+
+
+ .button2 {
+    height: 35px;
+    width: 290px;
+    background-color: #592446;
+    font-size: 14px;
+    text-decoration: none;
+    color:  white;
+    border: 1px solid black;
+    box-shadow: 0 0 0 0.5px #717274;
+    border-radius: 4px;
+    padding:5px;
+    margin: 2px;
+    font-size: 16px;
+    font-family: Lato;
+}
+  
+
+
+#input-field{
+    width: 275px;
+    padding: 5px;
+    margin: 2px;
+    box-shadow: 0 0 0 0.5px #717274;
+    border-radius: 2px;
+}
+
+.session{
+    width: 290px;
+    padding:5px;
+    margin: 2px;
+    color: white;
+    background-color: rgb(139, 184, 139);
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: Lato;
+    box-shadow: 0 0 0 0.5px #717274;
+    border-radius: 4px;
+}
+
+#formtitle{
+    font-family: lato;
+    font-size: 45px;
+    margin: 10px;
+    align-content: center;
+}
+
+
+#formsubtitle{
+    font-family: lato;
+    font-size: 14.5px;
+}
+
+::placeholder {
+    font-size: 17px;
+    font-family: lato;
+}
