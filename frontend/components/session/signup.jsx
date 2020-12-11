@@ -41,12 +41,12 @@ class Signup extends React.Component {
 
     render (){
         return(
-            <div className ='formpage'>
+            <div className='compcontainer'>
                 <NavBarContainer/>
+            <div className='formpage'>
                 <form className='session-form'> 
                     <h2 id="formtitle">Sign up</h2>
                     <p id="formsubtitle"> Enter your <b>display name</b>, <b>email</b>, and <b>password</b>.</p>
-                    {this.renderErrors()}
                     <label>
                         <input
                             id="input-field"
@@ -74,11 +74,11 @@ class Signup extends React.Component {
                             onChange={this.handleInput('password')}
                         />
                     </label>
-                    <button className='session' onClick={this.handleSubmit}>Continue</button>
+                    <button className='continue' onClick={this.handleSubmit}>Continue</button>
                     <button className='button2'onClick={this.handleDemo}>Sign in as a Demo User</button>
-
+                    {this.renderErrors()}
                 </form>
-
+            </div>
             </div>
         )
     }
