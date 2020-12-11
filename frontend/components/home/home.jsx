@@ -1,10 +1,14 @@
 import React from 'react';
+import NavBarContainer from '../nav_bar/nav_bar_container'
+
 class Home extends React.Component {
     constructor(props){
         super(props)
 
         this.handleDemo = this.handleDemo.bind(this)
     }
+
+ 
 
     handleDemo(e) {
         e.preventDefault();
@@ -21,6 +25,7 @@ class Home extends React.Component {
     render(){
         return(
             <div className='home'>
+                <NavBarContainer />
                 <span className="main">
                     <span className="col1">
                         <span id="text1">

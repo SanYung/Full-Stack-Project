@@ -10,7 +10,6 @@ class Error extends React.Component {
                 <div className="dialog">
                     <div>
                         <h1>404: The page you were looking for doesn't exist.</h1>
-      
                     </div>
                 </div>
             </div>
