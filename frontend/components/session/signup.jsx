@@ -24,6 +24,17 @@ class Signup extends React.Component {
         this.props.createSession(this.props.demo)
     }
 
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
 
     render (){
         return(
@@ -32,6 +43,7 @@ class Signup extends React.Component {
                 <form className='session-form'> 
                     <h2 id="formtitle">Sign up</h2>
                     <p id="formsubtitle"> Enter your <b>display name</b>, <b>email</b>, and <b>password</b>.</p>
+                    {this.renderErrors()}
                     <label>
                         <input
                             id="input-field"

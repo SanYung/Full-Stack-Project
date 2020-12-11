@@ -1,8 +1,9 @@
 import {connect} from 'react-redux';
+import React from 'react';
 import {createUser, createSession} from '../../actions/session_action';
 import Signup from './signup';
 
-const msp = (state) => ({
+const msp = ({errors}) => ({
     user: { 
         username:'',
         email: '',
@@ -12,7 +13,8 @@ const msp = (state) => ({
         username: 'demo',
         email: 'demo@aa.com',
         password: 'demo123',
-    }
+    },
+    errors: errors.session
 })
 
 const mdp = (dispatch) => ({
