@@ -9,13 +9,12 @@ import Errors from './error'
 // import Home from './home/home'
 
 const App = () => (
-    <div>
-        <Route path="/" component={NavBarContainer} />
+    <Switch>
         <Route exact path="/" component={HomeContainer} />
         <AuthRoute exact path="/login" component={LoginContainer} />
         <AuthRoute exact path="/signup" component={SignupContainer} />
         <Route component={Errors} />
-    </div>
+    </Switch>
 );
 
 export default App

@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBarContainer from '../nav_bar/nav_bar_container'
 
 class Signup extends React.Component {
     constructor(props){
@@ -7,6 +8,8 @@ class Signup extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleDemo = this.handleDemo.bind(this)
     }
+
+ 
 
     handleInput(type){
         return (e) => {
@@ -39,7 +42,7 @@ class Signup extends React.Component {
     render (){
         return(
             <div className ='formpage'>
-
+                <NavBarContainer/>
                 <form className='session-form'> 
                     <h2 id="formtitle">Sign up</h2>
                     <p id="formsubtitle"> Enter your <b>display name</b>, <b>email</b>, and <b>password</b>.</p>

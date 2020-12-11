@@ -1,12 +1,12 @@
 import React from 'react';
-
+import NavBarContainer from '../nav_bar/nav_bar_container'
 class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = this.props.user
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-
+  
     handleInput(type) {
         return (e) => {
             this.setState({ [type]: e.currentTarget.value });
@@ -34,7 +34,7 @@ class Login extends React.Component {
     render() {
         return (
             <div className='formpage'>
-
+                <NavBarContainer/>
                 <form className='session-form'>
                     <h2 id="formtitle">Sign in to <br></br> your workplace</h2>
                     <p id="formsubtitle">Enter your <b>display name</b>, <b>email</b>, and <b>password</b>.</p>
