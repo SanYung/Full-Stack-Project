@@ -9,10 +9,13 @@ class Navbar extends React.Component {
     
     display(){ 
         return(this.props.currentUser ? (
-        <div className="navbar">
-            <button className="loginbutton" onClick={this.props.deleteSession}>Log Out</button>
+        <div className="navbarcontainer">
+            <div className="navbar">
+                <button className="logoutbutton" onClick={this.props.deleteSession}>Log Out</button>
+            </div>
         </div>
     ) : (
+        <div className = "navbarcontainer" >
             <div className="navbar">
                 <span className='left-nav'>
                         <Link id="duck" to="/"><GiPlasticDuck /></Link>
@@ -20,10 +23,11 @@ class Navbar extends React.Component {
                 </span>
 
                 <span className="right-nav">
-                <Link className="btn" to="/login">Log In</Link>
-                <Link className="btn1" to="/signup">SIGN UP</Link>
+                <Link id="loginbutton" to="/login">Log In</Link>
+                <Link id="signupbutton" to="/signup">SIGN UP</Link>
                 </span>
             </div>
+        </div>
         )
     )}
 
