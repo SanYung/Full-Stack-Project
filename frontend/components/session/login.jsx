@@ -19,6 +19,17 @@ class Login extends React.Component {
             // .then(() => this.props.history.push('/channels'));
     }
 
+    renderErrors(){
+        return(
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
 
     render() {
         return (
@@ -27,6 +38,7 @@ class Login extends React.Component {
                 <form className='session-form'>
                     <h2 id="formtitle">Sign in to <br></br> your workplace</h2>
                     <p id="formsubtitle">Enter your <b>display name</b>, <b>email</b>, and <b>password</b>.</p>
+                    {this.renderErrors()}
                     <label>
                         <input
                             id="input-field"

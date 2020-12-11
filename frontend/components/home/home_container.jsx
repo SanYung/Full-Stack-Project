@@ -4,7 +4,6 @@ import Home from './home';
 
 
 const mdp = (dispatch) => {
-    debugger
     return{
     createSession: ((user) => dispatch(createSession(user)))
     }

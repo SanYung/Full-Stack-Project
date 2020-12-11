@@ -1,7 +1,11 @@
 class Api::ChannelsController < ApplicationController
+
+    before_action :require_logged_in
+
   def create
     @channel = Channel.new(channel_params)
-    if @channel.save
+    @channel.user_id = current_user.id
+    if @channel.save 
       render :show
     else
       render @channel.errors.full_messages, status: 401
@@ -9,16 +13,18 @@ class Api::ChannelsController < ApplicationController
   end
   
   def update
-    @channel = Channel.find_by(params[:id])
+    @channel = Channel.find_by(id: params[:id])
     if @channel && @channel.update_attributes(channel_params)
       render :show
-    else
+    elsif @channel
       render json: @channel.errors.full_messages, status: 401
+    else
+        render json: ['channel does not exist']
     end
   end
   
   def show
-    @channel = Channel.find_by(params[:id])
+    @channel = Channel.find_by(id: params[:id])
   end
   
   def index
@@ -26,12 +32,12 @@ class Api::ChannelsController < ApplicationController
   end
   
   def destroy
-    @channel = Channel.find_by(params[:id])
+    @channel = Channel.find_by(id: params[:id])
     if @channel
       @channel.destroy
       render :show
     else
-      render ['Could not find chirp']
+      render json: ['Could not find channel']
     end
   end
   
