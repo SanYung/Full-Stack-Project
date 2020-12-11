@@ -28,8 +28,7 @@
     font-weight: bold;
     text-decoration: none;
     color: black;
-    border: 1px solid black;
-    box-shadow: 0 0 0 0.2px #717274;
+    border: 1.5px solid black;
     border-radius: 3px;
 }
 
@@ -46,6 +45,7 @@
     border: 1px solid black;
     box-shadow: 0 0 0 0.2px #717274;
     border-radius: 3px;
+     cursor: pointer;
 }
 
 
@@ -62,6 +62,7 @@
     text-decoration: none;
     color: black;
     font-weight: 2300px;
+     cursor: pointer;
 }
 
 #duck{
@@ -69,24 +70,11 @@
     font-size: 28px;
     color: orange;
     margin-top: 7px;
+    cursor: pointer;
+
+    
 }
 
-.loginbutton{
-    display: flex;
-    height: 27px;
-    width: 80px;
-    background-color: white;
-    font-size: 14px;
-    font-weight: bold;
-    text-decoration: none;
-    color: black;
-    border: 1px solid black;
-    box-shadow: 0 0 0 0.5px #717274;
-    border-radius: 4px;
-    align-items: center;
-    align-content: center;
-    padding: 5px 10px 5px 10px;
-}
 
 .logoutbutton {
     display: inline-block;
@@ -97,7 +85,59 @@
     font-weight: bold;
     text-decoration: none;
     color: black;
-    border: 1px solid black;
-    box-shadow: 0 0 0 0.2px #717274;
+    border: 1.5px solid black;
     border-radius: 3px;
+     cursor: pointer;
 }
+
+#signupbutton:hover{
+    background-color: #693355;
+}
+
+
+
+#loginbutton {
+    display: inline-block;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    border-radius: 2px;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+    font-size: 17px;
+    padding: 5px 10px 5px 10px;
+    width: 70px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+    #loginbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    }
+
+    #loginbutton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    
+    transition: 0.5s;
+ 
+    }
+
+    #loginbutton:hover span {
+    padding-right: 15px;
+    }
+
+    #loginbutton:hover span:after {
+    opacity: 1;
+    right: 0;
+    }
