@@ -73,10 +73,15 @@
     padding: 15px 60px 15px 60px;
     background-color: #592446;
     font-size: 25px;
+    cursor: pointer;
     text-decoration: none;
     color:  white;
     border: 1px solid black;
     box-shadow: 0 0 0 0.2px #717274;
     border-radius: 3px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#demo:hover{
+    background-color: #693355;
 }

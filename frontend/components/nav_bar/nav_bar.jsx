@@ -23,7 +23,7 @@ class Navbar extends React.Component {
                 </span>
 
                 <span className="right-nav">
-                <Link id="loginbutton" to="/login">Log In</Link>
+                <Link id="loginbutton"  to="/login"><span>Log In</span></Link>
                 <Link id="signupbutton" to="/signup">SIGN UP</Link>
                 </span>
             </div>

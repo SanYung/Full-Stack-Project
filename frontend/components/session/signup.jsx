@@ -74,7 +74,7 @@ class Signup extends React.Component {
                             onChange={this.handleInput('password')}
                         />
                     </label>
-                    <button className='continue' onClick={this.handleSubmit}>Continue</button>
+                    <button className='continue' onClick={this.handleSubmit}><span>Continue</span></button>
                     <button className='button2'onClick={this.handleDemo}>Sign in as a Demo User</button>
                     {this.renderErrors()}
                 </form>
