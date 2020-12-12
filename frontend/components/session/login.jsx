@@ -16,19 +16,23 @@ class Login extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createSession(this.state)
-            // .then(() => this.props.history.push('/channels'));
+            .then(() => this.props.history.push('/channels'));
     }
 
     renderErrors(){
         return(
             <ul>
                 {this.props.errors.map((error, i) => (
-                    <li>
+                    <li key={i}>
                         {error}
                     </li>
                 ))}
             </ul>
         );
+    }
+    
+    componentDidMount(){
+        this.props.clearErrors()
     }
 
     render() {
@@ -69,6 +73,7 @@ class Login extends React.Component {
                     </label>
                     <button className="continue" onClick={this.handleSubmit}><span>Continue</span></button>
                         {this.renderErrors()}
+    
                 </form>
             </div>
             </div>
