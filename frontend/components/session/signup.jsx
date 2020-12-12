@@ -10,7 +10,6 @@ class Signup extends React.Component {
     }
 
  
-
     handleInput(type){
         return (e) => {
             this.setState({[type]: e.currentTarget.value});
@@ -20,17 +19,19 @@ class Signup extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createUser(this.state)
+            .then(() => this.props.history.push('/channels'));
     }
 
     handleDemo(e){
         e.preventDefault();
         this.props.createSession(this.props.demo)
+            .then(() => this.props.history.push('/channels'));
     }
 
     renderErrors() {
         return (
             <ul>
-                {this.props.errors.map((error, i) => (
+                {this.props.errors.map((error,i) => (
                     <li>
                         {error}
                     </li>
@@ -38,6 +39,17 @@ class Signup extends React.Component {
             </ul>
         );
     }
+
+    componentDidMount(){
+        this.props.clearErrors()
+    }
+    // renderClear()
+    //     return (
+    //         <div>
+    //             {this.props.errors.length !== 0} ? {this.props.clearErrors()} 
+    //         </div>
+    //         )
+    // }
 
     render (){
         return(
@@ -76,7 +88,7 @@ class Signup extends React.Component {
                     </label>
                     <button className='continue' onClick={this.handleSubmit}><span>Continue</span></button>
                     <button className='button2'onClick={this.handleDemo}>Sign in as a Demo User</button>
-                    {this.renderErrors()}
+                        {this.renderErrors()}
                 </form>
             </div>
             </div>

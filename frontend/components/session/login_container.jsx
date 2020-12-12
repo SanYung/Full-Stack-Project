@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import Login from './login';
-import { createSession } from '../../actions/session_action';
+import { createSession, clearErrors } from '../../actions/session_action';
 
 
 const msp = ( {errors}) => ({
@@ -13,7 +13,8 @@ const msp = ( {errors}) => ({
     errors: errors.session
 })
 const mdp = (dispatch) => ({
-    createSession: ((user) => dispatch(createSession(user)))
+    createSession: ((user) => dispatch(createSession(user))),
+    clearErrors: (() => dispatch(clearErrors()))
 });
 
 

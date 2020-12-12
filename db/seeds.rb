@@ -7,5 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.delete_all
+Channel.delete_all
 
 User.create( username:'demo' ,email:'demo@aa.com', password: 'demo123' )
+
+Channel.create(title:'testing123', user_id:'1')
+Channel.create(title:'Announcements', user_id:'1')
+Channel.create(title:'Funny Things', user_id:'1')

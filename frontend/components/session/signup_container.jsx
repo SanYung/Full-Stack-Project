@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import React from 'react';
-import {createUser, createSession} from '../../actions/session_action';
+import {createUser, createSession, clearErrors} from '../../actions/session_action';
 import Signup from './signup';
 
 const msp = ({errors}) => ({
@@ -19,7 +19,8 @@ const msp = ({errors}) => ({
 
 const mdp = (dispatch) => ({
     createUser: ((user) => dispatch(createUser(user))),
-    createSession: ((user) => dispatch(createSession(user)))
+    createSession: ((user) => dispatch(createSession(user))),
+    clearErrors: (() => dispatch(clearErrors()))
 });
 
 export default connect (msp, mdp)(Signup)

@@ -20,6 +20,7 @@ class Home extends React.Component {
         }
 
         this.props.createSession(demo)
+            .then(() => this.props.history.push('/channels'));
     }
 
     render(){
