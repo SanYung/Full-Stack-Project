@@ -9,8 +9,8 @@
 User.delete_all
 Channel.delete_all
 
-User.create( username:'demo' ,email:'demo@aa.com', password: 'demo123' )
+user1 = User.create( id: 1, username:'demo' ,email:'demo@aa.com', password: 'demo123' )
 
-Channel.create(title:'testing123', user_id:'1')
-Channel.create(title:'Announcements', user_id:'1')
-Channel.create(title:'Funny Things', user_id:'1')
+channel1 = Channel.create(title:'testing123', user_id: user1.id)
+channel2 = Channel.create(title:'Announcements', user_id: user1.id)
+channel3 = Channel.create(title:'Funny Things', user_id: user1.id)
