@@ -28,7 +28,7 @@ class Api::ChannelsController < ApplicationController
   end
   
   def index
-    @channel = Channel.all
+    @channels = Channel.all
   end
   
   def destroy
