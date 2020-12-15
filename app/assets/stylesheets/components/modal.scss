@@ -1,0 +1,78 @@
+.modal-background {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   background: rgba(0, 0, 0, 0.7);
+   z-index: 10;
+ }
+
+ .modal-child {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
+
+ #close-x-modal{
+   position: absolute;
+   top: 5px;
+   right: 5px;
+   cursor: pointer;
+    color: white;
+   font-size: 30px;
+ }
+
+
+#channel-title{
+    font-family: Lato, sans-serif;
+    font-size: 28px;
+    margin: 0 0 23px;
+}
+
+#channel-subtitle{
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+    padding-bottom: 15px;
+   
+}
+
+#create-input-field{
+    border: 1px solid #818385;
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 510px;
+    font-size: 15px;
+    background-color: #191c21;
+    color: #D1D2D3;
+}
+
+#input-container{
+    font-family: Lato, sans-serif
+}
+
+#create-channel-button{
+    border: none;
+    cursor: pointer;
+    background-color: whitesmoke;
+    background-color: #2E8B57;
+    text-align: center;
+    font-family: Slack-Circular-Pro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+    font-weight: 450;
+    line-height: 1.28571429;
+    letter-spacing: .8px;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 10px 15px;
+
+}
+
+#create-btn-container{
+    display:flex;
+    justify-content: flex-end;
+}

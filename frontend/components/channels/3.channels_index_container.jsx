@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchChannels} from '../../actions/channel_action';
 import ChannelIndex from './4.channel_index';
 import { openModal } from '../../actions/modal_actions'
+import { deleteSession } from '../../actions/session_action'
 
 
 const msp = (state) => {
@@ -14,7 +15,8 @@ const msp = (state) => {
 
 const mdp = (dispatch) => ({
     fetchChannels: ((userId) => dispatch(fetchChannels(userId))),
-    openModal: modal => dispatch(openModal(modal))
+    openModal: modal => dispatch(openModal(modal)),
+    deleteSession: (() => dispatch(deleteSession())),
 });
 
 export default connect(msp, mdp)(ChannelIndex)

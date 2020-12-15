@@ -1,4 +1,5 @@
 import React from 'react';
+import { RiCloseLine} from 'react-icons/ri'
 
 class ChannelCreate extends React.Component {
     constructor(props) {
@@ -41,35 +42,35 @@ class ChannelCreate extends React.Component {
 
     render() {
         return (
-            <div className="createform">
-                <div className='form'>
+            <div className="channel-create-form">
+                <form className='channel-form' onSubmit={this.handleSubmit}>
 
-                    <form className='channel-form' onSubmit={this.handleSubmit}>
-                        <div onClick={this.props.closeModal} className="close-x">X</div>
-                        <h2 id="channel-title">Create a Channel</h2>
-                        <p id="channel-subtitle">Channels are where your team communicates. They’re best when organized around a topic — #development, for example.</p>
-                        <label>Name
-                            <input
-                                id="input-field"
-                                type="text"
-                                value={this.state.title}
-                                onChange={this.handleInput('title')}
-                            />
-                        </label>
-                        <label>Description (optional)
-                            <input
-                                id="input-field"
-                                type="text"
-                                value={this.state.description}
-                                onChange={this.handleInput('description')}
-                            />
-                        </label>
-        
-                        <button className="createchannel-button">Create</button>
-                        {this.renderErrors()}
+                    <div id="close-x-modal" onClick={this.props.closeModal}><RiCloseLine /></div>
+                    <h2 id="channel-title">Create a Channel</h2>
+                    <p id="channel-subtitle">Channels are where your team communicates. They’re best when organized around a topic — #development, for example.</p>
+                    <label id='input-container'>Name
+                        <input
+                            id="create-input-field"
+                            type="text"
+                            value={this.state.title}
+                            onChange={this.handleInput('title')}
+                        />
+                    </label>
+                    <label id='input-container'>Description (optional)
+                        <input
+                            id="create-input-field"
+                            type="text"
+                            value={this.state.description}
+                            onChange={this.handleInput('description')}
+                        />
+                    </label>
+                    
+                    <div id='create-btn-container'>
 
-                    </form>
-                </div>
+                    <button id="create-channel-button">Create</button>
+                    </div>
+                    <div id="create-errors">{this.renderErrors()}</div>
+                </form>
             </div>
         )
     }

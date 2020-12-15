@@ -15,12 +15,12 @@ class ChannelShowHeader extends React.Component {
     render() {
         let channel = this.props.channel
         return (
-            <div>
+            <div className="showheader" >
                 {channel ? 
-                    <li>
+                    <li id='showheader-content'>
                         {channel.title}
                         {channel.description}
-                        <button onClick={this.handleClick}>{`delete ${channel.title}`}</button>
+                        <button id='delete-channel-show'onClick={this.handleClick}>{`delete ${channel.title}`}</button>
                     </li>
                     : null} 
             </div>

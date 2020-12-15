@@ -11,7 +11,6 @@ class ChannelHome extends React.Component {
     render() {
         return (
             <div >
-                <button className="logoutbutton" onClick={this.props.deleteSession}>Log Out</button>
                 <ChannelIndexContainer channelId={this.props.channelId}/>
                 <Route exact path="/home/channels/:channelId" component={ChannelShowContainer}/> 
             </div>
