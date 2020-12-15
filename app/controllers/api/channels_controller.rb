@@ -8,7 +8,7 @@ class Api::ChannelsController < ApplicationController
     if @channel.save 
       render :show
     else
-      render @channel.errors.full_messages, status: 401
+      render json: @channel.errors.full_messages, status: 401
     end
   end
   
@@ -24,7 +24,7 @@ class Api::ChannelsController < ApplicationController
   end
   
   def show
-    @channel = Channel.find_by(id: params[:id])
+    @channel = Channel.find_by(id: params[:id]) 
   end
   
   def index
@@ -35,7 +35,7 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.find_by(id: params[:id])
     if @channel
       @channel.destroy
-      render :show
+      render json: @channel.id
     else
       render json: ['Could not find channel']
     end
@@ -44,6 +44,6 @@ class Api::ChannelsController < ApplicationController
   private
   
   def channel_params
-    params.require(:channel).permit(:title)
+    params.require(:channel).permit(:title, :description)
   end
 end

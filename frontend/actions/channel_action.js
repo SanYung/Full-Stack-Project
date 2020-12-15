@@ -3,6 +3,9 @@ import * as ChannelAPIUtil from '../util/channel_api_util';
 export const RECEIVE_ALL_CHANNELS = 'RECEIVE_ALL_CHANNELS'
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
 export const REMOVE_CHANNEL = 'REMOVE_CHANNEL'
+export const RECEIVE_CHANNEL_ERRORS = 'RECEIVE_CHANNEL_ERRORS'
+export const CLEAR_CHANNEL_ERRORS = 'CLEAR_CHANNEL_ERRORS'
+
 
 
 //action creators 
@@ -21,6 +24,16 @@ const removeChannel = (channelId) => ({
     channelId
 })
 
+export const receiveChannelErrors = (errors) => ({
+    type: RECEIVE_CHANNEL_ERRORS,
+    errors
+})
+
+export const clearChannelErrors = () => ({
+    type: CLEAR_CHANNEL_ERRORS
+})
+
+
 //thunk action creators
 
 export const fetchChannels = (userId) => (dispatch) => (
@@ -35,8 +48,13 @@ export const fetchChannel = (channelId) => dispatch => (
 
 export const createChannel = (channel) => dispatch => (
     ChannelAPIUtil.createChannel(channel)
-        .then((channel) => dispatch(receiveChannel(channel)))
-)
+        .then((channel) => (dispatch(receiveChannel(channel))
+), err => (
+    dispatch(receiveChannelErrors(err.responseJSON))
+)))
+
+
+
 
 export const updateChannel = (channel) => dispatch => (
     ChannelAPIUtil.updateChannel(channel)
@@ -45,5 +63,5 @@ export const updateChannel = (channel) => dispatch => (
 
 export const deleteChannel = (channelId) => dispatch => (
     ChannelAPIUtil.deleteChannel(channelId)
-        .then(() => dispatch(removeChannel(channelId)))
+        .then((channelId) => dispatch(removeChannel(channelId)))
 )
