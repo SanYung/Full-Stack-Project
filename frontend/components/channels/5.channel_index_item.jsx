@@ -19,8 +19,8 @@ class ChannelIndexItem extends React.Component {
 
     render(){
         return(
-            <div>
-                <Link to={`/home/channels/${this.state.id}`}>{this.state.title}</Link> 
+            <div id="individualchannel">
+                <Link to={`/home/channels/${this.state.id}`}># {this.state.title}</Link> 
             </div>
         )
     }

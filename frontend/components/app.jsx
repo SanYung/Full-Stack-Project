@@ -17,8 +17,8 @@ const App = () => (
             <ProtectedRoute path="/home/channels/:channelId" component={ChannelHomeContainer} />
             <AuthRoute exact path="/login" component={LoginContainer} />
             <AuthRoute exact path="/signup" component={SignupContainer} />
-            <AuthRoute exact path="/" component={HomeContainer} />
-            <Route component={Errors} />
+            <Route exact path="/" component={HomeContainer} />
+            <AuthRoute component={Errors} />
         </Switch>
         < Modal >
             <Link to="/home/channels" className="header-link"></Link>

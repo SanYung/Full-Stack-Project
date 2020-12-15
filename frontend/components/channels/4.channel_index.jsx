@@ -1,35 +1,72 @@
 import React from 'react';
 import ChannelIndexItem from './5.channel_index_item';
 import { Link } from 'react-router-dom'
+import { RiAddCircleLine } from 'react-icons/ri'
 
 class ChannelIndex extends React.Component {
     constructor(props){
         super(props)
+        this.state = {dropdown:false}
+        this.changeDropDown = this.changeDropDown.bind(this)
     }
 
     componentDidMount(){
         this.props.fetchChannels(this.props.userId)
     }
 
+    changeDropDown(){
+        this.setState({dropdown: !this.state.dropdown})
+    }
 
     render() {
-        return (
-            <div>
-                <label id="channelsheader">Channels</label> 
-                <button onClick={() => this.props.openModal('createChannel')}>Add Channel</button>
-                <ul>
-                    {this.props.channels.map((channel) => (
-                        <div key={channel.id}>
-                            {this.props.userId === channel.user_id ? (
-                                <ChannelIndexItem
-                                    channel={channel} fetchChannel={this.props.fetchChannel}/> ) : (<ChannelIndexItem />)}
+        let dropdown;
+        if (this.state.dropdown){
+            dropdown = <div className="dropdown-items" onClick={this.props.deleteSession}>Log Out</div>
+        } 
+
+        return ( 
+            <div className="channelIndex">
+
+                <div className="channelindex-content">
+
+                
+                    <div id="parentdropdown">
+                        <div className="dropdown">
+                        <span id="dropdown-click"onClick={this.changeDropDown}> {this.props.user.username} </span>
+                            <div className="dropdown-content">
+                                {dropdown}
+                            </div>
                         </div>
-                    ))}
-                </ul>
+                    </div>
+
+                    <div className="title-add">
+                        <label id="channelsheader">Channels</label> 
+                        <button onClick={() => this.props.openModal('createChannel')}> <RiAddCircleLine /></button>
+                    </div>
+
+
+                    <ul className="channelList">
+                        {this.props.channels.map((channel) => (
+                            <div key={channel.id}>
+                                {this.props.userId === channel.user_id ? (
+                                    <ChannelIndexItem
+                                        channel={channel} fetchChannel={this.props.fetchChannel}/> ) : (<ChannelIndexItem />)}
+                            </div>
+                        ))}
+                    </ul>
+
+                    <ul className="messageList">
+                            <div className="title-add">
+                                <label id="channelsheader">Direct Messages</label>
+                                <RiAddCircleLine />
+                            </div>
+                    </ul>
+
+                </div>
+
             </div>
         )
     }
-
 }
 
 
