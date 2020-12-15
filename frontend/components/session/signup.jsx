@@ -19,13 +19,13 @@ class Signup extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createUser(this.state)
-            .then(() => this.props.history.push('/channels'));
+            .then(() => this.props.history.push('/home/channels/:channelId'));
     }
 
     handleDemo(e){
         e.preventDefault();
         this.props.createSession(this.props.demo)
-            .then(() => this.props.history.push('/channels'));
+            .then(() => this.props.history.push('/home/channels/:channelId'));
     }
 
     renderErrors() {
@@ -43,13 +43,7 @@ class Signup extends React.Component {
     componentDidMount(){
         this.props.clearErrors()
     }
-    // renderClear()
-    //     return (
-    //         <div>
-    //             {this.props.errors.length !== 0} ? {this.props.clearErrors()} 
-    //         </div>
-    //         )
-    // }
+
 
     render (){
         return(

@@ -2,29 +2,29 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 
-class ChannelItem extends React.Component {
+class ChannelIndexItem extends React.Component {
     constructor(props){
         super(props)
-
         if (this.props.channel === undefined) {
             this.state = {
-                title: "",
-                user_id: 1094109
+                title: '',
+                description: '',
+                user_id: 1095454109
             }
         } else { 
             this.state = this.props.channel
         }
-
     }
+
 
     render(){
         return(
             <div>
-                    {this.state.title}   
+                <Link to={`/home/channels/${this.state.id}`}>{this.state.title}</Link> 
             </div>
         )
     }
 }
 
 
-export default ChannelItem
+export default ChannelIndexItem
