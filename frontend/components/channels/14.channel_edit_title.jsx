@@ -12,6 +12,9 @@ class ChannelEditName extends React.Component {
     componentDidMount() {
         this.props.fetchChannel(this.props.channel.id)
     }
+    componentDidMount() {
+        this.props.clearChannelErrors()
+    }
 
     handleSubmit(e) {
         e.preventDefault()
@@ -22,6 +25,18 @@ class ChannelEditName extends React.Component {
         return (
             e => this.setState({ [parameters]: e.currentTarget.value })
         )
+    }
+
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={i}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
     }
 
     render() {
@@ -41,6 +56,7 @@ class ChannelEditName extends React.Component {
                     <div id="create-btn-container">
                         <button id="create-channel-button" type='submit'>Update</button>
                 </div>
+                    <div id="create-errors">{this.renderErrors()}</div> 
             </form >
             </div>
 

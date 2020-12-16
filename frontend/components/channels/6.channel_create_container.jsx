@@ -5,8 +5,8 @@ import ChannelCreate from './7.channel_create_form';
 import { openModal, closeModal } from '../../actions/modal_actions'
 
 
-const msp = ( {errors} ) => ({
-    channelerrors: errors.channel,
+const msp = ( state ) => ({
+    channelerrors: state.errors.channel,
     formType: 'createChannel'
 })
 

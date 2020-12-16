@@ -13,6 +13,10 @@ class ChannelEditDes extends React.Component {
         this.props.fetchChannel(this.props.channel.id)
     }
 
+    componentDidMount() {
+        this.props.clearChannelErrors()
+    }
+    
     handleSubmit(e) {
         e.preventDefault()
         this.props.updateChannel(this.state).then(this.props.closeModal);
@@ -27,7 +31,7 @@ class ChannelEditDes extends React.Component {
     renderErrors() {
         return (
             <ul>
-                {this.props.channelerrors.map((error, i) => (
+                {this.props.errors.map((error, i) => (
                     <li key={i}>
                         {error}
                     </li>
@@ -54,9 +58,8 @@ class ChannelEditDes extends React.Component {
                     <div id="create-btn-container">
                         <button id="create-channel-button" type='submit' value={this.props.description} >Update</button>
                     </div>
-                
-                    <div id="create-errors">{this.renderErrors()}</div>    
                 </form >
+                <div id="create-errors">{this.renderErrors()}</div>    
             </div>
 
         )

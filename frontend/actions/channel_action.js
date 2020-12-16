@@ -54,12 +54,13 @@ export const createChannel = (channel) => dispatch => (
 )))
 
 
-
-
 export const updateChannel = (channel) => dispatch => (
     ChannelAPIUtil.updateChannel(channel)
-        .then((channel) => dispatch(receiveChannel(channel)))
-)
+        .then((channel) => (dispatch(receiveChannel(channel))
+), err => (
+    dispatch(receiveChannelErrors(err.responseJSON))
+)))
+
 
 export const deleteChannel = (channelId) => dispatch => {
     return(
