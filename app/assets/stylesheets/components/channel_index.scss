@@ -52,7 +52,7 @@
 
 #parentdropdown{
     position: relative;
-    margin-left:0px;
+    margin-left: -20px;
     margin-bottom: 30px;
     font-family: Lato, sans-serif;
     padding: 20px;
@@ -63,7 +63,7 @@
 
 .dropdown {
     position: absolute;
-    margin-left:-10px;
+    margin-left:10px;
     width: 90%;
     z-index: 5px;
 }

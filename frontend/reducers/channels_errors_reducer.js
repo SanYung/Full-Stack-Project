@@ -6,11 +6,12 @@ import {
 
 const channelErrorsReducer = (oldState = [], action ) => {
     Object.freeze(oldState);
+    let nextState = Object.assign([], oldState)
     switch (action.type) {
         case RECEIVE_CHANNEL_ERRORS:
             return action.errors
         case RECEIVE_CHANNEL:
-            return [];
+            return Object.assign(nextState, action.errors)
         case CLEAR_CHANNEL_ERRORS:
             return [];
         default:
