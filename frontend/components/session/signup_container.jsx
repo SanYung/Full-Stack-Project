@@ -10,7 +10,7 @@ const msp = ({errors}) => ({
         password: '',
         },
     demo: {
-        username: 'demo',
+        username: 'DemoUser',
         email: 'demo@aa.com',
         password: 'demo123',
     },

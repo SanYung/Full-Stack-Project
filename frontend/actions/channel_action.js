@@ -61,7 +61,8 @@ export const updateChannel = (channel) => dispatch => (
         .then((channel) => dispatch(receiveChannel(channel)))
 )
 
-export const deleteChannel = (channelId) => dispatch => (
+export const deleteChannel = (channelId) => dispatch => {
+    return(
     ChannelAPIUtil.deleteChannel(channelId)
         .then((channelId) => dispatch(removeChannel(channelId)))
-)
+    )}

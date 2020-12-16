@@ -1,31 +1,30 @@
 .channelIndex {
     position: fixed;
-    background-color: #3b3a30;
-    color: white;
+    background-color: #191c21;
+    color: whitesmoke;
     overflow-x: 0;
-    width: 325px;
+    width: 275px;
     height: 100%;
     bottom: 0;
     left: 0;
     padding: 5px;
-    font-family: Lato, sans-serif;
-     border: 2px solid black;
+    border: 2px solid black;
 }
 
 .channelindex-content{
-    margin-top: 90px;
+    margin-top: 35px;
 }
 .title-add{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
     text-decoration: none;
     font-size: 20px;
-
+    font-family: Slack-Circular-Pro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
     margin-left: 7px;
     margin-right: 15px;
-    padding: 7px;
+    padding: 9px;
+    font-weight: bold;
 }
 
 
@@ -35,31 +34,71 @@
     text-decoration: none;
     margin-left: 7px;
     margin-right: 7px;
+    font-family: Lato, sans-serif;
 }
 
 #individualchannel {
-    padding: 5px;
-    font-size: 17px;
+    padding: 4.5px;
+    font-size: 16.5px;
     font-family: Lato, sans-serif;
 }
 
 .messageList{
+    margin-top: 15px;
+    font-family: Lato, sans-serif;
+    font-size: 17px;
     font-family: Lato, sans-serif;
 }
 
-.parentdropdown{
+#parentdropdown{
     position: relative;
+    margin-left:0px;
+    margin-bottom: 30px;
+    font-family: Lato, sans-serif;
+    padding: 20px;
+    font-size: 21px;
+    align-items: center;
+    background-color: none;
 }
 
 .dropdown {
     position: absolute;
+    margin-left:-10px;
+    width: 90%;
+    z-index: 5px;
+}
+
+.dropdown-items{
+    font-family: Lato, sans-serif;
+    font-size: 17px;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: #333130;
+    border-radius: 4px;
 }
 
 .dropdown-items:hover{
-    background-color: rgb(119, 100, 131);
+    background: #3f4046;
+    z-index: 10px;
 }
 
 #dropdown-click{
     display:flex;
-    padding: 0px 0px 40px 0px;
+}
+
+#status-button {
+    display: flex;
+    font-family: Lato, sans-serif;
+    font-size:13px;
+    align-items: center;
+    justify-content: center;
+    color: #4ca543;
+
+}
+
+#carrat-down{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      color: #727d71;
 }

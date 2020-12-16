@@ -2,6 +2,8 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import ChannelCreateContainer from '../channels/6.channel_create_container';
+import ChannelEditDescription from '../channels/12.channel_edit_container';
+import ChannelEditTitle from '../channels/15.channel_edit_title_container'
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -11,6 +13,12 @@ function Modal({ modal, closeModal }) {
     switch (modal) {
         case 'createChannel':
             component = <ChannelCreateContainer />;
+            break;
+        case 'editdescription':
+            component = <ChannelEditDescription />;
+            break;
+        case 'edittitle':
+            component = <ChannelEditTitle />;
             break;
         default:
             return null;
