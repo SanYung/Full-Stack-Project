@@ -35,8 +35,8 @@ class ChannelShowHeader extends React.Component {
         }
         let dropdown;
         if (this.state.dropdown) {
-            dropdown = <div className="gear-dropdown-items"  ><div onClick={this.handleClick}>{`Delete ${channel.title}`} </div> 
-                        <button onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</button></div>
+            dropdown = <div className="dropdown-col" ><div className="gear-dropdown-items" onClick={this.handleClick}>{`Delete ${channel.title}`} </div> 
+                <div className="gear-dropdown-items" > <button onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</button></div></div>
         };
         return (
             <div className="showheader" >
