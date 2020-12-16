@@ -2,6 +2,9 @@ import React from 'react';
 import ChannelIndexItem from './5.channel_index_item';
 import { Link } from 'react-router-dom'
 import { RiAddCircleLine } from 'react-icons/ri'
+import { BsChevronCompactDown} from 'react-icons/bs'
+import { IoIosRadioButtonOn } from 'react-icons/io'
+
 
 class ChannelIndex extends React.Component {
     constructor(props){
@@ -32,7 +35,7 @@ class ChannelIndex extends React.Component {
                 
                     <div id="parentdropdown">
                         <div className="dropdown">
-                        <span id="dropdown-click"onClick={this.changeDropDown}> {this.props.user.username} </span>
+                            <span id="dropdown-click" onClick={this.changeDropDown}> <div id="status-button"><IoIosRadioButtonOn />&nbsp; </div>  {this.props.user.username} &nbsp; <div id="carrat-down"><BsChevronCompactDown /></div> </span>
                             <div className="dropdown-content">
                                 {dropdown}
                             </div>
@@ -56,10 +59,10 @@ class ChannelIndex extends React.Component {
                     </ul>
 
                     <ul className="messageList">
-                            <div className="title-add">
-                                <label id="channelsheader">Direct Messages</label>
-                                <RiAddCircleLine />
-                            </div>
+                        <div className="title-add">
+                            <label id="channelsheader">Direct Messages</label>
+                            <RiAddCircleLine />
+                        </div>
                     </ul>
 
                 </div>

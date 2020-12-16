@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import { HiOutlineHashtag } from 'react-icons/hi'
 
 
 class ChannelIndexItem extends React.Component {
@@ -20,7 +21,7 @@ class ChannelIndexItem extends React.Component {
     render(){
         return(
             <div id="individualchannel">
-                <Link to={`/home/channels/${this.state.id}`}># {this.state.title}</Link> 
+                <Link to={`/home/channels/${this.state.id}`}><HiOutlineHashtag />&nbsp; {this.state.title}</Link> 
             </div>
         )
     }

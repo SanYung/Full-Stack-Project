@@ -14,13 +14,13 @@ class Home extends React.Component {
         e.preventDefault();
 
         const demo = {
-            username: 'demo',
+            username: 'DemoUser',
             email: 'demo@aa.com',
             password: 'demo123',
         }
 
         this.props.createSession(demo)
-            .then(() => this.props.history.push('/home/channels/:channelId'));
+            .then(() => this.props.history.push('/home/channels'));
     }
 
     render(){
