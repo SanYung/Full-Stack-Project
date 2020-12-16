@@ -1,7 +1,7 @@
 class Channel < ApplicationRecord
     validates :title, presence: true
     validates :title, length: { maximum: 30 }
-    validates :description, length: { maximum: 300}
+    validates :description, length: { maximum: 175}
 
     belongs_to :user,
         primary_key: :id,
