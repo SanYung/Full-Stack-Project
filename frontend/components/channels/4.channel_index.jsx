@@ -5,7 +5,6 @@ import { RiAddCircleLine } from 'react-icons/ri'
 import { BsChevronCompactDown} from 'react-icons/bs'
 import { IoIosRadioButtonOn } from 'react-icons/io'
 
-
 class ChannelIndex extends React.Component {
     constructor(props){
         super(props)
