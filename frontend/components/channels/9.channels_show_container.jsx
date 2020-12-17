@@ -5,6 +5,7 @@ import ChannelShow from './8.channels_show';
 import { openModal } from '../../actions/modal_actions'
 
 
+
 const msp = (state, ownProps) => ({
     channel: state.entities.channels[ownProps.match.params.channelId],
     channelId: ownProps.match.params.channelId,

@@ -1,0 +1,85 @@
+#postindex{
+    display:flex;
+    flex-direction: column;
+    margin-left:289px;
+    margin-top: 0px;
+    overflow-y: auto;
+    height: calc(100vh - 200px);
+    width: calc(100vw - 289px);
+    border-top: 1px solid #3b3c41;
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+ 
+}
+
+.PostForm{
+    position: fixed;
+    width: calc(100vw - 400px);
+    bottom: 25px;
+    color: #717375;
+    background-color: rgba(179,179,179,0.04);
+    margin-top: 400px;
+    margin-left: 20px;
+    padding-left: 38px;
+    padding-top: 12px;
+    padding-bottom: 49px;
+    line-height: 1.46668;
+    font-size: 15px;
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+    border: 1px solid #565856;
+    z-index: 1px;
+}
+
+
+#demoprofile{
+    margin-top: 5px;
+    margin-right: 9px;
+    border-radius: 3px;
+    width: 45px;
+    height: 45px;
+}
+
+
+
+.postList{
+    display: flex;
+    color: #1D1C1D;
+    font-family: Lato, sans-serif;
+    padding-left: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+}
+
+#author{
+    font-size: 17px;
+    font-family: Lato, sans-serif;
+    font-weight: 800;
+    padding-top:2px;
+    padding-bottom: 2px;
+}
+
+#timestamp{
+    font-size: 12px;
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    color: grey;
+    padding-top:2px;
+}
+
+#authorstuff{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    bottom: 0;
+}
+
+#message{
+    margin-top: -20px;
+    font-size: 17px;
+    font-weight: 300;;
+    margin-bottom: 0px;
+    padding-bottom: 3px;
+}
+

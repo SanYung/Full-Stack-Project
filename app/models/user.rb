@@ -12,6 +12,12 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Channel 
 
+  has_many :posts,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Post
+
+
   def self.find_by_credentials(username, email, password)
     user = User.find_by(username: username, email:email)
     if user && user.is_password?(password)

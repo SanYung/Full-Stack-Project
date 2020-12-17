@@ -2,13 +2,21 @@
     position: fixed;
     background-color: #191c21;
     color: whitesmoke;
-    overflow-x: 0;
+    overflow: scroll;
     width: 275px;
     height: 100%;
     bottom: 0;
     left: 0;
     padding: 5px;
-    border: 2px solid black;
+    border: 2px #191c21 #191c21;
+}
+
+.channelIndex::-webkit-scrollbar {
+  display: none;
+}
+.channelIndex {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
 }
 
 .channelindex-content{
@@ -52,7 +60,7 @@
 
 #parentdropdown{
     position: relative;
-    margin-left: -20px;
+    margin-left:0px;
     margin-bottom: 30px;
     font-family: Lato, sans-serif;
     padding: 20px;
@@ -63,7 +71,7 @@
 
 .dropdown {
     position: absolute;
-    margin-left:10px;
+    margin-left:-10px;
     width: 90%;
     z-index: 5px;
 }
