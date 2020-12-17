@@ -8,6 +8,10 @@ class Channel < ApplicationRecord
         foreign_key: :user_id,
         class_name: :User
 
+    has_many :posts,
+        primary_key: :id,
+        foreign_key: :channel_id,
+        class_name: :Post
 end
 
 

@@ -6,22 +6,22 @@ import { HiOutlineHashtag } from 'react-icons/hi'
 class ChannelIndexItem extends React.Component {
     constructor(props){
         super(props)
-        if (this.props.channel === undefined) {
-            this.state = {
-                title: '',
-                description: '',
-                user_id: 1095454109
-            }
-        } else { 
-            this.state = this.props.channel
-        }
+    //     if (this.props.channel === undefined) {
+    //         this.state = {
+    //             title: '',
+    //             description: '',
+    //             user_id: 1095454109
+    //         }
+    //     } else { 
+    //         this.state = this.props.channel
+    //     }
     }
 
 
     render(){
         return(
             <div id="individualchannel">
-                <Link to={`/home/channels/${this.state.id}`}><HiOutlineHashtag />&nbsp; {this.state.title}</Link> 
+                <Link to={`/home/channels/${this.props.channel.id}`}><HiOutlineHashtag />&nbsp; {this.props.channel.title}</Link> 
             </div>
         )
     }
