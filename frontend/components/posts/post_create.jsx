@@ -6,38 +6,39 @@ class PostCreate extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
 
         this.state = {
-            channel_id: this.props.channelId,
-            body: '',
+            user_id: this.props.user_id,
+            body: ''
         }
     }
 
+
     handleSubmit(e){
         e.preventDefault();  
-        const post = Object.assign({}, this.state);
-        this.props.createPost(post).then(()=> this.setState( {body:''}))
+        App.cable.subscriptions.subscriptions[0].speak({ post: this.state });
+        this.setState( {body: ''});
+        
+        // this.props.createPost(this.state).then(()=> this.setState( {body:''}))
      }
 
     update(parameters) {
         return (e) => {
-            this.setState({ [parameters]: e.currentTarget.value })
+            this.setState({ channel_id: this.props.channelId  ,[parameters]: e.currentTarget.value })
         };
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {this.props.posterrors.map((error, i) => (
-                    <li key={i}>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {this.props.posterrors.map((error, i) => (
+    //                 <li key={i}>
+    //                     {error}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
 
-    componentDidMount() {
-        this.props.clearPostErrors()
-    }
+  
 
 
     render(){
@@ -47,13 +48,13 @@ class PostCreate extends React.Component {
                     <input 
                     id= "postform-input"
                     type="text" 
-                    // placeholder={this.props.channels[this.state.channelId].title}
+                    placeholder={ !this.props.channel ? "" : ` message ${this.props.channel.title}`}
                     value={this.state.body}
                     onChange={this.update('body')}
                     />
 
                     <button></button>
-                    {this.renderErrors()}
+                    {/* {this.renderErrors()} */}
                 </form>
             </div>
         )

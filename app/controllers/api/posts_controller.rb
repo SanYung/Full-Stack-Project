@@ -8,7 +8,7 @@ class Api::PostsController < ApplicationController
 
     def create
         @post = Post.new(posts_params)
-        @post.user_id = current_user.id
+        # @post.user_id = current_user.id
         if @post.save 
             render :show
         else
@@ -23,6 +23,6 @@ class Api::PostsController < ApplicationController
     private 
 
   def posts_params
-    params.require(:post).permit(:body, :channel_id)
+    params.require(:post).permit(:body, :channel_id, :user_id)
   end
 end

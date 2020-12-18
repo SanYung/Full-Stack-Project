@@ -4,6 +4,7 @@ export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS'
 export const RECEIVE_POST = 'RECEIVE_POST'
 export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS'
 export const CLEAR_POST_ERRORS = 'CLEAR_POST_ERRORS'
+export const CLEAR_TEXT_BOX = "CLEAR_TEXT_BOX"
 
 
 
@@ -13,7 +14,7 @@ const receiveAllPosts = (posts) => ({
     posts
 });
 
-const receivePost = (post) => ({
+export const receivePost = (post) => ({
     type: RECEIVE_POST,
     post
 })
@@ -26,6 +27,10 @@ export const receivePostErrors = (errors) => ({
 
 export const clearPostErrors = () => ({
     type: CLEAR_POST_ERRORS
+})
+
+export const clearTextBox = () => ({
+    type: CLEAR_TEXT_BOX
 })
 
 

@@ -1,12 +1,12 @@
 #postindex{
     display:flex;
     flex-direction: column;
-    margin-left:289px;
-    margin-top: 0px;
+    margin-left:280px;
+    margin-top: 10px;
     overflow-y: auto;
     height: calc(100vh - 200px);
     width: calc(100vw - 289px);
-    border-top: 1px solid #3b3c41;
+
     margin-bottom: 0px;
     padding-bottom: 5px;
     padding-left: 0px;
@@ -15,7 +15,7 @@
 
 .PostForm{
     position: fixed;
-    width: calc(100vw - 400px);
+    width: calc(100vw - 360px);
     bottom: 25px;
     color: #717375;
     background-color: rgba(179,179,179,0.04);
