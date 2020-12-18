@@ -50,9 +50,10 @@ class ChannelIndex extends React.Component {
                     <ul className="channelList">
                         {this.props.channels.map((channel) => (
                             <div key={channel.id}>
-                                {this.props.userId === channel.user_id ? (
+                                {/* {this.props.userId === channel.user_id ? ( */}
                                     <ChannelIndexItem
-                                        channel={channel} fetchChannel={this.props.fetchChannel}/> ) : (<ChannelIndexItem />)}
+                                        channel={channel} fetchChannel={this.props.fetchChannel}/> 
+                                        {/* ) : (<ChannelIndexItem />)} */}
                             </div>
                         ))}
                     </ul>

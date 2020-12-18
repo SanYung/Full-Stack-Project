@@ -1,3 +1,17 @@
+export const fetchUsers = () => (
+    $.ajax({
+        url: '/api/users'
+    })
+)
+
+export const fetchUser = (userId) => (
+    $.ajax({
+        url: `/api/users/${userId}`
+    })
+)
+
+
+
 export const createUser = (user) => (
         $.ajax({
             url: '/api/users',
