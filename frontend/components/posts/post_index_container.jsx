@@ -8,7 +8,6 @@ import { fetchUsers, fetchUser} from '../../actions/session_action'
 
 
 const msp = (state, ownProps) => {
-    // debugger
     return ({
     posts: Object.values(state.entities.posts).filter((post) => post.channel_id === parseInt(ownProps.match.params.channelId)),
     channelId: ownProps.match.params.channelId,
