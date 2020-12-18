@@ -6,7 +6,10 @@ import { HiOutlineHashtag } from 'react-icons/hi'
 class ChannelIndexItem extends React.Component {
     constructor(props){
         super(props)
+
     }
+
+
     render(){
         if (!this.props.channel) {
             return null

@@ -4,12 +4,13 @@
     margin-left:280px;
     margin-top: 10px;
     overflow-y: auto;
-    height: calc(100vh - 200px);
+    overflow-x: 0;
+    height: calc(100vh - 210px);
     width: calc(100vw - 289px);
-
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     padding-bottom: 5px;
     padding-left: 0px;
+
  
 }
 
@@ -19,12 +20,12 @@
     bottom: 25px;
     color: #717375;
     background-color: rgba(179,179,179,0.04);
-    margin-top: 400px;
+    margin-top: 440px;
     margin-left: 20px;
     padding-left: 38px;
     padding-top: 12px;
     padding-bottom: 49px;
-    line-height: 1.46668;
+    line-height: 1.56668;
     font-size: 15px;
     font-weight: 300;
     font-family: 'Lato', sans-serif;
@@ -32,6 +33,9 @@
     z-index: 1px;
 }
 
+#postform-input{
+     width: calc(100vw - 360px);
+}
 
 #demoprofile{
     margin-top: 5px;
@@ -81,5 +85,6 @@
     font-weight: 300;;
     margin-bottom: 0px;
     padding-bottom: 3px;
+    width: calc(100vh - 200px);
+ 
 }
-
