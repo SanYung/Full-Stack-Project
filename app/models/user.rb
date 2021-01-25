@@ -8,14 +8,28 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many :channels, 
-    primary_key: :id,
-    foreign_key: :user_id,
-    class_name: :Channel 
+    through: :memberships,
+    source: :channel
 
   has_many :posts,
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :Post
+
+  has_many :memberships,
+    primary_key: :id,
+    foreign_key: :member_id,
+    class_name: :Membership
+
+  has_many :recieved_dms, 
+    primary_key: :id,
+    foreign_key: :receiver_id,
+    class_name: :Direct_message
+
+  has_many :dms,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Direct_message
 
 
   def self.find_by_credentials(username, email, password)
