@@ -1,6 +1,6 @@
-import * as ChannelAPIUtil from '../util/channel_api_util';
-
+import * as ChannelAPIUtil from '../util/channel_api_util'
 export const RECEIVE_ALL_CHANNELS = 'RECEIVE_ALL_CHANNELS'
+export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS'
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
 export const REMOVE_CHANNEL = 'REMOVE_CHANNEL'
 export const RECEIVE_CHANNEL_ERRORS = 'RECEIVE_CHANNEL_ERRORS'
@@ -9,10 +9,15 @@ export const CLEAR_CHANNEL_ERRORS = 'CLEAR_CHANNEL_ERRORS'
 
 
 //action creators 
-const receiveAllChannels = (channels) => ({
+const receiveAllChannels = (allchannels) => ({
     type: RECEIVE_ALL_CHANNELS,
-    channels
+    allchannels
 });
+
+const receiveUserChannels = (channels) => ({
+    type: RECEIVE_CHANNELS,
+    channels
+})
 
 const receiveChannel = (channel) => ({
     type: RECEIVE_CHANNEL,
@@ -24,7 +29,7 @@ const removeChannel = (channelId) => ({
     channelId
 })
 
-export const receiveChannelErrors = (errors) => ({
+const receiveChannelErrors = (errors) => ({
     type: RECEIVE_CHANNEL_ERRORS,
     errors
 })
@@ -36,23 +41,31 @@ export const clearChannelErrors = () => ({
 
 //thunk action creators
 
-export const fetchChannels = (userId) => (dispatch) => (
-    ChannelAPIUtil.fetchChannels(userId)
-        .then((channels) => dispatch(receiveAllChannels(channels)))
+export const fetchAllChannels = () => (dispatch) => (
+    ChannelAPIUtil.fetchAllChannels()
+        .then(channels => dispatch(receiveAllChannels(channels))
+    ), err => (dispatch(receiveChannelErrors(err.responseJSON))
+    )
+);
+
+export const fetchUserChannels = (userId) => (dispatch) => (
+    ChannelAPIUtil.fetchUserChannels(userId)
+        .then((channels) => dispatch(receiveUserChannels(channels))
+    ), err => (dispatch(receiveChannelErrors(err.responseJSON)))
 )
 
 export const fetchChannel = (channelId) => dispatch => (
     ChannelAPIUtil.fetchChannel(channelId)
-        .then((channel) => dispatch(receiveChannel(channel)))
+        .then((channel) => dispatch(receiveChannel(channel))
+    ), err => (dispatch(receiveChannelErrors(err.responseJSON))
+    )
 )
 
 export const createChannel = (channel) => dispatch => (
     ChannelAPIUtil.createChannel(channel)
         .then((channel) => (dispatch(receiveChannel(channel))
-), err => (
-    dispatch(receiveChannelErrors(err.responseJSON))
+), err => (dispatch(receiveChannelErrors(err.responseJSON))
 )))
-
 
 export const updateChannel = (channel) => dispatch => (
     ChannelAPIUtil.updateChannel(channel)

@@ -15,7 +15,7 @@ export const fetchPost = (postId) => (
 //create
 export const createPost = (post) => (
     $.ajax({
-        url: `/api/posts`,
+        url: `/api/channels/${post.channel_id}/posts`,
         method: 'POST',
         data: { post }
 

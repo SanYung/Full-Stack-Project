@@ -1,6 +1,6 @@
 
-//index
-export const fetchChannels = (userId) => (
+//index of user's channels
+export const fetchUserChannels = (userId) => (
     $.ajax({
         url: `/api/users/${userId}/channels`
     })
@@ -12,13 +12,26 @@ export const fetchChannel = (channelId) => (
     })
 )
 
+//index
+export const fetchAllChannels = () => (
+    $.ajax({
+        url: `/api/channels`
+    })
+)
+
+//fetch channel users
+export const fetchChannelUsers = (channelId) => (
+    $.ajax({
+        url: `api/channels/${channelId}/users`
+    })
+)
+
 //create
 export const createChannel = (channel) => (
     $.ajax({
         url: `/api/channels`,
         method: 'POST',
         data: {channel}
-
     })
 )
 
