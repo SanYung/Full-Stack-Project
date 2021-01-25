@@ -13,7 +13,9 @@ class ChannelIndex extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchChannels(this.props.userId)
+        this.props.fetchUserChannels(this.props.userId)
+    
+        
     }
 
     changeDropDown(){

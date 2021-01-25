@@ -12,7 +12,6 @@ class Home extends React.Component {
 
     handleDemo(e) {
         e.preventDefault();
-
         const demo = {
             username: 'DemoUser',
             email: 'demo@aa.com',
@@ -20,7 +19,7 @@ class Home extends React.Component {
         }
 
         this.props.createSession(demo)
-            .then(() => this.props.history.push('/home/channels'));
+            .then(() => this.props.history.push('/home/channels/28'));
     }
 
     render(){

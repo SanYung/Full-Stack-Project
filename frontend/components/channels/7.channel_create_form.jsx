@@ -8,7 +8,8 @@ class ChannelCreate extends React.Component {
 
         this.state = {
             title:'',
-            description:'',
+            description:''
+            // is_private: false, 
         }
     }
 
@@ -17,6 +18,16 @@ class ChannelCreate extends React.Component {
             this.setState({ [type]: e.currentTarget.value });
         };
     }
+
+    // handleToggle(){
+    //     let is_private = this.state.is_private;
+    //     if (is_private === true){
+    //         is_private = false 
+    //     } else {
+    //         is_private = true
+    //     }
+    //     this.setState = ({is_private : is_private})
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -64,7 +75,14 @@ class ChannelCreate extends React.Component {
                             onChange={this.handleInput('description')}
                         />
                     </label>
-                    
+                    {/* <label id="is_private_checkbox"> Is Private? 
+                        <input 
+                            id = "private-checkbox"
+                            type = "checkbox"
+                            onChange = {this.handleToggle}
+                        />
+                    </label> */}
+
                     <div id='create-btn-container'>
 
                     <button id="create-channel-button">Create</button>

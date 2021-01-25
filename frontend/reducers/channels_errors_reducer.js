@@ -11,7 +11,7 @@ const channelErrorsReducer = (oldState = [], action ) => {
         case RECEIVE_CHANNEL_ERRORS:
             return action.errors
         case RECEIVE_CHANNEL:
-            return Object.assign(nextState, action.errors)
+            return [];
         case CLEAR_CHANNEL_ERRORS:
             return [];
         default:

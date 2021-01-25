@@ -1,9 +1,10 @@
-class Post < ApplicationRecord
-    validates :body, :user_id, :channel_id, presence: true
+class Membership < ApplicationRecord
+    validates :member_id, :channel_id, presence: true
+    validates :channel_id, uniqueness: { scope: :member_id } 
 
     belongs_to :user,
         primary_key: :id,
-        foreign_key: :user_id,
+        foreign_key: :member_id,
         class_name: :User
 
     belongs_to :channel,
@@ -12,6 +13,3 @@ class Post < ApplicationRecord
         class_name: :Channel
 
 end
-
-
-
