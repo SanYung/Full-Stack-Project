@@ -1,6 +1,6 @@
 class Membership < ApplicationRecord
     validates :member_id, :channel_id, presence: true
-    validates :channel_id, uniqueness: { scope: :member_id } 
+    # validates :channel_id, uniqueness: { scope: :member_id } 
 
     belongs_to :user,
         primary_key: :id,

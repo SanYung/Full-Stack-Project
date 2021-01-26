@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-    validates :body, :user_id, :channel_id, presence: true
+    validates :body, presence: true
 
     belongs_to :user,
         primary_key: :id,
@@ -12,6 +12,3 @@ class Post < ApplicationRecord
         class_name: :Channel
 
 end
-
-
-

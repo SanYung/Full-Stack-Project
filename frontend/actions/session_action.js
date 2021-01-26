@@ -31,7 +31,7 @@ export const receiveErrors = (errors) => ({
 export const clearErrors = () => ({
     type: CLEAR_SESSION_ERRORS
 })
- 
+
 //thunk action creators
 
 export const fetchUsers = () => (dispatch) => (
@@ -53,22 +53,21 @@ export const fetchUser = (userID) => (dispatch) => (
 export const createUser = (user) => (dispatch) => (
     APIUtil.createUser(user)
         .then((user) => (dispatch(receiveCurrentUser(user))
-), err => (
-    dispatch(receiveErrors(err.responseJSON))
-    ))
+        ), err => (
+            dispatch(receiveErrors(err.responseJSON))
+        ))
 )
 
 
 export const createSession = (user) => (dispatch) => (
     APIUtil.createSession(user)
-    .then((user) => (dispatch(receiveCurrentUser(user))
-), err => (
-    dispatch(receiveErrors(err.responseJSON))
-))
+        .then((user) => (dispatch(receiveCurrentUser(user))
+        ), err => (
+            dispatch(receiveErrors(err.responseJSON))
+        ))
 )
 
 export const deleteSession = () => (dispatch) => (
     APIUtil.deleteSession()
-    .then((user) => dispatch(logoutCurrentUser()))
+        .then((user) => dispatch(logoutCurrentUser()))
 )
-
