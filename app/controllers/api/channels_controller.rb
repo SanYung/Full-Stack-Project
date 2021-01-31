@@ -1,16 +1,31 @@
 class Api::ChannelsController < ApplicationController
-
-    before_action :require_logged_in
+  
+  before_action :require_logged_in
+  
+  def index
+    @channels = current_user.channels
+    render :index
+    # if params[:member_id]
+    #   @channels = current_user.channels 
+    #   render :index 
+    # else 
+    #   @channels = Channel.all
+    #   render :index 
+    # end     
+  end
 
   def create
     @channel = Channel.new(channel_params)
-    @channel.user_id = current_user.id
-    if @channel.save 
+    # @channel.user_id = current_user.id
+    if @channel.save
+      Membership.create(channel_id: @channel.id, member_id: current_user.id)
       render :show
     else
       render json: @channel.errors.full_messages, status: 401
     end
+    # debugger
   end
+
   
   def update
     @channel = Channel.find_by(id: params[:id])
@@ -25,17 +40,14 @@ class Api::ChannelsController < ApplicationController
   
   def show
     @channel = Channel.find_by(id: params[:id]) 
+    render json: @channel
   end
   
-  def index
-    @channels = Channel.all
-  end
   
   def destroy
     @channel = Channel.find_by(id: params[:id])
     if @channel
       @channel.destroy
-      render json: @channel.id
     else
       render json: ['Could not find channel']
     end
@@ -44,6 +56,7 @@ class Api::ChannelsController < ApplicationController
   private
   
   def channel_params
-    params.require(:channel).permit(:title, :description)
+    params.require(:channel).permit(:title, :description, :is_private, :is_starred)
   end
+
 end

@@ -5,14 +5,20 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER'
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS"
+export const RECEIVE_USER = 'RECEIVE_USER'
+
 
 
 //action creators 
+const recieveUser = (userId) => ({
+    type: RECEIVE_USER,
+    userId
+})
+
 const recieveCurrentUsers = (users) => ({
     type: RECEIVE_CURRENT_USERS,
     users
 })
-
 
 const receiveCurrentUser = (user) => ({
     type: RECEIVE_CURRENT_USER,
@@ -57,7 +63,6 @@ export const createUser = (user) => (dispatch) => (
             dispatch(receiveErrors(err.responseJSON))
         ))
 )
-
 
 export const createSession = (user) => (dispatch) => (
     APIUtil.createSession(user)

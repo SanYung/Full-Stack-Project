@@ -13,10 +13,10 @@ import Modal from './modal/modal';
 const App = () => (
     <div>
         <Switch>
-            <ProtectedRoute path="/home/channels" component={ChannelHomeContainer} />
             <AuthRoute exact path="/login" component={LoginContainer} />
             <AuthRoute exact path="/signup" component={SignupContainer} />
             <Route exact path="/" component={HomeContainer} />
+            <ProtectedRoute path="/home/channels" component={ChannelHomeContainer} />
             <AuthRoute component={Errors} />
         </Switch>
 

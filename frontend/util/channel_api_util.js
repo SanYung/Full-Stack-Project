@@ -1,9 +1,14 @@
 //index
-export const fetchChannels = (userId) => (
-    $.ajax({
-        url: `/api/users/${userId}/channels`
+export const fetchChannels = (memberId) => {
+    return $.ajax({
+        url: `/api/users/${memberId}/channels`
+     })}
+    
+export const fetchAllChannels = () => {
+    return $.ajax({
+        url: "/api/channels",
     })
-)
+}
 //show
 export const fetchChannel = (channelId) => (
     $.ajax({
@@ -37,3 +42,10 @@ export const deleteChannel = (channelId) => (
         method: 'DELETE'
     })
 )
+
+export const fetchMemberships = (channelId) => {
+    return $.ajax({
+        url: `/api/channels/${channelId}/users`,
+        method: "GET",
+    })
+}

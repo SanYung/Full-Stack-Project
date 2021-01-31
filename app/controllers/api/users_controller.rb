@@ -11,6 +11,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # @user = User.includes(:channels).find_by(id: params[:id])
   end
 
   def index 

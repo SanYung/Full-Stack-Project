@@ -1,5 +1,6 @@
 @memberships.each do |membership|
   json.set! membership.id do
-  json.member_id membership.member_id
+    json.memberId membership.member_id
+    json.channelId membership.channel_id
   end 
 end 

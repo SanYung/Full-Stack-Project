@@ -1,0 +1,1 @@
+json.extract! membership, :id, :channel_id, :member_id
