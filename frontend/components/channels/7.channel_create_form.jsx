@@ -9,6 +9,7 @@ class ChannelCreate extends React.Component {
         this.state = {
             title:'',
             description:''
+            
             // is_private: false, 
         }
     }

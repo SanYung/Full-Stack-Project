@@ -1,11 +1,11 @@
-import { RECEIVE_ALL_POSTS , RECEIVE_POST, CLEAR_TEXT_BOX} from '../actions/post_action';
+import { RECEIVE_POSTS , RECEIVE_POST, CLEAR_TEXT_BOX} from '../actions/post_action';
 
 const PostReducer = (oldState = {}, action) => {
     Object.freeze(oldState)
     const nextState = Object.assign({}, oldState)
 
     switch (action.type) {
-        case RECEIVE_ALL_POSTS:
+        case RECEIVE_POSTS:
             return action.posts
         case RECEIVE_POST:
             return Object.assign(nextState, { [action.post.id]: action.post })

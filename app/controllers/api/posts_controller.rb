@@ -3,13 +3,17 @@ class Api::PostsController < ApplicationController
     before_action :require_logged_in
 
     def index
-        @posts = Post.all
+        if params[:channel_id]
+            @channel = Channel.find_by(id: params[:channel_id])
+            @posts = @channel.posts
+        end
+        render :index
     end
 
     def create
         @post = Post.new(posts_params)
         # @post.user_id = current_user.id
-        if @post.save 
+        if @post.save!
             render :show
         else
             render json: @post.errors.full_messages, status: 401

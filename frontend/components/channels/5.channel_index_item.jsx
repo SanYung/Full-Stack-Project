@@ -8,8 +8,7 @@ class ChannelIndexItem extends React.Component {
         super(props)
 
     }
-
-
+    
     render(){
         if (!this.props.channel) {
             return null
