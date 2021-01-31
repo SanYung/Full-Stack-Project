@@ -1,6 +1,6 @@
 import * as PostAPIUtil from '../util/post_api_util'
 
-export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS'
+export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const RECEIVE_POST = 'RECEIVE_POST'
 export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS'
 export const CLEAR_POST_ERRORS = 'CLEAR_POST_ERRORS'
@@ -9,8 +9,8 @@ export const CLEAR_TEXT_BOX = "CLEAR_TEXT_BOX"
 
 
 // action creators 
-const receiveAllPosts = (posts) => ({
-    type: RECEIVE_ALL_POSTS,
+const receivePosts = (posts) => ({
+    type: RECEIVE_POSTS,
     posts
 });
 
@@ -38,7 +38,7 @@ export const clearTextBox = () => ({
 
 export const fetchPosts = (channelId) => (dispatch) => (
     PostAPIUtil.fetchPosts(channelId)
-        .then((post) => dispatch(receiveAllPosts(post)))
+        .then((post) => dispatch(receivePosts(post)))
 )
 
 export const fetchPost = (postId) => dispatch => (

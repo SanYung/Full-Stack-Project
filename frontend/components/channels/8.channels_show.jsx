@@ -11,6 +11,7 @@ class ChannelShow extends React.Component {
     render() {
         return (
             <div>
+                
                 <ChannelShowHeader openModal={this.props.openModal} channelId={this.props.channelId} deleteChannel={this.props.deleteChannel} channel={this.props.channel} fetchChannel={this.props.fetchChannel}/>
                 <PostIndexContainer /> 
                 <Modal></Modal>

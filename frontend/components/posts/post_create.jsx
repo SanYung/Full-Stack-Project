@@ -16,9 +16,7 @@ class PostCreate extends React.Component {
         e.preventDefault();  
         App.cable.subscriptions.subscriptions[0].speak({ post: this.state });
         this.setState( {body: ''});
-        
-        // this.props.createPost(this.state).then(()=> this.setState( {body:''}))
-     }
+             }
 
     update(parameters) {
         return (e) => {
@@ -26,22 +24,8 @@ class PostCreate extends React.Component {
         };
     }
 
-    // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {this.props.posterrors.map((error, i) => (
-    //                 <li key={i}>
-    //                     {error}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     );
-    // }
-
-  
-
-
     render(){
+        
         return (
             <div  >
                 <form className="PostForm" onSubmit={this.handleSubmit}>
@@ -53,8 +37,6 @@ class PostCreate extends React.Component {
                     onChange={this.update('body')}
                     />
 
-                    <button></button>
-                    {/* {this.renderErrors()} */}
                 </form>
             </div>
         )

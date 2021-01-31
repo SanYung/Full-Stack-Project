@@ -1,9 +1,10 @@
 import React from 'react';
 import ChannelIndexItem from './5.channel_index_item';
 import { Link } from 'react-router-dom'
-import { RiAddCircleLine } from 'react-icons/ri'
+import { AiOutlinePlus } from 'react-icons/ai'
 import { BsChevronCompactDown } from 'react-icons/bs'
 import { IoIosRadioButtonOn } from 'react-icons/io'
+import { AiOutlinePlusSquare } from 'react-icons/ai'
 
 class ChannelIndex extends React.Component {
     constructor(props) {
@@ -13,7 +14,15 @@ class ChannelIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchChannels(this.props.userId)
+        this.props.fetchUsers()
+        this.props.fetchChannels(this.props.currentUser)
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.currentUser !== this.props.currentUser) {
+            this.props.fetchChannels(this.props.currentUser)
+            this.props.fetchUsers() 
+        }
     }
 
     changeDropDown() {
@@ -31,37 +40,39 @@ class ChannelIndex extends React.Component {
 
                 <div className="channelindex-content">
 
-
-                    <div id="parentdropdown">
-                        <div className="dropdown">
-                            <span id="dropdown-click" onClick={this.changeDropDown}> <div id="status-button"><IoIosRadioButtonOn />&nbsp; </div>  {this.props.user.username} &nbsp; <div id="carrat-down"><BsChevronCompactDown /></div> </span>
-                            <div className="dropdown-content">
-                                {dropdown}
+                    <div className="workspace-header">
+                        <div id="parentdropdown">
+                            <div className="dropdown">
+                                <span id="dropdown-click" onClick={this.changeDropDown}> <div id="status-button"> </div>Your Workspace &nbsp; <div id="carrat-down"><BsChevronCompactDown /></div> </span>
+                                <div className="dropdown-content">
+                                    {dropdown}
+                                </div>
+                                < div> <IoIosRadioButtonOn />&nbsp; {this.props.user.username} &nbsp; </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="title-add">
                         <label id="channelsheader">Channels</label>
-                        <button onClick={() => this.props.openModal('createChannel')}> <RiAddCircleLine /></button>
+                        <button onClick={() => this.props.openModal('createChannel')}> <AiOutlinePlus /></button>
                     </div>
 
 
                     <ul className="channelList">
                         {this.props.channels.map((channel) => (
                             <div key={channel.id}>
-                                {/* {this.props.userId === channel.user_id ? ( */}
-                                <ChannelIndexItem
-                                    channel={channel} fetchChannel={this.props.fetchChannel} />
-                                {/* ) : (<ChannelIndexItem />)} */}
+                                <ChannelIndexItem channel={channel} />
                             </div>
                         ))}
+                        <button onClick={() => this.props.openModal('addChannels')}>
+                            < AiOutlinePlusSquare /> <p> Browse channels </p>
+                        </button>
                     </ul>
 
                     <ul className="messageList">
                         <div className="title-add">
                             <label id="channelsheader">Direct Messages</label>
-                            <RiAddCircleLine />
+                            <AiOutlinePlus />
                         </div>
                     </ul>
 

@@ -1,14 +1,18 @@
 .channelIndex {
     position: fixed;
-    background-color: #191c21;
-    color: whitesmoke;
+    background-color: #3F0D40;
+    color: #d5d2d5;
     overflow: scroll;
     width: 275px;
     height: 100%;
-    bottom: 0;
-    left: 0;
-    padding: 5px;
-    border: 2px #191c21 #191c21;
+    // border: 2px #191c21 #191c21;
+}
+
+.workspace-header{
+    height: 64px;
+    border-bottom:1px solid #574357;
+    color: white;
+    top: 0px;
 }
 
 .channelIndex::-webkit-scrollbar {
@@ -19,9 +23,6 @@
   scrollbar-width: none;  
 }
 
-.channelindex-content{
-    margin-top: 35px;
-}
 .title-add{
     display:flex;
     flex-direction: row;
@@ -110,5 +111,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-      color: #727d71;
+    color: #727d71;
 }

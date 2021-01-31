@@ -1,15 +1,15 @@
 .showheader{
-    background-color: #272932;
+    background-color: white;
     height: 75px;
     margin-left:275px;
     margin-right: 0;
-    border: 2px solid black;
+     box-shadow: inset 0 0 0 1px #d5d2d5;
     color: white;
  
 }
 
 #showheader-content{
-    color: white;
+    color: black;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -19,8 +19,8 @@
 
 
 #header-channel-title{
-    color: white;
-    font-size: 24px;
+    color: black;
+    font-size: 14px;
     font-size: bold;
     font-family: Lato, sans-serif;
     margin-top: 17px;
@@ -31,13 +31,13 @@
 #header-and-icons{
     display: flex;
     flex-direction: column;;
-    color:white;
+    color:black;
 }
 
 .icons{
     display: flex;
     align-items: center;
-    color: white;
+    color: black;
 }
 
 #star{
@@ -45,17 +45,17 @@
 }
 
 #person{
-    color: white;
+    color: black;
 }
 
 #pin{
-    color: white;
+    color: black;
 }
 
 #pencil{
     display: flex;
     align-items: center;
-    color: white;
+    color: black;
     font-family: Lato, sans-serif;
 }
 
