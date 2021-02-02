@@ -1,8 +1,9 @@
 import { RECEIVE_POSTS , RECEIVE_POST, CLEAR_TEXT_BOX} from '../actions/post_action';
+import { LOGOUT_CURRENT_USER } from '../actions/session_action';
 
-const PostReducer = (oldState = {}, action) => {
-    Object.freeze(oldState)
-    const nextState = Object.assign({}, oldState)
+const PostReducer = (state = {}, action) => {
+    Object.freeze(state)
+    const nextState = Object.assign({}, state)
 
     switch (action.type) {
         case RECEIVE_POSTS:
@@ -11,8 +12,10 @@ const PostReducer = (oldState = {}, action) => {
             return Object.assign(nextState, { [action.post.id]: action.post })
         case CLEAR_TEXT_BOX:
             return ''
+        case LOGOUT_CURRENT_USER:
+            return {};
         default:
-            return oldState
+            return state
     }
 }
 

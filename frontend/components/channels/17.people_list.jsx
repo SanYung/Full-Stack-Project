@@ -11,15 +11,16 @@ class PeopleList extends React.Component {
         this.props.fetchUsers
     }
 
-    render() {
+    render() {         
         return (
             <div >
+                <div >Member List</div>
+                <div>click a member to message</div>
                 {this.props.list.map((memberId, i) => (
                     <li key={i} >
                         <div onClick={this.props.closeModal}>
                             <BsPersonSquare />
-                            {this.props.users[memberId].username}
-                            {/* <Link to={`/home/channels/${channel.id}`}>{member.title}</Link> */}
+                            <Link to={`/home/dm/${this.props.users[memberId].username}`}>{this.props.users[memberId].username}</Link>
                         </div>
                     </li>
                 ))}

@@ -3,7 +3,7 @@ import ChannelIndexItem from './5.channel_index_item';
 import { Link } from 'react-router-dom'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { BsChevronCompactDown } from 'react-icons/bs'
-import { IoIosRadioButtonOn } from 'react-icons/io'
+import { IoIosRadioButtonOn, IoIosThumbsDown } from 'react-icons/io'
 import { AiOutlinePlusSquare } from 'react-icons/ai'
 
 class ChannelIndex extends React.Component {
@@ -21,14 +21,13 @@ class ChannelIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        if (prevProps.memberships !== this.props.memberships) {
+            this.props.fetchChannels(this.props.currentUser.id)
+        }
         if (prevProps.currentUser.id !== this.props.currentUser.id) {
             this.props.fetchChannels(this.props.currentUser.id)
             this.props.fetchUsers() 
         }
-        if (prevProps.memberships !== this.props.memberships) {
-            this.props.fetchChannels(this.props.currentUser.id)
-        }
-
     }
 
     changeDropDown() {
@@ -42,7 +41,7 @@ class ChannelIndex extends React.Component {
         }
 
         return (
-            <div className="channelIndex">
+            <div className="channelIndex1">
 
                 <div className="channelindex-content">
 
@@ -73,13 +72,6 @@ class ChannelIndex extends React.Component {
                         <button onClick={() => this.props.openModal('addChannels')}>
                             < AiOutlinePlusSquare /> <p> Browse channels </p>
                         </button>
-                    </ul>
-
-                    <ul className="messageList">
-                        <div className="title-add">
-                            <label id="channelsheader">Direct Messages</label>
-                            <AiOutlinePlus />
-                        </div>
                     </ul>
 
                 </div>

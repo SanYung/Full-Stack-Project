@@ -60,3 +60,7 @@ post9 = Post.create(body:"What's going on, guys!?", user_id: ian.id, channel_id:
 post10 = Post.create(body:"Yay, communication!", user_id: emma.id, channel_id: channel4.id)
 post11 = Post.create(body:"yoyoyo!", user_id: jonathan.id, channel_id: channel4.id)
 post12 = Post.create(body:"This is dope", user_id: charlie.id, channel_id: channel4.id)
+
+
+dms1 = Dms.create(body:"Hi San!", author_id: emma.id, receiver_id: san.id)
+dms2 = Dms.create(body:"Hi Emma!", author_id: san.id, receiver_id: emma.id)

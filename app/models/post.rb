@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
-    validates :body, :user_id, :channel_id, presence: true
+    validates :body, :user_id, presence: true
+    # validates_presence_of :channel_id, :unless => :dms_id?
+    # validates_presence_of :dms_id, :unless => :channel_id?
 
     belongs_to :user,
         primary_key: :id,
@@ -11,4 +13,8 @@ class Post < ApplicationRecord
         foreign_key: :channel_id,
         class_name: :Channel
 
+    belongs_to :dms,
+        primary_key: :id,
+        foreign_key: :channel_id,
+        class_name: :Dmessage
 end

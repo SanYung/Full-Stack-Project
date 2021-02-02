@@ -1,4 +1,5 @@
 import React from 'react';
+// import Emoji from './emoji'
 
 class PostCreate extends React.Component {
     constructor(props) {
@@ -36,6 +37,8 @@ class PostCreate extends React.Component {
                         onChange={this.update('body')}
                     />
                 </form>
+                    {/* < Emoji /> */}
+                
             </div>
         )
     }

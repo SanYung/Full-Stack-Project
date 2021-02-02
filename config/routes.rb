@@ -15,6 +15,6 @@ Rails.application.routes.draw do
     end
 
     resources :memberships, only:[:index, :create, :destroy]
-    resources :direct_messages, only: [:index, :create, :show,:update]
+    resources :dmss, only: [:index, :create, :show,:update]
   end
 end
