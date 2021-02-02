@@ -11,7 +11,6 @@ class PostCreate extends React.Component {
         }
     }
 
-
     handleSubmit(e){
         e.preventDefault();  
         App.cable.subscriptions.subscriptions[0].speak({ post: this.state });
@@ -24,19 +23,18 @@ class PostCreate extends React.Component {
         };
     }
 
-    render(){
-        
-        return (
-            <div  >
-                <form className="PostForm" onSubmit={this.handleSubmit}>
-                    <input 
-                    id= "postform-input"
-                    type="text" 
-                    placeholder={ !this.props.channel ? "" : ` message ${this.props.channel.title}`}
-                    value={this.state.body}
-                    onChange={this.update('body')}
-                    />
 
+    render(){
+        return (
+            <div >
+                <form className="PostForm" onSubmit={this.handleSubmit}>
+                    <input
+                        id="postform-input"
+                        type="text"
+                        placeholder={!this.props.channel ? "" : ` message ${this.props.channel.title}`}
+                        value={this.state.body}
+                        onChange={this.update('body')}
+                    />
                 </form>
             </div>
         )

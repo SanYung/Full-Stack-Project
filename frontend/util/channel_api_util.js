@@ -9,6 +9,7 @@ export const fetchAllChannels = () => {
         url: "/api/channels",
     })
 }
+
 //show
 export const fetchChannel = (channelId) => (
     $.ajax({

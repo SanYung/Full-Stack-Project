@@ -4,7 +4,7 @@ import ChannelHome from './1.channels_home';
 
 
 const mdp = (dispatch) => ({
-
+    
 })
 
 export default withRouter(connect(null, null)(ChannelHome))

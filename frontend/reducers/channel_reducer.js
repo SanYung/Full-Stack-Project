@@ -1,18 +1,11 @@
-import {
-    RECEIVE_ALL_CHANNELS,
-    RECEIVE_CHANNELS,
-    RECEIVE_CHANNEL,
-    REMOVE_CHANNEL,
-} from '../actions/channel_action';
+import { RECEIVE_CHANNELS, RECEIVE_CHANNEL, REMOVE_CHANNEL } from '../actions/channel_action';
+
+import { LOGOUT_CURRENT_USER } from '../actions/session_action';
+
 
 const channelsReducer = (state = {}, action) => {
-
-
     Object.freeze(state);
-
     switch (action.type) {
-        // case RECEIVE_ALL_CHANNELS:
-        //     return Object.assign({}, state, action.allchannels);
         case RECEIVE_CHANNELS:
             return Object.assign({}, state, action.channels);
         case RECEIVE_CHANNEL:
@@ -21,6 +14,8 @@ const channelsReducer = (state = {}, action) => {
             let nextState = Object.assign({}, state);
             delete nextState[action.channelId]
             return nextState;
+        case LOGOUT_CURRENT_USER:
+            return {}
         default:
             return state;
     }
