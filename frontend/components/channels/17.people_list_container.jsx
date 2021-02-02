@@ -11,7 +11,8 @@ import { fetchUsers } from '../../actions/session_action'
 const msp = (state, ownProps) => {
     return ({
         users: state.entities.users,
-        list: channelPeopleList(state, ownProps)
+        list: channelPeopleList(state, ownProps),
+        memberships: state.entities.memberships
     })
 }
 
