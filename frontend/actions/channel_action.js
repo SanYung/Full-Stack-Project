@@ -13,7 +13,6 @@ const receiveAllChannels = (allchannels) => ({
     allchannels
 });
 
-
 const receiveChannels = (channels) => {
     return {
         type: RECEIVE_CHANNELS,
@@ -26,7 +25,7 @@ const receiveChannel = (channel) => ({
     channel
 })
 
-const removeChannel = (channelId) => ({
+const removeChannel = (channeld) => ({
     type: REMOVE_CHANNEL,
     channelId
 })
@@ -43,7 +42,7 @@ export const clearChannelErrors = () => ({
 
 //thunk action creators
 export const fetchAllChannels = () => dispatch => (
-    ChannelApiUtil.fetchAllChannels()
+    ChannelAPIUtil.fetchAllChannels()
         .then(channels => dispatch(receiveAllChannels(channels)))
 );
 

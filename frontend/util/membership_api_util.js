@@ -1,3 +1,9 @@
+export const fetchAllMemberships = () => {
+    return $.ajax({
+        url: `/api/memberships`
+    })
+}
+
 export const fetchMemberships = (channelId) => {
     return $.ajax({
         url: `/api/memberships`,

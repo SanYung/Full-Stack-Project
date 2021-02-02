@@ -62,7 +62,7 @@
 #parentdropdown{
     position: relative;
     margin-left:0px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-family: Lato, sans-serif;
     padding: 20px;
     font-size: 21px;
@@ -95,6 +95,7 @@
 
 #dropdown-click{
     display:flex;
+    margin-top: -17px;
 }
 
 #status-button {
@@ -112,4 +113,9 @@
     align-items: center;
     justify-content: center;
     color: #727d71;
+}
+
+#user-status{
+    display: flex;
+
 }

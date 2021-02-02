@@ -3,15 +3,13 @@ class Api::ChannelsController < ApplicationController
   before_action :require_logged_in
   
   def index
-    @channels = current_user.channels
-    render :index
-    # if params[:member_id]
-    #   @channels = current_user.channels 
-    #   render :index 
-    # else 
-    #   @channels = Channel.all
-    #   render :index 
-    # end     
+    if params[:user_id]
+      @channels = current_user.channels 
+      render :index 
+    else 
+      @channels = Channel.all
+      render :index 
+    end    
   end
 
   def create

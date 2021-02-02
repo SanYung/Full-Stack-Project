@@ -15,10 +15,12 @@ const recieveUser = (userId) => ({
     userId
 })
 
+
 const recieveCurrentUsers = (users) => ({
     type: RECEIVE_CURRENT_USERS,
     users
 })
+
 
 const receiveCurrentUser = (user) => ({
     type: RECEIVE_CURRENT_USER,
@@ -63,6 +65,7 @@ export const createUser = (user) => (dispatch) => (
             dispatch(receiveErrors(err.responseJSON))
         ))
 )
+
 
 export const createSession = (user) => (dispatch) => (
     APIUtil.createSession(user)

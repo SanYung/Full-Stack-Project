@@ -1,20 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ChannelAdd from './16.channel_add'
-import { fetchChannels } from '../../actions/channel_action'
 import { openModal, closeModal } from '../../actions/modal_actions'
+import { createMembership, fetchAllMemberships } from '../../actions/membership_action'
+import { channelSelector} from '../../reducers/channel_selector'
 
 
-const msp = (state, ownProps) => {
+const msp = (state) => {
     return ({
-        currentUser: state.session.currentUser,
-        channels: state.entities.channels
+        currentUser : state.session.currentUser,
+        unjoinedChannels: channelSelector(state)
+
     })
 }
 
 const mdp = (dispatch) => ({
     closeModal: () => dispatch(closeModal()),
-    fetchChannels: (userId) => dispatch(fetchChannels(userId))
 
 })
 

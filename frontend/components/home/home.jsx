@@ -8,8 +8,6 @@ class Home extends React.Component {
         this.handleDemo = this.handleDemo.bind(this)
     }
 
- 
-
     handleDemo(e) {
         e.preventDefault();
         const demo = {
