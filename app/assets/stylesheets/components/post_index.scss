@@ -14,6 +14,20 @@
  
 }
 
+#postindex2{
+    display:flex;
+    flex-direction: column;
+    margin-left:280px;
+    margin-top: 10px;
+    overflow-y: auto;
+    overflow-x: 0;
+    height: calc(100vh - 210px);
+    width: calc(100vw - 289px);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+}
+
 .PostForm{
     position: fixed;
     width: calc(100vw - 360px);

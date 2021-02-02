@@ -1,28 +1,23 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom'
 class ChannelAdd extends React.Component {
     constructor(props) {
         super(props)
     }
-
-    componentDidMount() {
-        this.props.fetchChannels(this.props.currentUser.id)
-   
-    }
-
-    handleClick(e) {
-        e.preventDefault()
-        this.props.updateChannel(this.state).then(this.props.closeModal);
-    }
-
-
+    
     render() {
+        if (!this.props.unjoinedChannels){
+            return null
+        }
+        
         return (
             <div >  
-                {this.props.channels.map((channel) => (
-                    <div key={channel.id}>
-                        
-                    </div>
+                {this.props.unjoinedChannels.map((channel , i ) => (
+                    <li key={i} >
+                        <div onClick={this.props.closeModal}>
+                            <Link to={`/home/channels/${channel.id}`}>{channel.title}</Link>
+                            </div>
+                    </li>
                 ))}
                 
             </div>

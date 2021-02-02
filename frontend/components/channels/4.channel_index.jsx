@@ -15,14 +15,20 @@ class ChannelIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers()
-        this.props.fetchChannels(this.props.currentUser)
+        this.props.fetchChannels(this.props.currentUser.id)
+        this.props.fetchAllChannels()
+        this.props.fetchMemberships()
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.currentUser !== this.props.currentUser) {
-            this.props.fetchChannels(this.props.currentUser)
+        if (prevProps.currentUser.id !== this.props.currentUser.id) {
+            this.props.fetchChannels(this.props.currentUser.id)
             this.props.fetchUsers() 
         }
+        if (prevProps.memberships !== this.props.memberships) {
+            this.props.fetchChannels(this.props.currentUser.id)
+        }
+
     }
 
     changeDropDown() {
@@ -43,11 +49,11 @@ class ChannelIndex extends React.Component {
                     <div className="workspace-header">
                         <div id="parentdropdown">
                             <div className="dropdown">
-                                <span id="dropdown-click" onClick={this.changeDropDown}> <div id="status-button"> </div>Your Workspace &nbsp; <div id="carrat-down"><BsChevronCompactDown /></div> </span>
+                                <span id="dropdown-click" onClick={this.changeDropDown}> Your Workspace &nbsp; <div id="carrat-down"><BsChevronCompactDown /></div> </span>
                                 <div className="dropdown-content">
                                     {dropdown}
                                 </div>
-                                < div> <IoIosRadioButtonOn />&nbsp; {this.props.user.username} &nbsp; </div>
+                                <div id="user-status"><span id="status-button"> <IoIosRadioButtonOn /></span>&nbsp; {this.props.user.username} &nbsp; </div>
                             </div>
                         </div>
                     </div>

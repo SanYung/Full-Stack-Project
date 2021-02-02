@@ -1,17 +1,16 @@
 import React from 'react';
 import PostCreateContainer from './post_create_container'
-
-
+import { HiOutlineHashtag } from 'react-icons/hi'
 
 class PostIndex extends React.Component {
     constructor(props) {
         super(props)
 
-        //action cable
+        this.handleClick = this.handleClick.bind(this)
+        this.handleRender = this.handleRender.bind(this)
         this.state = { posts: [] };
     }
 
-    //action cable
     componentDidMount() {
         App.cable.subscriptions.create(
             { channel: "ChatChannel" },
@@ -24,21 +23,21 @@ class PostIndex extends React.Component {
                 }
             }
         );
+        this.props.fetchAllChannels()
+        // this.props.fetchAllMemberships()
+        this.props.fetchChannels(this.props.userId)
         this.props.fetchPosts(this.props.channelId),
         this.props.fetchUsers()
-        this.scrollToBottom();
+        // this.scrollToBottom();
     }
 
-
     componentDidUpdate(previousProps){
-        this.scrollToBottom();
         if (previousProps.match.params.channelId !== this.props.channelId){
             this.props.fetchPosts(this.props.channelId)
+            this.props.fetchChannels(this.props.userId)
         }
-
-        // this.bottom.current.scrollIntoView(
-        //     {behavior: "smooth"}
-        // );
+        if (this.props.channelShowSelector === true){
+        this.scrollToBottom()}
     }
 
     scrollToBottom() {
@@ -57,54 +56,56 @@ class PostIndex extends React.Component {
         return strTime;
     }
 
+    handleClick(e){
+        e.preventDefault()
+        this.props.createMembership(this.props.channelId, this.props.currentUser.id )
+            .then(() => this.props.history.push(`/home/channels/${this.props.channelId}`))
+            .then(window.location.reload());
+    }
+
+    handleRender() {
+        if (this.props.channelShowSelector === true) {
+            return (
+                <div id="postindex">
+                    {this.props.posts.map((post) => (
+                        <div className="postList" key={post.id}>
+                            { !this.props.users[post.user_id] ? null :
+                                <div className="postList">
+                                    <img id="demoprofile" src={window.profileURL} />
+                                    <br></br>
+                                    <div className="post-content">
+                                        <div id="authorstuff">
+                                            <div id="author">{this.props.users[post.user_id].username}</div> &nbsp;&nbsp;
+                                            <div id="timestamp">{this.getTime(post.created_at)}</div>
+                                        </div>
+                                        <br></br>
+                                        <div id="message">{post.body}</div>
+                                    </div  >
+                                </div>
+                            }
+                        </div>
+                    ))}
+                    <div ref={el => { this.postEnd = el }}></div>
+                    <div className="postform-container" >
+                        < PostCreateContainer channelId={this.props.channelId} channel={this.props.channel} />
+                    </div>
+                </div>
+            )} else if (this.props.channelShowSelector !== true && this.props.channelx){
+            return (
+                <div id="postindex2" >
+                    <p>You are viewing <HiOutlineHashtag /> {this.props.channelx.title}</p>
+                    <button onClick={this.handleClick}>Join Channel</button>
+                    </div>
+            )
+        }
+    }
+
 
     render() {
         return (
-            <div id="postindex">
-            
-                {this.props.posts.map((post) => (
-                    <div className="postList" key={post.id}>
-
-                    { !this.props.users[post.user_id] ?  null :
-                        <div className="postList">
-                            <img id="demoprofile" src={window.profileURL} />
-                            <br></br>
-                            
-                            <div className="post-content">
-
-                            <div id="authorstuff">
-                                <div id="author">{this.props.users[post.user_id].username}</div> &nbsp;&nbsp; 
-                                {/* <div id="timestamp">{ Array.from(post.created_at).slice(11,16) }</div> */}
-                                        <div id="timestamp">{ this.getTime(post.created_at)}</div>
-                            </div>
-
-                             <br></br> 
-                             
-                            <div id="message">{post.body}</div>
-
-                        </div  > 
-                    </div>
-                        
-                    }
-
-                    
-                    </div>
-                    
-                ))}
-                <div ref={el => {this.postEnd = el}}></div>
-
-                
-    
-                <div className="postform-container" >
-                    < PostCreateContainer channelId={this.props.channelId} channel={this.props.channel}/>
-                </div>
-
-
-                
-            </div>
+            <div >{this.handleRender()}</div>
         )
     }
-
 }
 
 export default PostIndex
