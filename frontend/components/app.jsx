@@ -5,7 +5,7 @@ import HomeContainer from './home/home_container'
 import LoginContainer from './session/login_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_utils'
 import Errors from './error'
-import ChannelHomeContainer from './channels/2.channels_home_container'
+import ChannelHomeContainer from './channels/1.home_container'
 import Modal from './modal/modal';
 
 

@@ -19,8 +19,9 @@ charlie = User.create(username: 'Charlie Park',  email:'charlie@gmail.com', pass
 
 channel1 = Channel.create(title: 'Welcome!', description: 'thanks for checking Quack out!', is_starred: true)
 channel2 = Channel.create(title: 'General',description: 'this is for general messages' )
-channel3 = Channel.create(title: 'Hip')
-channel4 = Channel.create(title: 'Hooray!')
+channel3 = Channel.create(title: 'Hip', description: '')
+channel4 = Channel.create(title: 'Hooray!', description: '')
+
 
 
 membership1 = Membership.create(channel_id: channel2.id, member_id: demo.id)
@@ -62,5 +63,4 @@ post11 = Post.create(body:"yoyoyo!", user_id: jonathan.id, channel_id: channel4.
 post12 = Post.create(body:"This is dope", user_id: charlie.id, channel_id: channel4.id)
 
 
-dms1 = Dms.create(body:"Hi San!", author_id: emma.id, receiver_id: san.id)
-dms2 = Dms.create(body:"Hi Emma!", author_id: san.id, receiver_id: emma.id)
+

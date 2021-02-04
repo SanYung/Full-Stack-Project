@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchPosts, receivePost} from '../../actions/post_action'
 import PostIndex from './post_index';
 import { fetchUsers, fetchUser} from '../../actions/session_action'
-import { channelShowSelector } from '../../reducers/channel_selector'
+import { channelShowSelector, channelMembership} from '../../reducers/channel_selector'
 import { createMembership } from '../../actions/membership_action'
 import { fetchAllChannels, fetchChannels } from '../../actions/channel_action'
 
@@ -18,7 +18,8 @@ const msp = (state, ownProps) => {
     channels: state.entities.channels,
     allchannels: state.entities.allchannels,
     channelShowSelector: channelShowSelector(state, ownProps),
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    channelMembership: channelMembership(state, ownProps)
 
 })}
 

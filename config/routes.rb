@@ -13,8 +13,12 @@ Rails.application.routes.draw do
       resources :users, only:[:index]
       resources :posts, only:[:index, :create, :show]
     end
+    resources :dmessages, only: [:index, :create, :show,:update] do 
+      resources :users, only:[:index]
+      resources :posts, only:[:index, :create, :show]
 
+    end
+    
     resources :memberships, only:[:index, :create, :destroy]
-    resources :dmss, only: [:index, :create, :show,:update]
   end
 end

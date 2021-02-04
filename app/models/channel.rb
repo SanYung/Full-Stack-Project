@@ -17,5 +17,6 @@ class Channel < ApplicationRecord
         foreign_key: :channel_id,
         class_name: :Post
 
+
 end
 
