@@ -20,7 +20,7 @@ const receiveChannels = (channels) => {
     }
 }
 
-const receiveChannel = (channel) => ({
+export const receiveChannel = (channel) => ({
     type: RECEIVE_CHANNEL,
     channel
 })

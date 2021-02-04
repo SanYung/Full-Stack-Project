@@ -8,6 +8,11 @@
     // border: 2px #191c21 #191c21;
 }
 
+.key{
+    display:flex;
+    flex-direction: column;
+}
+
 .workspace-header{
     height: 64px;
     border-bottom:1px solid #574357;

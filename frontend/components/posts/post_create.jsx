@@ -1,5 +1,5 @@
 import React from 'react';
-// import Emoji from './emoji'
+import { HiOutlineHashtag } from 'react-icons/hi'
 
 class PostCreate extends React.Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class PostCreate extends React.Component {
 
     update(parameters) {
         return (e) => {
-            this.setState({ channel_id: this.props.channelId  ,[parameters]: e.currentTarget.value })
+            this.setState({ channel_id: this.props.channelId , [parameters]: e.currentTarget.value })
         };
     }
 
@@ -32,12 +32,12 @@ class PostCreate extends React.Component {
                     <input
                         id="postform-input"
                         type="text"
-                        placeholder={!this.props.channel ? "" : ` message ${this.props.channel.title}`}
+                        placeholder={!this.props.channel.is_dm ? ` message # ${this.props.channel.title}` : ` message ${this.props.dmsTitlex}`}
                         value={this.state.body}
                         onChange={this.update('body')}
                     />
                 </form>
-                    {/* < Emoji /> */}
+  
                 
             </div>
         )

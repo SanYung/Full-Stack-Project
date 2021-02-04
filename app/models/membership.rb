@@ -10,4 +10,5 @@ class Membership < ApplicationRecord
         foreign_key: :channel_id,
         class_name: :Channel
 
+
 end
