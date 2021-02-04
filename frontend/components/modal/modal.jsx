@@ -1,12 +1,13 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import ChannelCreateContainer from '../channels/6.channel_create_container';
-import ChannelEditDescription from '../channels/12.channel_edit_container';
-import ChannelEditTitle from '../channels/15.channel_edit_title_container';
-import PeopleListContainer from '../channels/17.people_list_container'
-import AddChannelContainer from '../channels/16.channel_add_container'
-import DmsCreateContainer from '../dmss/2.dms_create_container'
+import ChannelCreateContainer from '../channels/3.channel_create_container';
+import ChannelEditDescription from '../channels/6.channel_edit_container';
+import ChannelEditTitle from '../channels/7.channel_edit_title_container';
+import PeopleListContainer from '../channels/9.channel_members_container'
+import AddChannelContainer from '../channels/8.channel_browse_container'
+import DmsCreateContainer from '../dmessages/3.dms_create_container'
+import DmsAddPeopleChatContainer from '../dmessages/4.dms_add_people_chat_container'
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -31,6 +32,9 @@ function Modal({ modal, closeModal }) {
             break;
         case 'createDms':
             component = <DmsCreateContainer />;
+            break;
+        case 'addToChat':
+            component = <DmsAddPeopleChatContainer />;
             break;
         default:
             return null;

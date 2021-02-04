@@ -1,6 +1,7 @@
 import React from 'react';
 import PostCreateContainer from './post_create_container'
 import { HiOutlineHashtag } from 'react-icons/hi'
+import { withRouter } from 'react-router-dom'
 
 class PostIndex extends React.Component {
     constructor(props) {
@@ -24,18 +25,19 @@ class PostIndex extends React.Component {
             }
         );
         this.props.fetchAllChannels()
-        // this.props.fetchAllMemberships()
         this.props.fetchChannels(this.props.userId)
-        this.props.fetchPosts(this.props.channelId),
+        this.props.fetchPosts(this.props.channelId)
         this.props.fetchUsers()
         // this.scrollToBottom();
+
     }
 
     componentDidUpdate(previousProps){
-        if (previousProps.match.params.channelId !== this.props.channelId){
+        if (previousProps.match.params.channelId !== this.props.channelId) {
             this.props.fetchPosts(this.props.channelId)
             this.props.fetchChannels(this.props.userId)
         }
+
         if (this.props.channelShowSelector === true){
         this.scrollToBottom()}
     }
@@ -64,7 +66,7 @@ class PostIndex extends React.Component {
     }
 
     handleRender() {
-        if (this.props.channelShowSelector === true) {
+        if (this.props.channelShowSelector === true && this.props.channelMembership === false) {
             return (
                 <div id="postindex">
                     {this.props.posts.map((post) => (
@@ -90,22 +92,50 @@ class PostIndex extends React.Component {
                         < PostCreateContainer channelId={this.props.channelId} channel={this.props.channel} />
                     </div>
                 </div>
-            )} else if (this.props.channelShowSelector !== true && this.props.channelx){
+            )
+        } else if (this.props.channelShowSelector !== true && this.props.channelx && this.props.channelMembership === false){
             return (
                 <div id="postindex2" >
                     <p>You are viewing <HiOutlineHashtag /> {this.props.channelx.title}</p>
                     <button onClick={this.handleClick}>Join Channel</button>
                     </div>
             )
+        } else if (this.props.channelMembership === true ) {
+            return(
+            <div id="postindex">
+                {this.props.posts.map((post) => (
+                    <div className="postList" key={post.id}>
+                        { !this.props.users[post.user_id] ? null :
+                            <div className="postList">
+                                <img id="demoprofile" src={window.profileURL} />
+                                <br></br>
+                                <div className="post-content">
+                                    <div id="authorstuff">
+                                        <div id="author">{this.props.users[post.user_id].username}</div> &nbsp;&nbsp;
+                                            <div id="timestamp">{this.getTime(post.created_at)}</div>
+                                    </div>
+                                    <br></br>
+                                    <div id="message">{post.body}</div>
+                                </div  >
+                            </div>
+                        }
+                    </div>
+                ))}
+                <div ref={el => { this.postEnd = el }}></div>
+                <div className="postform-container" >
+                        {/* < PostCreateContainer channelId={this.props.channelId} channel={this.props.channel} /> */}
+                </div>
+            </div>)
         }
     }
 
 
     render() {
+    
         return (
             <div >{this.handleRender()}</div>
         )
     }
 }
 
-export default PostIndex
+export default withRouter(PostIndex)

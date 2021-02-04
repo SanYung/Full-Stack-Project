@@ -5,5 +5,7 @@
         json.description channel.description
         json.is_private channel.is_private
         json.is_starred channel.is_starred
+        json.is_dm channel.is_dm
+
     end
 end
