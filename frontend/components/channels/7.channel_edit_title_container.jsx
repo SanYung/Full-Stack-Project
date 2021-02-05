@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom'
-import { updateChannel, clearChannelErrors} from '../../actions/channel_action';
+import { updateChannel, clearChannelErrors, fetchChannel} from '../../actions/channel_action';
 import ChannelEditName from './7.channel_edit_title'
 import { openModal, closeModal } from '../../actions/modal_actions'
 

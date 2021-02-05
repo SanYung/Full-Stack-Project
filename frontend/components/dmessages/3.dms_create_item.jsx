@@ -19,7 +19,8 @@ class DmsCreateItem extends React.Component {
 
     handleClick() {
         // App.cable.subscriptions.subscriptions[0].speak({ channel: this.state });
-
+        
+        // let channel = await createChannel(this.state);
             if (this.props.alreadyExistingDmessages.includes(this.props.user.username)) {
                 this.props.history.push(`/home/channels/379`)
                 // .then(() => this.createMembership(ownProps.match.params.channelId, this.props.user.id)
@@ -27,7 +28,6 @@ class DmsCreateItem extends React.Component {
             } else {
                 this.props.createChannel(this.state)
                     .then((result) => this.props.createMembership(Object.values(result)[1].id, this.props.user.id))
-                    // this.props.history.push(`/home/channels/${channelId}`)
                 }   
     }
 

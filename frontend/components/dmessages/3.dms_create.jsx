@@ -22,7 +22,7 @@ class DmsCreate extends React.Component {
                 {Object.values(this.props.users).map((user) => (
                     <li key={user.id} >
                         <div >
-                            < DmsCreateItem user={user} createMembership={this.props.createMembership}createChannel={this.props.createChannel} closeModal={this.props.closeModal} alreadyExistingDmessages={this.props.alreadyExistingDmessages}/>
+                            < DmsCreateItem user={user} channelId= {this.props.channelId}createMembership={this.props.createMembership}createChannel={this.props.createChannel} closeModal={this.props.closeModal} alreadyExistingDmessages={this.props.alreadyExistingDmessages}/>
                         </div>
                     </li>
                 ))}
