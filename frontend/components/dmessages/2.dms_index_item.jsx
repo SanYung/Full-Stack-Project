@@ -8,6 +8,13 @@ class DmsIndexItem extends React.Component {
         super(props)
     }
 
+    componentDidMount() {
+        // this.props.fetchAllChannels()
+        // this.props.fetchChannels(this.props.currentUser.id)
+        // this.props.fetchUsers()
+        // this.props.fetchMemberships()
+    }
+
     render() {
         if (!this.props.channel) {
             return null

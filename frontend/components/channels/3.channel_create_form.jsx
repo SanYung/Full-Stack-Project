@@ -1,5 +1,6 @@
 import React from 'react';
 import { RiCloseLine} from 'react-icons/ri'
+import { Redirect } from 'react-router-dom'
 
 class ChannelCreate extends React.Component {
     constructor(props) {
@@ -8,9 +9,8 @@ class ChannelCreate extends React.Component {
 
         this.state = {
             title:'',
-            description:''
-            
-            // is_private: false, 
+            description:'',
+            is_private: false,
         }
     }
 
@@ -20,20 +20,23 @@ class ChannelCreate extends React.Component {
         };
     }
 
-    // handleToggle(){
-    //     let is_private = this.state.is_private;
-    //     if (is_private === true){
-    //         is_private = false 
-    //     } else {
-    //         is_private = true
-    //     }
-    //     this.setState = ({is_private : is_private})
-    // }
+    handleToggle(){
+        return (e) => { 
+            this.setState({ is_private: true });
+        }
+    }
+
+    componentDidMount() {
+        this.props.fetchMemberships()
+        this.props.clearChannelErrors()
+    }
 
     handleSubmit(e) {
         e.preventDefault();
         const channel = Object.assign({}, this.state);
-        this.props.createChannel(channel).then(this.props.closeModal);
+        this.props.createChannel(channel)
+            .then((result) => console.log(window.location.href = `#/home/channels/${Object.values(result)[1].id}`))
+            .then(this.props.closeModal())
     }
 
     renderErrors() {
@@ -48,9 +51,6 @@ class ChannelCreate extends React.Component {
         );
     }
 
-    componentDidMount() {
-        this.props.clearChannelErrors()
-    }
 
     render() {
         return (
@@ -76,13 +76,13 @@ class ChannelCreate extends React.Component {
                             onChange={this.handleInput('description')}
                         />
                     </label>
-                    {/* <label id="is_private_checkbox"> Is Private? 
+                    <label id="is_private_checkbox"> Is Private? 
                         <input 
                             id = "private-checkbox"
                             type = "checkbox"
-                            onChange = {this.handleToggle}
+                            onChange = {this.handleToggle()}
                         />
-                    </label> */}
+                    </label>
 
                     <div id='create-btn-container'>
 

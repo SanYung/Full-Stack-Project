@@ -14,7 +14,7 @@ export const channelAddSelector = (state) => {
     let arr = Object.values(state.entities.allchannels)
     let result = []
     arr.forEach((obj) => {
-        if (!res.includes(obj.title) && obj.is_dm === false) {
+        if (!res.includes(obj.title) && obj.is_dm === false && obj.is_private === false) {
             result.push(obj)
         }
     })
@@ -215,3 +215,34 @@ export const dmsTitlex = (state, ownProps) => {
         return state.entities.users[num].username
     }
 }
+
+export const dmsTitleId = (state, ownProps) => {
+    let allmemberships = Object.values(state.entities.memberships)
+    let channelmemberships = []
+    allmemberships.forEach((obj) => {
+        if (obj.channelId === parseInt(ownProps.match.params.channelId)) {
+            channelmemberships.push(obj)
+        }
+    })
+
+    let num = 0
+    channelmemberships.forEach(obj => {
+        if (obj.memberId !== state.session.currentUser.id && channelmemberships.length !== 1) {
+            num = obj.memberId
+        } else if (channelmemberships.length === 1) {
+            num = obj.memberId
+        }
+    })
+
+    if (state.entities.users[num] !== undefined) {
+        return state.entities.users[num].username
+    }
+}
+
+// last object in channel pojo
+// export const firstItemChannelId = (state) => {
+//     let channels = Object.values(state.entities.channels)
+//     let first = channels[0]
+//     return first.id
+// }
+

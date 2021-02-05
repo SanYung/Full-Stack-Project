@@ -7,7 +7,7 @@ import ChannelEditTitle from '../channels/7.channel_edit_title_container';
 import PeopleListContainer from '../channels/9.channel_members_container'
 import AddChannelContainer from '../channels/8.channel_browse_container'
 import DmsCreateContainer from '../dmessages/3.dms_create_container'
-import DmsAddPeopleChatContainer from '../dmessages/4.dms_add_people_chat_container'
+import ChannelPrivateAddUsers from '../channels/10.channel_private_add_users_container'
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -33,8 +33,8 @@ function Modal({ modal, closeModal }) {
         case 'createDms':
             component = <DmsCreateContainer />;
             break;
-        case 'addToChat':
-            component = <DmsAddPeopleChatContainer />;
+        case 'addToPrivateChannel':
+            component = <ChannelPrivateAddUsers />;
             break;
         default:
             return null;

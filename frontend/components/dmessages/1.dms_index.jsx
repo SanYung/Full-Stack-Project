@@ -9,36 +9,23 @@ class DmsIndex extends React.Component {
     }
 
     componentDidMount() {
-        // App.cable.subscriptions.create(
-        //     { channel: "chat_dms" },
-        //     {
-        //         received: data => {
-        //             this.props.receiveChannel(data.channel);
-        //         },
-        //         speak2: function (data) {
-        //             return this.perform("speak2", data);
-        //         }
-        //     }
-        // );
-
-        this.props.fetchUsers()
         this.props.fetchAllChannels()
         this.props.fetchChannels(this.props.currentUser.id)
+        this.props.fetchUsers()
         this.props.fetchMemberships()
     }
 
     componentDidUpdate(prevProps) {
-        // if (prevProps.channels !== this.props.channels) {
-        //     this.props.fetchChannels(this.props.currentUser.id)
-        //     this.props.fetchUsers()
-        // }
         if (prevProps.memberships !== this.props.memberships) {
             this.props.fetchChannels(this.props.currentUser.id)
         }
+        // if (prevProps.channels !== this.props.channels) {
+        //     this.props.fetchChannels(this.props.currentUser.id)
+        // }
+
     }
 
     render() {
-
         return (
             <div className="dmsIndex">
 
