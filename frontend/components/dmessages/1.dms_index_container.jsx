@@ -13,6 +13,7 @@ const msp = (state) => {
         currentUser: state.session.currentUser,
         channels: Object.values(state.entities.channels),
         memberships: state.entities.memberships,
+
     }
 }
 

@@ -9,7 +9,6 @@ import { fetchMemberships } from '../../actions/membership_action'
 import { dmsTitle } from '../../reducers/channel_selector'
 
 const msp = (state, ownProps) => {
-
     return {
         currentUser : state.session.currentUser,
         dmsTitle: dmsTitle(state, ownProps)

@@ -13,7 +13,7 @@ class ChannelBrowse extends React.Component {
         if (this.props.channelAddSelector.length === 0){
             return (
             <div>
-                You are currently a member of all channels
+                You are currently a member of all public channels
             </div>
         )}
         

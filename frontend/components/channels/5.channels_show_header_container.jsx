@@ -1,20 +1,20 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchChannel, deleteChannel, fetchChannels } from '../../actions/channel_action';
+import { fetchChannel, deleteChannel, fetchChannels, updateChannel } from '../../actions/channel_action';
 import ChannelShowHeader from './5.channels_show_header';
 import { openModal } from '../../actions/modal_actions'
 import { deleteMembership, fetchMemberships } from '../../actions/membership_action';
 import { channelMembersCount, dmsTitlex} from '../../reducers/channel_selector'
 
 const msp = (state, ownProps) => {
-    // console.log(ownProps)
     return ({
     currentUser: state.session.currentUser,
     memberships: state.entities.memberships,
     count: channelMembersCount(state, ownProps),
     dmsTitlex: dmsTitlex(state, ownProps),
     currentChannel: state.entities.allchannels[ownProps.match.params.channelId],
+
 
     })}
 
@@ -25,6 +25,8 @@ const mdp = (dispatch) => ({
     openModal: modal => dispatch(openModal(modal)),
     fetchMemberships: () => dispatch(fetchMemberships()),
     fetchChannels: (userId) => dispatch(fetchChannels(userId)),
+    updateChannel: ((channel) => dispatch(updateChannel(channel))),
+
 
 })
 

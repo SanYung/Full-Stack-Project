@@ -14,21 +14,21 @@ class ChannelIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUsers()
         this.props.fetchChannels(this.props.currentUser.id)
+        this.props.fetchUsers()
         this.props.fetchAllChannels()
         this.props.fetchMemberships()
     }
 
     componentDidUpdate(prevProps) {
-        // if (prevProps.memberships !== this.props.memberships) {
-        //     this.props.fetchChannels(this.props.currentUser.id)
-        // }
+        if (prevProps.memberships !== this.props.memberships) {
+            this.props.fetchChannels(this.props.currentUser.id)
+        }
 
-        // if (prevProps.currentUser.id !== this.props.currentUser.id) {
-        //     this.props.fetchChannels(this.props.currentUser.id)
-        //     this.props.fetchUsers() 
-        // }
+        if (prevProps.currentUser.id !== this.props.currentUser.id) {
+            this.props.fetchChannels(this.props.currentUser.id)
+            this.props.fetchUsers() 
+        }
     }
 
     changeDropDown() {
@@ -70,7 +70,7 @@ class ChannelIndex extends React.Component {
                             </div>
                         ))}
                         <button onClick={() => this.props.openModal('addChannels')}>
-                            < AiOutlinePlusSquare /> <p> Browse channels </p>
+                            <div className="browse-channels"> < AiOutlinePlusSquare /> Browse channels</div>
                         </button>
                     </ul>
 
