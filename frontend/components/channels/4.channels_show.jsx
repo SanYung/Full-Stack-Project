@@ -8,7 +8,7 @@ class ChannelShow extends React.Component {
 
     render() {
         return (
-            <div className="key">
+            <div className="board-post">
                 <ChannelShowHeader channel={this.props.channel} channelId={this.props.channelId} fetchChannel={this.props.fetchChannel}/>
                 <PostIndexContainer /> 
                 <Modal></Modal>

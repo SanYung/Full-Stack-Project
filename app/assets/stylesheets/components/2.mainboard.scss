@@ -1,0 +1,24 @@
+.main-board {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr;
+}
+
+.board-info{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.nav {
+    position: fixed;
+    background-color: #3F0D40;
+    color: #d5d2d5;
+    width: 275px;
+    height: 100%;
+}
+
+.testing {
+  display: flex;
+  flex-direction: row;
+}

@@ -17,10 +17,13 @@ class ChannelPrivateAddUsersItem extends React.Component {
     }
 
     render() {
-        // console.log(this.state)
+        if (this.props.user.username === this.props.currentUser.username || this.props.channelPplNameList.includes(this.props.user.username)) {
+             return null
+         }
         return (
             <div onClick={() => this.props.closeModal()}>
-                <div onClick={this.handleClick}> <BsPersonSquare /> {this.props.user.username} </div>
+                <div id="individ-dms" onClick={this.handleClick}> <span id="demo-profile-dms"> <BsPersonSquare /> </span> {this.props.user.username} </div>
+
             </div>
         )
     }

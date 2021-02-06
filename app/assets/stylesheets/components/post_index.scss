@@ -13,20 +13,43 @@
 
  
 }
-
-#postindex2{
-    display:flex;
+ .notjoined{
+    display: flex;
     flex-direction: column;
-    margin-left:280px;
+    position: fixed;
+    align-items: center;
+    height: 90px;
+    width: calc(100vw - 360px);
+    bottom: 25px;
+    color: black;
+    background-color: rgba(232, 225, 235, 0.363);
+    border: 1px solid  rgba(240, 233, 233, 0.932);
+    margin-left: 20px;
+    padding-left: 38px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    z-index: 1px;
+ }
+
+ #join-button{
+    border: none;
+    cursor: pointer;
+    background-color: #74bb77;
+    color: black;
+    text-align: center;
+    font-family: lato, sans-serif;
+    font-weight: 450;
+    width: 90px;
+    height: 25px;
+    letter-spacing: .8px;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 10px 15px;
     margin-top: 10px;
-    overflow-y: auto;
-    overflow-x: 0;
-    height: calc(100vh - 210px);
-    width: calc(100vw - 289px);
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    padding-left: 0px;
-}
+ }
+
 
 .PostForm{
     position: fixed;
@@ -58,8 +81,6 @@
     width: 45px;
     height: 45px;
 }
-
-
 
 .postList{
     display: flex;

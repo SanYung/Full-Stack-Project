@@ -18,11 +18,19 @@ class DmsCreate extends React.Component {
     render() {
 
         return (
-            <div >
+            <div className="dms-create-container">
                 {Object.values(this.props.users).map((user) => (
                     <li key={user.id} >
-                        <div >
-                            < DmsCreateItem user={user} channelId= {this.props.channelId}createMembership={this.props.createMembership}createChannel={this.props.createChannel} closeModal={this.props.closeModal} alreadyExistingDmessages={this.props.alreadyExistingDmessages}/>
+                        <div  >
+                            < DmsCreateItem lastItemChannelId={this.props.lastItemChannelId}allDms={this.props.allDms} 
+                                            user={user} 
+                                            channelId= {this.props.channelId}
+                                            createMembership={this.props.createMembership}
+                                            createChannel={this.props.createChannel} 
+                                            closeModal={this.props.closeModal} 
+                                            alreadyExistingDmessages={this.props.alreadyExistingDmessages}
+                                            currentUser = {this.props.currentUser}
+                                            />
                         </div>
                     </li>
                 ))}

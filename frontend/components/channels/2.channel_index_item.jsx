@@ -3,13 +3,9 @@ import {Link} from 'react-router-dom'
 import { HiOutlineHashtag } from 'react-icons/hi'
 import { RiLockLine } from 'react-icons/ri'
 
-
-
-
 class ChannelIndexItem extends React.Component {
     constructor(props){
         super(props)
-
     }
     
     render(){

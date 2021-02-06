@@ -9,6 +9,18 @@ class DmsIndexItem extends React.Component {
     }
 
     componentDidMount() {
+        //   App.cable.subscriptions.create(
+        //     { channel: "ChatDms" },
+        //     {
+        //         received: data => {
+        //             this.props.receiveChannel(data.channel);
+        //         },
+        //         speak: function (data) {
+        //             return this.perform("speak2", data);
+        //         }
+        //     }
+        // );
+
         // this.props.fetchAllChannels()
         // this.props.fetchChannels(this.props.currentUser.id)
         // this.props.fetchUsers()

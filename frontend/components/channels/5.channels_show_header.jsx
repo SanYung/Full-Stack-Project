@@ -21,7 +21,11 @@ class ChannelShowHeader extends React.Component {
         this.changeGearOption = this.changeGearOption.bind(this)
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidMount(){
+        this.props.fetchMemberships()
+    }
+    
+    componentDidUpdate(prevProps){
         if (prevProps.memberships !== this.props.memberships) {
             this.props.fetchChannels(this.props.currentUser.id)
         }
@@ -34,23 +38,23 @@ class ChannelShowHeader extends React.Component {
         // }
     }
 
-    handleDetails() {
-        if (this.props.match.url) {
+    handleDetails(){
+        if (this.props.match.url){
             const newUrl = this.props.match.url + "/details"
             this.props.history.push(newUrl);
         }
     }
 
-    handleDelete(e) {
+    handleDelete(e){
         e.preventDefault();
         this.props.deleteChannel(this.props.channelId)
-            .then(window.location.reload());
+        .then(window.location.reload());
     }
 
-    handleStar(e) {
+    handleStar(e){
         e.preventDefault();
         if (this.props.channel.is_starred === false) {
-            this.props.updateChannel({ ...this.props.channel, is_starred: true })
+        this.props.updateChannel({...this.props.channel, is_starred: true})
         } else {
             this.props.updateChannel({ ...this.props.channel, is_starred: false })
         }
@@ -58,13 +62,9 @@ class ChannelShowHeader extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        if (this.props.firstItemChannelId) {
-            let x = this.props.firstItemChannelId
-        }
         this.props.deleteMembership(this.props.channelId, this.props.currentUser.id)
-            .then(window.location.reload());
+        .then(window.location.reload());
     }
-
 
 
     changeGearOption(e) {
@@ -74,52 +74,53 @@ class ChannelShowHeader extends React.Component {
 
     render() {
         let channel = this.props.channel;
-        if (!channel) {
+        if (!channel){
             return null
         }
         let dropdown;
         if (this.state.dropdown && channel.is_private === false) {
-            dropdown = <div className="dropdown-col" ><div className="gear-dropdown-items" onClick={this.handleClick}>Leave < HiOutlineHashtag /> {channel.title} </div>
+            dropdown = <div className="dropdown-col" ><div className="gear-dropdown-items" onClick={this.handleClick}>Leave < HiOutlineHashtag /> {channel.title} </div> 
                 <div className="gear-dropdown-items" > <button onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</button></div></div>
-        } else if (this.state.dropdown && channel.is_private === true) {
+        } else if (this.state.dropdown && channel.is_private === true){
             dropdown = <div className="dropdown-col" ><div className="gear-dropdown-items" onClick={this.handleDelete}> Delete <RiLockLine /> {channel.title} </div>
-                <div className="gear-dropdown-items" > <button onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</button></div></div>
+            <div className="gear-dropdown-items" > <button onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</button></div></div>
         }
         return (
             <div className="showheader" >
-                { channel.is_dm === false ?
+                { channel.is_dm === false ? 
                     <ul id='showheader-content'>
                         <div id="header-and-icons">
-                            <div id="header-channel-title" >{channel.is_private === true ? <RiLockLine /> : < HiOutlineHashtag />} {channel.title} &nbsp; <span onClick={this.handleStar}> {this.props.channel.is_starred === true ? <span style={{ color: "gold" }}><BsFillStarFill /></span> : <FiStar />}</span></div>
-                            <div className="icons">
-                                <li id="person" onClick={this.handleDetails} channelid={channel.id}><BsFillPeopleFill />&nbsp;{this.props.count} people in this channel </li>&nbsp; |&nbsp;
-                                {channel.description === "" || null ?
+                            <div id="header-channel-title" >{channel.is_private === true ? <RiLockLine /> : < HiOutlineHashtag /> } {channel.title} &nbsp; <span onClick={this.handleStar}> {this.props.channel.is_starred === true ? <span style={{ color: "gold" }}><BsFillStarFill /></span> : <FiStar />}</span></div>
+                            <div className="icons"> 
+                                <li id="person" onClick={ this.handleDetails} channelid={channel.id}><BsFillPeopleFill />&nbsp;{this.props.count} people in this channel </li>&nbsp; |&nbsp;
+                                {channel.description === "" || null ? 
                                     <button onClick={() => this.props.openModal('editdescription')}> <div id="pencil"><HiOutlinePencilAlt /> &nbsp;Add a Description </div> </button>
-                                    : <button onClick={() => this.props.openModal('editdescription')}> <div id="pencil"><HiOutlinePencilAlt /> &nbsp;{channel.description}</div> </button>}
-
+                                    : <button onClick={() => this.props.openModal('editdescription')}> <div id="pencil"><HiOutlinePencilAlt /> &nbsp;{channel.description}</div> </button> }
                             </div>
                         </div>
 
-                        <div>
+                        <div className="private-gear-add">
+                            <div>
+                                {channel.is_private ? <span onClick={() => this.props.openModal('addToPrivateChannel')}> <span id="add-button">< IoMdPersonAdd /> </span> </span> : ''}
+                            </div>
 
-                            {channel.is_private ? <span onClick={() => this.props.openModal('addToPrivateChannel')}> < IoMdPersonAdd /> Add users </span> : ''}
-                        </div>
-                        <li>
-                            <div id="parentdropdown">
-                                <div className="dropdown">
-                                    <span id="dropdown-click" onClick={this.changeGearOption}> <div id="gear-button"><RiSettings5Fill /></div> </span>
-                                    <div className="dropdown-content">
-                                        {dropdown}
+                            <li> 
+                                <div id="parentdropdown">
+                                    <div className="dropdown">
+                                        <span id="dropdown-click" onClick={this.changeGearOption}> <div id="gear-button"><RiSettings5Fill /></div> </span>
+                                        <div className="dropdown-content">
+                                            {dropdown}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </li>
 
-                        </li>
+                        </div>
                     </ul>
-                    :
+                    : 
                     <ul id='showheader-content'>
                         <div id="header-and-icons">
-                            <div id="header-channel-title" >< HiOutlineHashtag /> {this.props.dmsTitlex}</div>
+                            <div id="header-channel-title" > {this.props.dmsTitlex}</div>
                             <div className="icons">
                                 <li id="person" onClick={() => this.props.openModal('peoplelist')} channelid={channel.id}><BsFillPeopleFill />&nbsp;{this.props.count} people in this chat </li>&nbsp;
                             </div>
@@ -130,10 +131,10 @@ class ChannelShowHeader extends React.Component {
                             </div>
 
                         </li>
-                    </ul>
-
-
-                }
+                    </ul> 
+                    
+                    
+                    } 
             </div>
         )
     }

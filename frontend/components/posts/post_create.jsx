@@ -16,7 +16,7 @@ class PostCreate extends React.Component {
         e.preventDefault();  
         App.cable.subscriptions.subscriptions[0].speak({ post: this.state });
         this.setState( {body: ''});
-             }
+    }
 
     update(parameters) {
         return (e) => {

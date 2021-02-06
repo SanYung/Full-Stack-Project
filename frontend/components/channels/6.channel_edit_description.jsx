@@ -13,6 +13,7 @@ class ChannelEditDes extends React.Component {
         this.props.fetchChannel(this.props.channel.id)
         this.props.clearChannelErrors()
     }
+
     
     handleSubmit(e) {
         e.preventDefault()
@@ -45,9 +46,9 @@ class ChannelEditDes extends React.Component {
                     <h1 id="channel-title">Edit Channel Description</h1>
 
                     <label id='input-container'>
-                        <input 
+                        <textarea
                         id="create-input-field"
-                        type='text'
+                        style={{ resize: 'none' ,height: "100px" }}
                         onChange={this.update('description')}
                         />
                     </label>

@@ -17,24 +17,32 @@ class DmsCreateItem extends React.Component {
     }
 
 
-    handleClick() {
-        // App.cable.subscriptions.subscriptions[0].speak({ channel: this.state });
-        
-        // let channel = await createChannel(this.state);
-            if (this.props.alreadyExistingDmessages.includes(this.props.user.username)) {
-                this.props.history.push(`/home/channels/379`)
-                // .then(() => this.createMembership(ownProps.match.params.channelId, this.props.user.id)
 
-            } else {
-                this.props.createChannel(this.state)
-                    .then((result) => this.props.createMembership(Object.values(result)[1].id, this.props.user.id))
-                }   
+
+    handleClick() {
+        // App.cable.subscriptions.subscriptions[1].speak({ channel: this.state });
+            // this.setState({ title: this.props.user.username });
+            
+        if (this.props.alreadyExistingDmessages.includes(this.props.user.username)) {
+            this.props.allDms.forEach(obj => {
+                if (obj.title === this.props.user.username) {
+                    window.location.href = `#/home/channels/${obj.id}`
+                }
+            })
+
+        } else {
+            this.props.createChannel(this.state)
+            .then((result) => (this.props.createMembership(Object.values(result)[1].id, this.props.user.id)))} 
+            //  window.location.href = `#/home/channels/${this.props.lastItemChannelId}`
     }
 
     render() {
         return (
             <div onClick={() => this.props.closeModal()}>
-                <div onClick={this.handleClick}> <BsPersonSquare /> {this.props.user.username} </div>
+                <div id="individ-dms" onClick={this.handleClick}> <span id="demo-profile-dms"> <BsPersonSquare /> </span> {this.props.user.username} &nbsp;
+                { this.props.user.username === this.props.currentUser.username ? <span style={{color: 'darkgray'}}>(you)</span> : ''} 
+                </div>
+
             </div>
         )
     }
