@@ -22,20 +22,35 @@ class ChannelPrivateAddUsers extends React.Component {
             this.props.fetchChannels(this.props.currentUser.id)
         }
     }
-
-    render() {
-
-        return (
-            <div >
+    handleRender(){
+        if (Object.values(this.props.users).length === this.props.channelMembersCount) {
+            return(
+                <div className="dms-create-container2">
+                    <p className="alljoined">All users have joined this channel</p>
+                </div>
+        )} else {
+            return(
+                <div className="dms-create-container" >
+                    
+                
                 {Object.values(this.props.users).map((user) => (
                     <li key={user.id} >
                         <div >
-                            < ChannelPrivateAddUsersItem user={user} fetchAllChannels={this.props.fetchAllChannels} fetchChannels={this.props.fetchChannels} currentUser={this.props.currentUser} createMembership={this.props.createMembership} closeModal={this.props.closeModal} channelId={this.props.channelId} channel={this.props.channel} updateChannel={this.props.updateChannel} channelPplNameList={this.props.channelPplNameList} />
+                            < ChannelPrivateAddUsersItem user={user} currentUser={this.props.currentUser} fetchAllChannels={this.props.fetchAllChannels} fetchChannels={this.props.fetchChannels} currentUser={this.props.currentUser} createMembership={this.props.createMembership} closeModal={this.props.closeModal} channelId={this.props.channelId} channel={this.props.channel} updateChannel={this.props.updateChannel} channelPplNameList={this.props.channelPplNameList} />
                         </div>
                     </li>
-                ))}
+                ))} </div>
+             )}
+    }
 
+    render() {
+
+
+        return (
+            <div >
+                {this.handleRender()}
             </div>
+    
         )
     }
 }

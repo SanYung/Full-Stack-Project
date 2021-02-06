@@ -55,6 +55,22 @@ export const channelMembersCount = (state, ownProps) => {
     return arr.length
 }
 
+// without ownProps
+export const channelMembersCount2 = (state) => {
+    let memberships = Object.values(state.entities.memberships)
+    let hash = {}
+    memberships.forEach((obj) => {
+        hash[obj.channelId] = []
+    })
+
+    memberships.forEach((obj) => {
+        hash[obj.channelId].push(obj.memberId)
+    })
+
+    return hash
+}
+
+
 // returns a list of user ids that are joined to a channel
 export const channelPeopleList = (state, ownProps) => {
     let memberships = Object.values(state.entities.memberships)
@@ -240,9 +256,26 @@ export const dmsTitleId = (state, ownProps) => {
 }
 
 // last object in channel pojo
-// export const firstItemChannelId = (state) => {
-//     let channels = Object.values(state.entities.channels)
-//     let first = channels[0]
-//     return first.id
-// }
+export const lastItemChannelId = (state) => {
+    let channels = Object.values(state.entities.channels)
+    let length = channels.length
+    let last = channels[length-1]
+    let num = last.id + 1
+    
+    return num
+}
 
+
+export const allDms = (state) => {
+    let mychannels = Object.values(state.entities.channels) 
+
+    let allDms = []
+    mychannels.forEach(obj => {
+        if (obj.is_dm === true) {
+            allDms.push(obj)
+        }
+    })
+
+
+    return allDms
+}

@@ -35,7 +35,7 @@ class ChannelCreate extends React.Component {
         e.preventDefault();
         const channel = Object.assign({}, this.state);
         this.props.createChannel(channel)
-            .then((result) => console.log(window.location.href = `#/home/channels/${Object.values(result)[1].id}`))
+            .then((result) => window.location.href = `#/home/channels/${Object.values(result)[1].id}`)
             .then(this.props.closeModal())
     }
 
@@ -76,15 +76,17 @@ class ChannelCreate extends React.Component {
                             onChange={this.handleInput('description')}
                         />
                     </label>
-                    <label id="is_private_checkbox"> Is Private? 
-                        <input 
-                            id = "private-checkbox"
-                            type = "checkbox"
-                            onChange = {this.handleToggle()}
-                        />
-                    </label>
+
 
                     <div id='create-btn-container'>
+                        <div className="private-checkbox">
+                            <label class="switch"> 
+                            <input type="checkbox" 
+                                onChange={this.handleToggle()}
+                            />
+                                <span class="slider round"></span>
+                            </label>&nbsp;&nbsp;Is Private? 
+                        </div>
 
                     <button id="create-channel-button">Create</button>
                     </div>

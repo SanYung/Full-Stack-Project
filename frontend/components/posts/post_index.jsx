@@ -95,10 +95,12 @@ class PostIndex extends React.Component {
             )
         } else if (this.props.channelShowSelector !== true && this.props.channelx && this.props.channelMembership === false){
             return (
-                <div id="postindex2" >
-                    <p>You are viewing <HiOutlineHashtag /> {this.props.channelx.title}</p>
-                    <button onClick={this.handleClick}>Join Channel</button>
+                <div id="postindex" >
+                    <div className="notjoined">
+                        <div>You are viewing <HiOutlineHashtag /> {this.props.channelx.title}</div>
+                        <button id="join-button" onClick={this.handleClick}>Join Channel</button>
                     </div>
+                </div>
             )
         } else if (this.props.channelMembership === true ) {
             return(

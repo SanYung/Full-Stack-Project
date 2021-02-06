@@ -5,9 +5,6 @@ import { fetchMemberships }from '../../actions/membership_action'
 import { fetchUsers } from '../../actions/session_action'
 import ChannelIndex from './2.channel_index'
 import { openModal } from '../../actions/modal_actions'
-import { deleteSession } from '../../actions/session_action'
-
-
 
 const msp = (state) => {
     return {

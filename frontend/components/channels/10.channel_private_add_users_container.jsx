@@ -6,18 +6,19 @@ import { fetchUsers } from '../../actions/session_action'
 import { closeModal } from '../../actions/modal_actions'
 import { fetchAllChannels, fetchChannels } from '../../actions/channel_action'
 import { createMembership } from '../../actions/membership_action'
-import { alreadyExistingDmessages, channelPplNameList } from '../../reducers/channel_selector'
+import { alreadyExistingDmessages, channelPplNameList, channelMembersCount } from '../../reducers/channel_selector'
 import { updateChannel } from '../../actions/channel_action'
 
 const msp = (state, ownProps) => {
-    console.log(channelPplNameList(state, ownProps))
+    // console.log(channelMembersCount(state, ownProps))
     return ({
         users: state.entities.users,
         alreadyExistingDmessages: alreadyExistingDmessages(state),
         currentUser: state.session.currentUser,
         channelId: ownProps.match.params.channelId,
         channelPplNameList: channelPplNameList(state, ownProps),
-        channel: state.entities.channels[ownProps.match.params.channelId]
+        channel: state.entities.channels[ownProps.match.params.channelId],
+        channelMembersCount: channelMembersCount(state, ownProps)
     })
 }
 
