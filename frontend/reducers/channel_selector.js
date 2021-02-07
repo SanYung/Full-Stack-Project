@@ -295,10 +295,10 @@ export const allDmsTitle = (state) => {
 }
 
 export const allChannelTitle = (state) => {
-    let mychannels = Object.values(state.entities.channels)
+    let allchannels = Object.values(state.entities.allchannels)
 
     let allDms = []
-    mychannels.forEach(obj => {
+    allchannels.forEach(obj => {
         if (obj.is_dm !== true) {
             allDms.push(obj.title)
         }
