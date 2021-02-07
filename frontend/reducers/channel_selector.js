@@ -279,3 +279,32 @@ export const allDms = (state) => {
 
     return allDms
 }
+
+export const allDmsTitle = (state) => {
+    let mychannels = Object.values(state.entities.channels)
+
+    let allDms = []
+    mychannels.forEach(obj => {
+        if (obj.is_dm === true) {
+            allDms.push(obj.title)
+        }
+    })
+
+
+    return allDms
+}
+
+export const allChannelTitle = (state) => {
+    let mychannels = Object.values(state.entities.channels)
+
+    let allDms = []
+    mychannels.forEach(obj => {
+        if (obj.is_dm !== true) {
+            allDms.push(obj.title)
+        }
+    })
+
+
+    return allDms
+}
+

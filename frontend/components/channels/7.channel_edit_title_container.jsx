@@ -8,7 +8,8 @@ import { openModal, closeModal } from '../../actions/modal_actions'
 
 const msp = (state, ownProps) => {
     return ({
-        channel: state.entities.channels[ownProps.match.params.channelId],
+        channel: state.entities.allchannels[ownProps.match.params.channelId],
+        // channelId: ownProps.match.params.channelId,
         errors: state.errors.channel,
         formType: 'edittitle'
     })

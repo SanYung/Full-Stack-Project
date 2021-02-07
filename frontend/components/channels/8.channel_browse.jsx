@@ -13,6 +13,10 @@ class ChannelBrowse extends React.Component {
             return null
         }
 
+        if (!this.props.channelMembersCount2) {
+            return null
+        }
+
         if (this.props.channelAddSelector.length === 0){
             return (
             <div className="channel-browse-container">

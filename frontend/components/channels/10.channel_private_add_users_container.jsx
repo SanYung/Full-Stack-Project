@@ -10,7 +10,6 @@ import { alreadyExistingDmessages, channelPplNameList, channelMembersCount } fro
 import { updateChannel } from '../../actions/channel_action'
 
 const msp = (state, ownProps) => {
-    // console.log(channelMembersCount(state, ownProps))
     return ({
         users: state.entities.users,
         alreadyExistingDmessages: alreadyExistingDmessages(state),

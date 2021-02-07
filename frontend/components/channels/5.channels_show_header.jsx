@@ -122,7 +122,7 @@ class ChannelShowHeader extends React.Component {
                         <div id="header-and-icons">
                             <div id="header-channel-title" > {this.props.dmsTitlex}</div>
                             <div className="icons">
-                                <li id="person" onClick={() => this.props.openModal('peoplelist')} channelid={channel.id}><BsFillPeopleFill />&nbsp;{this.props.count} people in this chat </li>&nbsp;
+                                <li id="person" onClick={this.handleDetails} channelid={channel.id}><BsFillPeopleFill />&nbsp;{this.props.count} people in this chat </li>&nbsp;
                             </div>
                         </div>
 

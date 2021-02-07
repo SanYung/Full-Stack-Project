@@ -23,3 +23,20 @@
     color: black;
    font-size: 30px;
  }
+
+ .modal-background-search{
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+  //  background: rgba(0, 0, 0, 0.7);
+   z-index: 10;
+ }
+
+ .modal-child-search{
+    position: absolute;
+    margin-top: 220px; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+ }

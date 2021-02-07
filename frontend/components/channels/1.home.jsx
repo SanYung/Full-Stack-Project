@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router-dom'
-import Searchbar from '../searchbar/searchbar_container'
+import SearchbarView from '../searchbar/searchbar_container'
 import ChannelIndexContainer from './2.channels_index_container'
 import ChannelShowContainer from './4.channels_show_container'
 import DmsIndexContainer from '../dmessages/1.dms_index_container'
@@ -16,7 +16,7 @@ class ChannelHome extends React.Component {
     render() {
         return (
             <div className="main-board">
-                <Searchbar />
+                <SearchbarView />
                 <div className="board-info" >
                     <div className="nav">
                         <ChannelIndexHeaderContainer />
@@ -26,17 +26,16 @@ class ChannelHome extends React.Component {
                         </div>
                     </div>
 
-                    <div className="testing">
+                    <div className="main-content">
                         <div > 
-                            <Route exact path="/home/channels" component={Modal} /> 
-                            <Route exact path="/home/channels/:channelId" component={ChannelShowContainer} />
+                        <Route exact path="/home/channels" component={Modal} /> 
+                        <Route  exact path="/home/channels/:channelId" component={ChannelShowContainer} />
                         </div>
                         <div>
                             <Route exact path="/home/channels/:channelId/details" component={PeopleListContainer} />
-                        </div>
-                    </div>
-                
+                        </div> 
 
+                    </div>
                 </div>
             </div>
         )

@@ -10,7 +10,7 @@ class ChannelEditDes extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchChannel(this.props.channel.id)
+        this.props.fetchChannel(this.props.channelId)
         this.props.clearChannelErrors()
     }
 
