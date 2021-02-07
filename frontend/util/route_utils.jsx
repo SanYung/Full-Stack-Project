@@ -8,7 +8,7 @@ const msp = (state) => ({
 
 const Auth = ({ loggedIn, path, component: Component }) => (
     <Route 
-        path={path}
+        path={path} 
         render={props => (
             loggedIn ? <Redirect to="/home/channels" /> : <Component {...props}/>
         )}
@@ -18,6 +18,7 @@ const Auth = ({ loggedIn, path, component: Component }) => (
 const Protected = ({ component: Component, path, loggedIn }) => (
     <Route
         path={path}
+
         render={props => (
             loggedIn ? <Component {...props} /> : <Redirect to="/" />
         )}

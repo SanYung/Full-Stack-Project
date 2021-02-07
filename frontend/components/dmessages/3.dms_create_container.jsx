@@ -10,7 +10,7 @@ import { alreadyExistingDmessages, allDms, lastItemChannelId} from '../../reduce
 
 
 const msp = (state, ownProps) => {
-    // console.log(lastItemChannelId(state))
+
     return ({
     users: state.entities.users,
     alreadyExistingDmessages: alreadyExistingDmessages(state),

@@ -80,11 +80,11 @@ class ChannelCreate extends React.Component {
 
                     <div id='create-btn-container'>
                         <div className="private-checkbox">
-                            <label class="switch"> 
+                            <label className="switch"> 
                             <input type="checkbox" 
                                 onChange={this.handleToggle()}
                             />
-                                <span class="slider round"></span>
+                                <span className="slider round"></span>
                             </label>&nbsp;&nbsp;Is Private? 
                         </div>
 

@@ -20,3 +20,84 @@
     width: 500px;
     border-radius: 3px;
 }
+
+.search-modal{
+    width: 650px;
+    height: 350px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.search-modal::-webkit-scrollbar {
+  display: none;
+}
+
+.search-list {
+    cursor: pointer;
+    margin: 20px 20px 20px;
+    font-size: 20px;
+    text-decoration: none;
+    list-style: none;
+    color: black;
+    font-family: lato, sans-serif;
+}
+
+.search-input{
+    width: 650px;
+    border-bottom: 1px solid rgb(202, 200, 200);
+    padding: 5px;
+    margin-top: 15px;
+    font-size: 20px;
+    font-family: lato, sans-serif;
+
+}
+
+.search-filters{
+align-items: center;
+margin-top: 10px;   
+    display:flex;
+    flex-direction: row;
+    // justify-content: space-evenly;
+}
+
+.search-options{
+    padding: 15px;
+ 
+}
+.search-button {
+    margin-top: 10px;    
+    border: none;
+    cursor: pointer;
+    background-color: #ccf0ce;
+    color: black;
+    text-align: center;
+    font-family: Slack-Circular-Pro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+    font-weight: 450;
+    line-height: 1.28571429;
+    letter-spacing: .8px;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 15px 15px;
+    margin-right: 15px;
+
+}
+
+.search-button:hover{
+    background-color: #5aac5e;
+    color: white;
+}
+
+
+.demo-icons{
+    font-size:30px;
+    margin-right: 5px;
+}
+
+.icon-align{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

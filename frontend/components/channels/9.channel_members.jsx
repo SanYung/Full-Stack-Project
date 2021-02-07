@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { BsPersonSquare } from 'react-icons/bs'
 import { RiCloseLine } from 'react-icons/ri'
+import ChannelMembersItem from './9.channel_members_item'
 
 
 class ChannelMembers extends React.Component {
@@ -13,26 +14,45 @@ class ChannelMembers extends React.Component {
         this.props.fetchUsers()
     }
 
+
+
     render() {  
         if(!this.props.users) {
             return null
         }       
         return (
-            <div >
-                <div className="channel-details">
+            <div className="members-list">
+                <div className="members-list-content">
                 <Link to={`/home/channels/${this.props.match.params.channelId}`}> < RiCloseLine /> </Link>
-                    <div className="details-title"> Member List</div>
-                    <div className="details-subtitle">Click a member to message</div>
-                        {this.props.list.map((memberId, i) => (
-                            <li key={i} >
-                                <div onClick={this.props.closeModal}>
-                                    <BsPersonSquare />
-                                    <Link to={`/home/dm/${this.props.users[memberId]}`}>{this.props.users[memberId].username}</Link>
-                                </div>
-                            </li>
-                        ))}
+                <div className="members-content-stuff">
+
+                    <div className="list-title"> Member List</div>
+                    <div className="list-subtitle">Click a member to message</div>
+
+                        <span id="members-list-align">
+
+                            {this.props.list.map((memberId, i) => (
+                                <li key={i} >
+                                    < ChannelMembersItem 
+                                        memberId={memberId}
+                                        alreadyExistingDmessages={this.props.alreadyExistingDmessages}
+                                        allDms={this.props.allDms}
+                                        createChannel={this.props.createChannel}
+                                        users={this.props.users}
+                                        createMembership={this.props.createMembership}
+                                        
+                                        />
+                                    {/* <div className="align-center-members" onClick={this.handleClick}>
+                                        <span style={{fontSize: "30px"}}> <BsPersonSquare /></span> &nbsp;&nbsp;
+                                        {this.props.users[memberId].username}
+                                        <Link to={`/home/channels}`}>{this.props.users[memberId].username}</Link>
+                                    </div> */}
+                                </li>
+                            ))}
+                        </span>
                 </div>
-                
+
+                </div>
             </div>
 
         )
