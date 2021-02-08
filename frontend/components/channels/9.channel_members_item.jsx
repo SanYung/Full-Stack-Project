@@ -30,16 +30,21 @@ class ChannelMembersItem extends React.Component {
             this.props.createChannel(this.state)
                 .then((result) => (this.props.createMembership(Object.values(result)[1].id, user.id)))
                  window.location.href = `#/home/channels`
+
+
         }
     }
 
     render() {
         return (
-            <div className="align-center-members" onClick={this.handleClick}>
+            // <div onClick= {() => this.props.closeModal()}>
+
+            <div className="align-center-members" onClick={this.handleClick} >
                 <span style={{ fontSize: "30px" }}> <BsPersonSquare /></span> &nbsp;&nbsp;
                 {this.props.users[this.props.memberId].username}
                 {/* <Link to={`/home/channels}`}>{this.props.users[memberId].username}</Link> */}
             </div>
+            // </div>
         )
     }
 }

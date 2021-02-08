@@ -25,7 +25,7 @@ const mdp = (dispatch) => ({
     openModal: modal => dispatch(openModal(modal)),
     fetchMemberships: () => dispatch(fetchMemberships()),
     fetchChannels: (userId) => dispatch(fetchChannels(userId)),
-    updateChannel: ((channel) => dispatch(updateChannel(channel))),
+    updateChannel: ((channel) => dispatch(updateChannel(channel)))
 
 
 })

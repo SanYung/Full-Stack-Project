@@ -7,6 +7,7 @@ import PostIndexContainer from '../posts/post_index_container'
 class ChannelShow extends React.Component {
 
     render() {
+        
         return (
             <div className="board-post">
                 <ChannelShowHeader channel={this.props.channel} channelId={this.props.channelId} fetchChannel={this.props.fetchChannel}/>

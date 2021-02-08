@@ -4,6 +4,7 @@ import channelReducer from "./channel_reducer";
 import allchannelsReducer from "./allchannels_reducer"
 import postReducer from "./post_reducer";
 import membershipReducer from "./membership_reducer"
+import membersList from "./members_list"
 
 
 const entitiesReducer = combineReducers({
@@ -11,7 +12,8 @@ const entitiesReducer = combineReducers({
     allchannels: allchannelsReducer,
     channels: channelReducer,
     posts: postReducer,
-    memberships: membershipReducer
+    memberships: membershipReducer,
+    list: membersList
 });
 
 export default entitiesReducer;

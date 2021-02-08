@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ChannelIndexHeader from './2.channel_index_header'
-import { deleteSession } from '../../actions/session_action'
+import { openModal } from '../../actions/modal_actions'
 
 const msp = (state) => {
     return {
@@ -11,7 +11,7 @@ const msp = (state) => {
 }
 
 const mdp = (dispatch) => ({
-    deleteSession: (() => dispatch(deleteSession())),
+    openModal: (modal) => dispatch(openModal(modal))
 });
 
 export default connect(msp, mdp)(ChannelIndexHeader)

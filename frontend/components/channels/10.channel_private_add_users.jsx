@@ -27,7 +27,9 @@ class ChannelPrivateAddUsers extends React.Component {
         if (Object.values(this.props.users).length === this.props.channelMembersCount) {
             return(
                 <div className="dms-create-container2">
+                    <div><img id="plant-private" src={window.plant} /></div> &nbsp;
                     <p className="alljoined">All users have joined this channel</p>
+
                 </div>
         )} else {
             return(

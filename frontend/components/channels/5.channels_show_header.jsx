@@ -23,6 +23,7 @@ class ChannelShowHeader extends React.Component {
 
     componentDidMount(){
         this.props.fetchMemberships()
+   
     }
     
     componentDidUpdate(prevProps){
@@ -33,6 +34,8 @@ class ChannelShowHeader extends React.Component {
             this.props.fetchMemberships()
         }
 
+        
+ 
         // if (prevProps.channel !== this.props.channel) {
         //     this.props.fetchChannels(this.props.currentUser.id)
         // }
@@ -67,10 +70,12 @@ class ChannelShowHeader extends React.Component {
     }
 
 
+
     changeGearOption(e) {
         e.preventDefault();
         this.setState({ dropdown: !this.state.dropdown })
     }
+
 
     render() {
         let channel = this.props.channel;
@@ -86,13 +91,13 @@ class ChannelShowHeader extends React.Component {
             <div className="gear-dropdown-items" > <button onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</button></div></div>
         }
         return (
-            <div className="showheader" >
+            <div className="showheader">
                 { channel.is_dm === false ? 
                     <ul id='showheader-content'>
                         <div id="header-and-icons">
                             <div id="header-channel-title" >{channel.is_private === true ? <RiLockLine /> : < HiOutlineHashtag /> } {channel.title} &nbsp; <span onClick={this.handleStar}> {this.props.channel.is_starred === true ? <span style={{ color: "gold" }}><BsFillStarFill /></span> : <FiStar />}</span></div>
                             <div className="icons"> 
-                                <li id="person" onClick={ this.handleDetails} channelid={channel.id}><BsFillPeopleFill />&nbsp;{this.props.count} people in this channel </li>&nbsp; |&nbsp;
+                                <li id="person" onClick={this.handleDetails} channelid={channel.id}><BsFillPeopleFill />&nbsp;{this.props.count} people in this channel </li>&nbsp; |&nbsp;
                                 {channel.description === "" || null ? 
                                     <button onClick={() => this.props.openModal('editdescription')}> <div id="pencil"><HiOutlinePencilAlt /> &nbsp;Add a Description </div> </button>
                                     : <button onClick={() => this.props.openModal('editdescription')}> <div id="pencil"><HiOutlinePencilAlt /> &nbsp;{channel.description}</div> </button> }
@@ -107,7 +112,7 @@ class ChannelShowHeader extends React.Component {
                             <li> 
                                 <div id="parentdropdown">
                                     <div className="dropdown">
-                                        <span id="dropdown-click" onClick={this.changeGearOption}> <div id="gear-button"><RiSettings5Fill /></div> </span>
+                                        <span id="dropdown-click" onClick={this.changeGearOption} > <div id="gear-button"><RiSettings5Fill /></div> </span>
                                         <div className="dropdown-content">
                                             {dropdown}
                                         </div>

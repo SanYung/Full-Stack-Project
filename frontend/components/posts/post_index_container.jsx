@@ -9,6 +9,7 @@ import { createMembership } from '../../actions/membership_action'
 import { fetchAllChannels, fetchChannels } from '../../actions/channel_action'
 
 const msp = (state, ownProps) => {
+    //  console.log('!!!!', ownProps.location.pathname )
     return ({
     posts: Object.values(state.entities.posts).filter((post) => post.channel_id === parseInt(ownProps.match.params.channelId)),
     channelId: ownProps.match.params.channelId,
@@ -19,7 +20,8 @@ const msp = (state, ownProps) => {
     allchannels: state.entities.allchannels,
     channelShowSelector: channelShowSelector(state, ownProps),
     currentUser: state.session.currentUser,
-    channelMembership: channelMembership(state, ownProps)
+    channelMembership: channelMembership(state, ownProps),
+    location: ownProps.location.pathname
 
 })}
 

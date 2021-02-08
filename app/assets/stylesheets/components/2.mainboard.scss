@@ -18,13 +18,19 @@
     height: 100%;
 }
 
-.testing {
-  display: flex;
-  flex-direction: row;
-}
+// .testing {
+//   display: flex;
+//   flex-direction: row;
+// }
 
 .main-content{
   display: flex;
   flex-direction: row;
-  width: 90%
+  width: 90%;
+  position: fixed;
+ 
 }
+
+.flex{
+  display:flex;
+flex-direction: row;}

@@ -19,8 +19,9 @@ class ChannelBrowse extends React.Component {
 
         if (this.props.channelAddSelector.length === 0){
             return (
-            <div className="channel-browse-container">
-                You are currently a member of all public channels
+            <div className="channel-browse-container-alljoined">
+                    <div><img id="plant" src={window.plant} /></div> &nbsp;
+                    <div className="alljoined-text">  You are currently a member of all public channels </div>
             </div>
         )}
         

@@ -14,7 +14,10 @@ class SearchbarModal extends React.Component {
             input: '',
             channel: false,
             // people: false,
-            messages: false
+            messages: false,
+            // classModalMargin: '',
+            classModal: 'search-modal'
+
         }
       
         this.handleInput = this.handleInput.bind(this);
@@ -28,12 +31,17 @@ class SearchbarModal extends React.Component {
     }
 
     componentDidMount() {
-   
         this.props.fetchAllChannels();
     }
 
     handleInput(event) {
-        this.setState({ input: event.currentTarget.value });
+        if (event.currentTarget.value.length !== 0){
+            this.setState({ classModal: 'search-modal-expand'});
+        } else {
+            this.setState({ classModal: 'search-modal' });
+
+        }
+        this.setState({ input: event.currentTarget.value, channel: false, messages: false });
     }
 
     matches() {
@@ -62,6 +70,7 @@ class SearchbarModal extends React.Component {
         }
         return matches;
     }
+
     select(event) {
         // console.log('!!!!', this.matches()[0])
         let searchinput = event.currentTarget.innerText;
@@ -80,12 +89,12 @@ class SearchbarModal extends React.Component {
 
     handleChannels(event){
         event.preventDefault()
-        this.setState({ channel: true,  messages: false });
+        this.setState({ channel: true, messages: false, classModal: 'search-modal-expand', input: '' });
     }
 
     handleMessages(event) {
         event.preventDefault()
-        this.setState({ channel: false,  messages: true });
+        this.setState({ channel: false, messages: true, classModal: 'search-modal-expand', input: '' });
     }
 
     // handlePeople(event) {
@@ -95,7 +104,7 @@ class SearchbarModal extends React.Component {
 
     handleAll(event) {
         event.preventDefault()
-        this.setState({ channel: false,  messages: false });
+        this.setState({ channel: false, messages: false, classModal: 'search-modal-expand' , input: ''});
     }
 
 
@@ -132,14 +141,15 @@ class SearchbarModal extends React.Component {
             }
 
         return (
-            <div className="search-modal" >
+            <div className={this.state.classModal} >
                 <input
                     className='search-input'
                     onChange={this.handleInput}
                     value={this.state.input}
+                    placeholder="Search far and wide.." 
                 />
                 <div className="search-options">
-                    I'm looking for...
+                    <span className="search-option-title"> I'm looking for... </span>
                 <div className="search-filters">
                         <button className="search-button" onClick={this.handleAll}> < RiPlantLine /> &nbsp;All</button>
                         <button className="search-button" onClick={this.handleChannels} >< GrChannel /> &nbsp; Channels</button>

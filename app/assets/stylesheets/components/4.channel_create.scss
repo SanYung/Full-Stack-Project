@@ -34,8 +34,8 @@
 #create-channel-button{
     border: none;
     cursor: pointer;
-    background-color: #74bb77;
-    color: black;
+    background-color: rgb(190, 222, 233);
+    border: 1px solid  rgba(190, 222, 233, 1);
     text-align: center;
     font-family: Slack-Circular-Pro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
     font-weight: 450;
@@ -45,6 +45,11 @@
     border-radius: 4px;
     padding: 10px 15px;
 
+}
+
+#create-channel-button:hover{
+      background-color: rgb(61, 92, 129);
+    color: white;
 }
 
 #create-btn-container{

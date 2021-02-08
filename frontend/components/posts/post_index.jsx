@@ -9,10 +9,13 @@ class PostIndex extends React.Component {
 
         this.handleClick = this.handleClick.bind(this)
         this.handleRender = this.handleRender.bind(this)
-        this.state = { posts: [] };
+        this.handleStyle = this.handleStyle.bind(this)
+        // this.state = { class: 'postindex'};
     }
 
     componentDidMount() {
+
+        // console.log('!!!!', this.props.match.url )
         App.cable.subscriptions.create(
             { channel: "ChatChannel" },
             {
@@ -29,19 +32,21 @@ class PostIndex extends React.Component {
         this.props.fetchPosts(this.props.channelId)
         this.props.fetchUsers()
         // this.scrollToBottom();
-
     }
-
+    
     componentDidUpdate(previousProps){
         if (previousProps.match.params.channelId !== this.props.channelId) {
             this.props.fetchPosts(this.props.channelId)
             this.props.fetchChannels(this.props.userId)
         }
-
+        
         if (this.props.channelShowSelector === true){
-        this.scrollToBottom()}
-    }
+            this.scrollToBottom()
+        }
 
+   
+    }
+    
     scrollToBottom() {
         this.postEnd.scrollIntoView({ behavior: 'smooth' })
     }
@@ -65,11 +70,25 @@ class PostIndex extends React.Component {
             .then(window.location.reload());
     }
 
+
+    handleStyle(){
+        if (this.props.location.pathname === `/home/channels/${this.props.channelId}/details` ) {
+            // this.setState({ class: "postindex2" })
+            return "postindex2"
+        }
+        else if (this.props.location.pathname === `/home/channels/${this.props.channelId}`) {
+            // this.setState({ class: "postindex" })
+            return "postindex"
+
+        }
+    }
+
     handleRender() {
+        console.log('!!!!!', this.handleStyle())
         if (this.props.channelShowSelector === true && this.props.channelMembership === false) {
             return (
-                <div id="postindex">
-                    {this.props.posts.map((post) => (
+                <div id={this.handleStyle()}>
+                      {this.props.posts.map((post) => (
                         <div className="postList" key={post.id}>
                             { !this.props.users[post.user_id] ? null :
                                 <div className="postList">
@@ -95,7 +114,7 @@ class PostIndex extends React.Component {
             )
         } else if (this.props.channelShowSelector !== true && this.props.channelx && this.props.channelMembership === false){
             return (
-                <div id="postindex" >
+                <div id={this.handleStyle()} >
                     <div className="notjoined">
                         <div>You are viewing <HiOutlineHashtag /> {this.props.channelx.title}</div>
                         <button id="join-button" onClick={this.handleClick}>Join Channel</button>
@@ -104,7 +123,7 @@ class PostIndex extends React.Component {
             )
         } else if (this.props.channelMembership === true ) {
             return(
-            <div id="postindex">
+                <div id={this.handleStyle()} >
                 {this.props.posts.map((post) => (
                     <div className="postList" key={post.id}>
                         { !this.props.users[post.user_id] ? null :

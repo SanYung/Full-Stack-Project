@@ -2,18 +2,31 @@
     display:flex;
     flex-direction: column;
     // margin-left:280px;
-    margin-right: flex;
+    // margin-right: flex;
     margin-top: 10px;
     overflow-y: auto;
-    overflow-x: 0;
-    height: calc(100vh - 210px);
-    width: calc(100vw - 289px);
+    // overflow-x: 0;
+    height: calc(100vh - 230px);
+    width: calc(100vw - 275px);
     margin-bottom: 10px;
     padding-bottom: 5px;
     padding-left: 0px;
-
- 
 }
+
+
+#postindex2{
+    display:flex;
+    flex-direction: column;
+    // margin-left:280px;
+    margin-top: 10px;
+    overflow-y: auto;
+    height: calc(100vh - 230px);
+    width: calc(100vw - 625px);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+}
+
  .notjoined{
     display: flex;
     flex-direction: column;
@@ -82,6 +95,10 @@
      width: calc(100vw - 360px);
 }
 
+#postform-input2{
+     width: calc(100vw - 710px);
+}
+
 #demoprofile{
     margin-top: 5px;
     margin-right: 9px;
@@ -123,11 +140,13 @@
 }
 
 #message{
+    // display:flex;
     margin-top: -20px;
     font-size: 17px;
     font-weight: 300;;
     margin-bottom: 0px;
     padding-bottom: 3px;
     width: calc(100vh - 200px);
+    overflow-wrap: break-word;
  
 }

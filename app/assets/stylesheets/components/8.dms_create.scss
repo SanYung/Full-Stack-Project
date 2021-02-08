@@ -46,7 +46,7 @@
 .alljoined{
     text-align: center;
     font-family: lato, sans-serif;
-    margin-top: 50px;
+    font-size: 20px;
 }
 
 .dms-create-container2{
@@ -60,4 +60,11 @@
     height: 200px;
     line-height: 1.46668;
     text-decoration: none;
+    align-items: center;
+}
+
+#plant-private{
+    margin-top: 25px;
+    width: 70px;
+    height: auto;
 }

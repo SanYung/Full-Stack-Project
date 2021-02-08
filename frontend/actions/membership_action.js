@@ -3,6 +3,7 @@ import * as MembershipApiUtil from '../util/membership_api_util';
 export const REMOVE_MEMBERSHIP = 'REMOVE_MEMBERSHIP';
 export const RECEIVE_MEMBERSHIPS = 'RECEIVE_MEMBERSHIPS';
 export const RECEIVE_MEMBERSHIP = 'RECEIVE_MEMBERSHIP';
+export const OPEN_MEMBERS_LIST = 'OPEN_MEMBERS_LIST';
 
 // const receiveMembership = (membership) => ({
 //     type: RECEIVE_MEMBERSHIP,
@@ -13,6 +14,10 @@ const receiveMemberships = (memberships) => ({
     memberships
 });
 
+export const openMembersList = () => ({
+    type: CLOSE_MEMBERS_LIST,
+    list
+})
 
 export const fetchAllMemberships = () => dispatch => {
     return MembershipApiUtil.fetchAllMemberships()

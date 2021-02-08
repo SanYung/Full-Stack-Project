@@ -27,14 +27,11 @@ class ChannelHome extends React.Component {
                     </div>
 
                     <div className="main-content">
-                        <div > 
-                        <Route exact path="/home/channels" component={Modal} /> 
-                        <Route  exact path="/home/channels/:channelId" component={ChannelShowContainer} />
-                        </div>
-                        <div>
-                            <Route exact path="/home/channels/:channelId/details" component={PeopleListContainer} />
+                        <div > <Route exact path="/home/channels" component={Modal} />  </div>
+                        <div className="flex">
+                        <Route path="/home/channels/:channelId" component={ChannelShowContainer} />
+                        <Route path="/home/channels/:channelId/details" component={PeopleListContainer} />
                         </div> 
-
                     </div>
                 </div>
             </div>

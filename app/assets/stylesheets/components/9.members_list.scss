@@ -1,12 +1,9 @@
 .members-list {
     display:flex;
     flex-direction: column;
-    // justify-content: flex-end;
-    margin-left: 1240px;
-    height: calc(100vh - 55px);
-    width: 400px;
-     border-left: 1px solid gray ;
-     margin-right: 0px;
+    height: calc(100vh - 54px);
+    width: 350px;
+    border-left: 1px solid gray ;
 
 }
 .members-list-content {
