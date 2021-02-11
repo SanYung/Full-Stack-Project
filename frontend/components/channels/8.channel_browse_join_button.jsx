@@ -6,10 +6,11 @@ class ChannelJoinButton extends React.Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
+
     handleClick(e) {
         e.preventDefault();
         this.props.createMembership(this.props.channel.id, this.props.currentUser.id)
-            .then(() => window.location.href = `#/home/channels/${this.props.channel.id}`)
+            window.location.href = `#/home/channels/${this.props.channel.id}`
     }
 
     render() {

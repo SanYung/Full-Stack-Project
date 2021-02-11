@@ -5,7 +5,7 @@ import { fetchPosts, receivePost} from '../../actions/post_action'
 import PostIndex from './post_index';
 import { fetchUsers, fetchUser} from '../../actions/session_action'
 import { channelShowSelector, channelMembership} from '../../reducers/channel_selector'
-import { createMembership } from '../../actions/membership_action'
+import { createMembership, fetchAllMemberships } from '../../actions/membership_action'
 import { fetchAllChannels, fetchChannels } from '../../actions/channel_action'
 
 const msp = (state, ownProps) => {
@@ -22,7 +22,6 @@ const msp = (state, ownProps) => {
     currentUser: state.session.currentUser,
     channelMembership: channelMembership(state, ownProps),
     location: ownProps.location.pathname
-
 })}
 
 const mdp = (dispatch) => ({
@@ -32,7 +31,8 @@ const mdp = (dispatch) => ({
     receivePost: ((post) => dispatch(receivePost(post))),
     createMembership: (channelId, memberId) => dispatch(createMembership(channelId, memberId)),
     fetchAllChannels: () => dispatch(fetchAllChannels()),
-    fetchChannels: (userId) => dispatch(fetchChannels(userId)),
+    fetchChannels: (userId) => dispatch(fetchChannels(userId))
+
 })
 
 export default withRouter(connect(msp, mdp)(PostIndex))

@@ -10,7 +10,8 @@ const msp = (state) => {
     return ({
         currentUser : state.session.currentUser,
         channelAddSelector: channelAddSelector(state),
-        channelMembersCount2: channelMembersCount2(state)
+        channelMembersCount2: channelMembersCount2(state),
+        memberships: state.session.memberships
 
     })
 }
@@ -18,6 +19,7 @@ const msp = (state) => {
 const mdp = (dispatch) => ({
     closeModal: () => dispatch(closeModal()),
     createMembership: (channelId, memberId) => dispatch(createMembership(channelId, memberId)),
+    fetchAllMemberships: () => dispatch(fetchAllMemberships())
 
 })
 

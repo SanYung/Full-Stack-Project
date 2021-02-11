@@ -35,6 +35,10 @@ class PostIndex extends React.Component {
     }
     
     componentDidUpdate(previousProps){
+        if (this.props.memberships !== previousProps.memberships) {
+            this.props.fetchAllMemberships
+        }
+        
         if (previousProps.match.params.channelId !== this.props.channelId) {
             this.props.fetchPosts(this.props.channelId)
             this.props.fetchChannels(this.props.userId)

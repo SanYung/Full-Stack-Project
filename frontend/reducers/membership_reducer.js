@@ -18,8 +18,6 @@ export default (state = {}, action) => {
         //     let nextState = Object.assign({}, state);
         //     delete nextState[action.membership.id];
         //     return nextState;
-        case OPEN_MEMBERS_LIST:
-            return action.list
         case LOGOUT_CURRENT_USER: 
             return {};
         default:

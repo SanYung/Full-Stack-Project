@@ -50,7 +50,11 @@
 #members-list-align > li {
     padding: 5px;
     list-style: none;
-     color: black;
+     color: black
+}
+
+#members-list-align > li:hover {
+    background-color: rgba(234, 230, 235, 0.363);
 }
 
 .align-center-members{
@@ -61,6 +65,5 @@
 }
 
 .align-center-members:hover{
-    color:grey;
     cursor: pointer;
 }

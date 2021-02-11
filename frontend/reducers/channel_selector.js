@@ -143,9 +143,9 @@ export const channelMembership = (state, ownProps) => {
 
 
 export const alreadyExistingDmessages = (state) => {
-    let allchannels = Object.values(state.entities.allchannels)
+    let channels = Object.values(state.entities.channels)
     let existingChannels = []
-    allchannels.forEach((obj) => {
+    channels.forEach((obj) => {
         existingChannels.push(obj.title)
     })
 

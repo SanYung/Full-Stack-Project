@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import ChannelJoinButton from './8.channel_browse_join_button'
 import { HiOutlineHashtag } from 'react-icons/hi'
+import { fetchAllMemberships } from '../../actions/membership_action';
 
 class ChannelBrowse extends React.Component {
     constructor(props) {
