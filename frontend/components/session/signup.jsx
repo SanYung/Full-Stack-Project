@@ -19,13 +19,13 @@ class Signup extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createUser(this.state)
-            .then(() => this.props.history.push('/home/channels/57'));
+            .then(() => this.props.history.push('/home/channels/67'));
     }
 
     handleDemo(e){
         e.preventDefault();
         this.props.createSession(this.props.demo)
-            .then(() => this.props.history.push('/home/channels/57'));
+            .then(() => this.props.history.push('/home/channels/67'));
     }
 
     renderErrors() {
