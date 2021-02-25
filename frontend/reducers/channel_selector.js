@@ -195,9 +195,18 @@ export const dmsTitle = (state, ownProps) => {
         }
     })
 
+    let mydm = []
+    let channels = Object.values(state.entities.channels)
+    channels.forEach((obj => {
+        if (obj.is_dm) {
+            mydm.push(obj.id)
+        }
+    }))
+
+
     let num = 0
     channelmemberships.forEach(obj => {
-        if (obj.memberId !== state.session.currentUser.id && channelmemberships.length !== 1 ) {
+        if (mydm.includes(obj.channelId) && obj.memberId !== state.session.currentUser.id && channelmemberships.length !== 1 ) {
             num = obj.memberId
         } else if (channelmemberships.length === 1) {
             num = obj.memberId
@@ -207,6 +216,7 @@ export const dmsTitle = (state, ownProps) => {
     if (state.entities.users[num] !== undefined ){
         return state.entities.users[num].username
     }
+
 }
 
 export const dmsTitlex = (state, ownProps) => {
@@ -257,11 +267,13 @@ export const dmsTitleId = (state, ownProps) => {
 
 // last object in channel pojo
 export const lastItemChannelId = (state) => {
-    let channels = Object.values(state.entities.channels)
+    let channels = Object.values(state.entities.allchannels)
     let length = channels.length
     let last = channels[length-1]
-    let num = last.id + 1
-    
+    if (!last) {
+        return null
+    }  
+    let num = last.id
     return num
 }
 

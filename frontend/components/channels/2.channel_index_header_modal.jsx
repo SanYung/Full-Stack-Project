@@ -9,9 +9,7 @@ class ChannelIndexHeaderModal extends React.Component {
     constructor(props) {
         super(props)
     }
-
-    handleDelete(){}
-
+    
     render() {
         return (
             <div className="dropdown-items">

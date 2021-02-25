@@ -5,6 +5,10 @@ import Modal from '../modal/modal'
 import PostIndexContainer from '../posts/post_index_container'
 
 class ChannelShow extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
 
     render() {
         

@@ -6,6 +6,14 @@ import { BsPersonSquare } from 'react-icons/bs'
 class DmsIndexItem extends React.Component {
     constructor(props) {
         super(props)
+        this.state = { title: this.props.dmsTitle}
+    }
+
+    componentDidUpdate(prevProps){
+        
+        if (prevProps.dmsTitle !== this.props.dmsTitle){
+            this.setState({title: this.props.dmsTitle })
+        }
     }
 
     componentDidMount() {
@@ -37,7 +45,7 @@ class DmsIndexItem extends React.Component {
         
         return (
             <div id="individualchannel">
-                <Link to={`/home/channels/${this.props.channel.id}`}><BsPersonSquare />&nbsp; {this.props.dmsTitle}</Link> 
+                <Link to={`/home/channels/${this.props.channel.id}`}><BsPersonSquare />&nbsp; {this.state.title}</Link> 
             </div>
         )
     }

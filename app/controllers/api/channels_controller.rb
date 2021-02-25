@@ -13,15 +13,24 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
-    @channel = Channel.new(channel_params)
-    # @channel.user_id = current_user.id
-    if @channel.save
-      Membership.create(channel_id: @channel.id, member_id: current_user.id)
-      render :show
-    else
-      render json: @channel.errors.full_messages, status: 401
-    end
-    # debugger
+    # if !channel_params[:is_dm]
+      @channel = Channel.new(channel_params)
+      if @channel.save
+        Membership.create(channel_id: @channel.id, member_id: current_user.id)
+        render :show
+      else
+        render json: @channel.errors.full_messages, status: 401
+      end 
+    # else
+    #   @channel = Channel.find_by(title: channel_params[:title])
+    #   # debugger
+    #   if @channel.save
+    #     Membership.create(channel_id: @channel.id, member_id: current_user.id)
+    #     render :show
+    #   else
+    #     render json: @channel.errors.full_messages, status: 401
+    #   end
+    # end
   end
 
   
@@ -50,8 +59,7 @@ class Api::ChannelsController < ApplicationController
       render json: ['Could not find channel']
     end
   end
-  
-  private
+
   
   def channel_params
     params.require(:channel).permit(:title, :description, :is_private, :is_starred, :is_dm)

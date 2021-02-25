@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Quack</title>
-      <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
+      <%= favicon_link_tag asset_path('duck.ico'), :rel => 'icon', :type => "image/x-icon"%>
 
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -12,13 +12,19 @@
       window.slackURL = "<%= image_url('home.png') %>";
     </script>
     <script type="text/javascript">
-      window.slack2URL = "<%= image_url('slack2.jpg') %>";
+      window.col1 = "<%= image_url('homepage1.gif') %>";
     </script>
     <script type="text/javascript">
       window.profileURL = "<%= image_url('demoprofile.png') %>";
     </script>
         <script type="text/javascript">
       window.plant = "<%= image_url('plant.png') %>";
+    </script>
+    <script type="text/javascript">
+      window.logo = "<%= image_url('ducklogo.png') %>";
+    </script>
+        <script type="text/javascript">
+      window.main2 = "<%= image_url('main2.gif') %>";
     </script>
     
 

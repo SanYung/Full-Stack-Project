@@ -20,17 +20,17 @@ class DmsIndex extends React.Component {
     //             }
     //         }
     //     );
-
-        this.props.fetchMemberships()
-            .then(() => this.props.fetchChannels(this.props.currentUser.id))
-        
+        this.props.fetchChannels(this.props.currentUser.id)
+        this.props.fetchAllMemberships()
         this.props.fetchUsers()
+        this.props.fetchAllChannels()
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.memberships !== this.props.memberships) {
-            this.props.fetchChannels(this.props.currentUser.id)
-        }
+        // if (prevProps.memberships !== this.props.memberships) {
+        //     this.props.fetchChannels(this.props.currentUser.id)
+        // }
+        // will cause infinite loop
         // if (prevProps.channels !== this.props.channels) {
         //     this.props.fetchChannels(this.props.currentUser.id)
         // }

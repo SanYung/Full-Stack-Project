@@ -14,16 +14,8 @@ class ChannelPrivateAddUsers extends React.Component {
         // this.props.fetchChannels(this.props.currentUser.id)
     }
 
-    componentDidUpdate(prevProps) {
-        // if (prevProps.channel !== this.props.channel) {
-        //     this.props.fetchChannels(this.props.currentUser.id)
-        // }
-        // if (prevProps.channel.title !== this.props.channel.title) {
-        //     this.props.fetchChannels(this.props.currentUser.id)
-        // }
-    }
+
     handleRender(){
-        // console.log (this.props.channel.title)
         if (Object.values(this.props.users).length === this.props.channelMembersCount) {
             return(
                 <div className="dms-create-container2">

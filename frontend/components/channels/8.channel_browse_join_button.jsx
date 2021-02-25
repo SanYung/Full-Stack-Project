@@ -6,6 +6,12 @@ class ChannelJoinButton extends React.Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
+    componentDidUpdate(prevProps){
+        if (prevProps.memberships !== this.props.memberships){
+            this.props.fetchMemberships(this.props.channel.id, this.props.currentUser.id)
+        }
+    }
+
 
     handleClick(e) {
         e.preventDefault();

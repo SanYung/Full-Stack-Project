@@ -15,7 +15,6 @@ class PostIndex extends React.Component {
 
     componentDidMount() {
 
-        // console.log('!!!!', this.props.match.url )
         App.cable.subscriptions.create(
             { channel: "ChatChannel" },
             {
@@ -88,7 +87,6 @@ class PostIndex extends React.Component {
     }
 
     handleRender() {
-        console.log('!!!!!', this.handleStyle())
         if (this.props.channelShowSelector === true && this.props.channelMembership === false) {
             return (
                 <div id={this.handleStyle()}>

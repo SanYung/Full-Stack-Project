@@ -17,23 +17,25 @@ class DmsCreateItem extends React.Component {
     }
 
     handleClick() {
-        console.log('!!!', this.props.alreadyExistingDmessages)
-        // console.log('!!!', this.props.user)
-
-        // App.cable.subscriptions.subscriptions[1].speak({ channel: this.state });
-        
+        // debugger
+        // App.cable.subscriptions.subscriptions[0].speak({ channel: this.state });
+        let num = parseInt(this.props.lastItemChannelId + 1)
         if (this.props.alreadyExistingDmessages.includes(this.props.user.username)) {
             this.props.allDms.forEach(obj => {
                 if (obj.title === this.props.user.username) {
                     window.location.href = `#/home/channels/${obj.id}`
                 }
             })
-        } else {
-            this.props.createChannel(this.state)
-            .then((result) => (this.props.createMembership(Object.values(result)[1].id, this.props.user.id)))} 
-            //  window.location.href = `#/home/channels/${this.props.lastItemChannelId}`
-            // this.setState({ title: this.props.user.username });
+        } else if (this.state.title === this.props.currentUser.username){
+            this.props.createChannel(this.state) 
+             .then(() => window.location.href = `#/home/channels/${num}`)
         }
+        else {
+            this.props.createChannel(this.state)
+            .then((result) => (this.props.createMembership(Object.values(result)[1].id, this.props.user.id)))
+            .then(() => window.location.href = `#/home/channels/${num}`)
+        }
+    } 
 
     render() {
         return (

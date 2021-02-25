@@ -72,14 +72,12 @@ class SearchbarModal extends React.Component {
     }
 
     select(event) {
-        // console.log('!!!!', this.matches()[0])
         let searchinput = event.currentTarget.innerText;
         this.setState({ input: searchinput });
         this.props.closeModal()
     }
 
     // handleSubmit(event){
-    //     console.log('!!!!' , this.matches()[0])
     //     event.preventDefault();
     //     if (this.matches().length === 1) {
     //         let channel = this.matches()[0]

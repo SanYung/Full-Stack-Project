@@ -9,7 +9,6 @@ import { createMembership, fetchAllMemberships } from '../../actions/membership_
 import { fetchAllChannels, fetchChannels } from '../../actions/channel_action'
 
 const msp = (state, ownProps) => {
-    //  console.log('!!!!', ownProps.location.pathname )
     return ({
     posts: Object.values(state.entities.posts).filter((post) => post.channel_id === parseInt(ownProps.match.params.channelId)),
     channelId: ownProps.match.params.channelId,

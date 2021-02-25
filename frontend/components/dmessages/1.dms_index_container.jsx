@@ -4,7 +4,7 @@ import { fetchUsers } from '../../actions/session_action'
 import { fetchChannels, fetchAllChannels, receiveChannel } from '../../actions/channel_action'
 import DmsIndex from './1.dms_index'
 import { openModal } from '../../actions/modal_actions'
-import { fetchMemberships } from '../../actions/membership_action'
+import { fetchAllMemberships } from '../../actions/membership_action'
 
 
 
@@ -22,7 +22,7 @@ const mdp = (dispatch) => ({
     openModal: modal => dispatch(openModal(modal)),
     fetchChannels: (userId) => dispatch(fetchChannels(userId)),
     fetchAllChannels: () => dispatch(fetchAllChannels()),
-    fetchMemberships: () => dispatch(fetchMemberships()),
+    fetchAllMemberships: () => dispatch(fetchAllMemberships()),
     receiveChannel: (channel) => dispatch(receiveChannel(channel))
 
 });

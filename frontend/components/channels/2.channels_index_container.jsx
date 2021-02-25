@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchChannels, fetchAllChannels } from '../../actions/channel_action'
-import { fetchMemberships }from '../../actions/membership_action'
+import { fetchAllMemberships }from '../../actions/membership_action'
 import { fetchUsers } from '../../actions/session_action'
 import ChannelIndex from './2.channel_index'
 import { openModal } from '../../actions/modal_actions'
@@ -21,7 +21,7 @@ const mdp = (dispatch) => ({
     openModal: modal => dispatch(openModal(modal)),
     deleteSession: (() => dispatch(deleteSession())),
     fetchAllChannels: () => dispatch(fetchAllChannels()),
-    fetchMemberships: () => dispatch(fetchMemberships())
+    fetchAllMemberships: () => dispatch(fetchAllMemberships())
 });
 
 export default connect(msp, mdp)(ChannelIndex)

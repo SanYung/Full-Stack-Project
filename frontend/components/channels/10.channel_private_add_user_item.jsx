@@ -13,7 +13,6 @@ class ChannelPrivateAddUsersItem extends React.Component {
         this.props.createMembership(this.props.channelId, this.props.user.id)
             // .then(() => {this.setState({ ['title']: this.props.channelPplNameList})
             .then(() => this.props.updateChannel({ ...this.props.channel, 'title': this.props.channelPplNameList }))
-        // .then((result) => console.log("!!!!!!!!" ,result))
     }
 
     render() {

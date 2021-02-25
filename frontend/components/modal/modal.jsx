@@ -1,5 +1,6 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ChannelCreateContainer from '../channels/3.channel_create_container';
 import ChannelIndexHeaderModalContainer from '../channels/2.channel_index_header_modal_container'
@@ -15,6 +16,16 @@ import GearOptions from '../channels/5.gear_modal_container'
 class Modal extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    handleStyle() {
+        if (this.props.location.pathname === `/home/channels/${this.props.channelId}/details`) {
+            return "modal-child-gear2"
+        }
+        else if (this.props.location.pathname === `/home/channels/${this.props.channelId}`) {
+            return "modal-child-gear"
+
+        }
     }
 
     handleRender() {
@@ -75,7 +86,7 @@ class Modal extends React.Component {
         } else if (this.props.modal === "gear"){
             return (
                 <div className="modal-background-gear" onClick={() => this.props.closeModal()}>
-                    <div className="modal-child-gear" onClick={e => e.stopPropagation()}>
+                    <div className={this.handleStyle()} onClick={e => e.stopPropagation()}>
                         {component}
                     </div>
                 </div>
@@ -109,8 +120,9 @@ class Modal extends React.Component {
     )}
 }
 
-const mapStateToProps = state => ({
-        modal: state.ui.modal
+const mapStateToProps = (state, ownProps)=> ({
+        modal: state.ui.modal, 
+        channelId: ownProps.match.params.channelId
 });
 
 const mapDispatchToProps = dispatch => {
@@ -119,4 +131,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Modal));

@@ -34,7 +34,16 @@ class ChannelBrowse extends React.Component {
                             <div className="channel-members"> <Link to={`/home/channels/${channel.id}`}>< HiOutlineHashtag /> {channel.title}</Link> 
                                 <span style={{color: 'grey'}} > {this.props.channelMembersCount2[channel.id].length} members</span>
                             </div>
-                            <div>< ChannelJoinButton channel={channel} currentUser={this.props.currentUser} createMembership={this.props.createMembership}/></div>
+                            <div>
+                                < ChannelJoinButton 
+                                    channel={channel} 
+                                    currentUser={this.props.currentUser} 
+                                    createMembership={this.props.createMembership}
+                                    memberships={this.props.memberships}
+                                    fetchMemberships= {this.props.fetchMemberships}
+
+                                />
+                            </div>
                         </div>
                     </li>
                 ))}

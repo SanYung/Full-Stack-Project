@@ -1,41 +1,46 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom'
 import { HiOutlineHashtag } from 'react-icons/hi'
+import { FiStar } from 'react-icons/fi'
+import { BsFillStarFill } from 'react-icons/bs'
+import { BsFillPeopleFill } from 'react-icons/bs'
+import { HiOutlinePencilAlt } from 'react-icons/hi'
 import { RiSettings5Fill } from 'react-icons/ri'
 import { RiLockLine } from 'react-icons/ri'
+import { IoMdPersonAdd } from 'react-icons/io'
+import { PeopleListContainer } from './9.channel_members_container'
 
-
-class GearModal extends React.Component {
+class ChannelShowHeader extends React.Component {
     constructor(props) {
         super(props)
         this.handleClick = this.handleClick.bind(this)
         this.handleDelete = this.handleDelete.bind(this)
     }
 
-    componentDidMount() {
-        this.props.fetchMemberships()
-    }
+    // componentDidMount() {
+    //     this.props.fetchMemberships()
+    // }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.memberships !== this.props.memberships) {
-            this.props.fetchChannels(this.props.currentUser.id)
-        }
-        if (prevProps.count !== this.props.count) {
-            this.props.fetchMemberships()
-        }
+        // if (prevProps.memberships !== this.props.memberships) {
+        //     this.props.fetchChannels(this.props.currentUser.id)
+        // }
+    
+        // if (prevProps.channel !== this.props.channel) {
+        //     this.props.fetchChannels(this.props.currentUser.id)
+        // }
     }
 
-
-    handleDelete(e) {
+    handleDelete(e){
         e.preventDefault();
         this.props.deleteChannel(this.props.channelId)
-            .then(window.location.reload());
+        .then(window.location.reload());
     }
-
 
     handleClick(e) {
         e.preventDefault();
         this.props.deleteMembership(this.props.channelId, this.props.currentUser.id)
-            .then(window.location.reload());
+        .then(window.location.reload());
     }
 
     render() {
@@ -43,21 +48,23 @@ class GearModal extends React.Component {
         if (!channel) {
             return null
         }
-        let dropdown;
-        if (channel.is_private === false) {
-            dropdown = <div className="dropdown-col" ><div className="gear-dropdown-items" onClick={this.handleClick}>Leave < HiOutlineHashtag /> {channel.title} </div>
-                <div className="gear-dropdown-items" > <button onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</button></div></div>
-        } else if (this.state.dropdown && channel.is_private === true) {
-            dropdown = <div className="dropdown-col" ><div className="gear-dropdown-items" onClick={this.handleDelete}> Delete <RiLockLine /> {channel.title} </div>
-                <div className="gear-dropdown-items" > <button onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</button></div></div>
-        }
+      
         return (
-            <div id="gear-modal-x" onClick={() => this.props.closeModal()}>
-
+            <div >
+                {channel.is_private === false ?
+                <div className="dropdown-items"> 
+                    <li onClick={this.handleClick}> Leave < HiOutlineHashtag /> {channel.title} </li> 
+                    <li onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</li> 
+                </div> 
+                :
+                <div> className="dropdown-items"
+                    <li onClick={this.handleDelete}> Delete <RiLockLine /> {channel.title} </li> 
+                    <li onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</li> 
+                </div> }
             </div>
         )
     }
 
 }
 
-export default GearModal
+export default ChannelShowHeader

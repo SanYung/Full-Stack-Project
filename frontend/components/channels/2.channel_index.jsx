@@ -12,18 +12,13 @@ class ChannelIndex extends React.Component {
         this.props.fetchChannels(this.props.currentUser.id)
         this.props.fetchUsers()
         this.props.fetchAllChannels()
-        this.props.fetchMemberships()
+        this.props.fetchAllMemberships()
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.memberships !== this.props.memberships) {
             this.props.fetchChannels(this.props.currentUser.id)
         }
-
-        // if (prevProps.currentUser.id !== this.props.currentUser.id) {
-        //     this.props.fetchChannels(this.props.currentUser.id)
-        //     this.props.fetchUsers() 
-        // }
     }
 
     render() {

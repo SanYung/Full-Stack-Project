@@ -11,7 +11,10 @@ class ChannelMembers extends React.Component {
     }
 
     componentDidMount(){
+        this.props.fetchChannels(this.props.currentUser.id)
         this.props.fetchUsers()
+        this.props.fetchAllChannels()
+        this.props.fetchAllMemberships()
     }
 
 
@@ -40,7 +43,8 @@ class ChannelMembers extends React.Component {
                                         createChannel={this.props.createChannel}
                                         users={this.props.users}
                                         createMembership={this.props.createMembership}
-                                        
+                                        currentUser={this.props.currentUser}
+                                        lastItemChannelId={this.props.lastItemChannelId}
                                         />
                                     {/* <div className="align-center-members" onClick={this.handleClick}>
                                         <span style={{fontSize: "30px"}}> <BsPersonSquare /></span> &nbsp;&nbsp;

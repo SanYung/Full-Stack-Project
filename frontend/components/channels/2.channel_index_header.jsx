@@ -11,8 +11,9 @@ class ChannelIndexHeader extends React.Component {
 
     render() {
         return (
-            <div>
+
                 <div className="workspace-header">
+                 
                     <div id="parentdropdown">
                         <div className="dropdown">
                             <span id="dropdown-click" onClick={()=> this.props.openModal('logout')}> Your Workspace &nbsp; <div id="carrat-down"><BsChevronCompactDown /></div> </span>
@@ -20,7 +21,7 @@ class ChannelIndexHeader extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
+
         )
     }
 }

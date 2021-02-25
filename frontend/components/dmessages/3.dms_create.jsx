@@ -9,8 +9,8 @@ class DmsCreate extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUsers()
         this.props.fetchAllChannels()
+        this.props.fetchUsers()
         this.props.fetchChannels(this.props.currentUser.id)
     }
 
@@ -22,7 +22,8 @@ class DmsCreate extends React.Component {
                 {Object.values(this.props.users).map((user) => (
                     <li key={user.id} >
                         <div  >
-                            < DmsCreateItem lastItemChannelId={this.props.lastItemChannelId}allDms={this.props.allDms} 
+                            < DmsCreateItem lastItemChannelId={this.props.lastItemChannelId}
+                                            allDms={this.props.allDms} 
                                             user={user} 
                                             channelId= {this.props.channelId}
                                             createMembership={this.props.createMembership}

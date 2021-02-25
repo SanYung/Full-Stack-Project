@@ -12,7 +12,7 @@ const msp = (state, ownProps) => {
     dmsTitlex: dmsTitlex(state,ownProps),
     user_id: state.session.currentUser.id,
     channel: state.entities.channels[ownProps.match.params.channelId],
-    channelId: ownProps.match.params.channelId
+    channelId: ownProps.match.params.channelId,
 
     })}
 

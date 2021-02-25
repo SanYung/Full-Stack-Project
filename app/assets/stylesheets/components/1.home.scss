@@ -1,35 +1,45 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400;1,700&display=swap");
+$Roboto-font: 'Roboto', sans-serif;
 .main{
     display: flex;
-    background-color: #f4ede4;
+    background-color: rgb(240,235,226);
     flex-direction: column;
-    
+    // height: 900px;
 }
 
 .col2{
     display: flex;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: -10;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-top: 50px;
  
 }
 
 .col1{
     display: flex;
-    margin-left: 10%;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 12%;
     margin-right: 10%;
     align-items: center;
 }
 
 #content1{
-     margin-top: -150px;
+     margin-top: -10px;
 }
 
+#content2{
+    
+     margin-top: -200px;
+}
 #headtext{
     font-weight: bold;
     font-size: 70px;
-    font-family: Helvetica Neue;
-    padding: 15px;
+    font-family: $Roboto-font;
+    padding: 20px;
 }
 
 #subtext{
@@ -40,34 +50,23 @@
 }
 
 #photo1{
-    height: 750px;
+    // margin-top: -10px;
+    height: auto;
     width: 750px;
 }
 
 #photo2{
-    height: 625px;
-    width: 625px;
+    height: auto;
+    width: 600px;
     margin-left: -56px;
     padding-right: 50px;
 }
 
 
 
-#footer {
-    font-family: Lato;
-    font-size: 16px;
-    width: 100%;
-    bottom: 0;
-    background: white;
-    display: flex;
-    justify-content: flex-end;
-    height: 200px;
-}
-
 
 
 #demo {
-    // align-items: center;
     margin-top: 5%;
     margin-left:11%;
     display: inline-block;
@@ -77,13 +76,118 @@
     cursor: pointer;
     text-decoration: none;
     color:  white;
-    // border: 1px solid black;
     box-shadow: 0 0 0 0.2px #717274;
     border-radius: 3px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 #demo:hover{
-    background-color: #693355;
+    background-color: #6e4760;
+}
+
+.main2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 12%;
+    margin-right: 12%;
+    height: 850px;
+}
+.main2-header{
+    padding-left: 200px;
+    padding-right: 200px;
+    text-align: center;
+    margin-top: 70px;
+    font-size: 50px;
+    font-family: $Roboto-font;
+    font-weight: 500px;
+
+}
+#photo3{
+    width: 1100px;
+    height: auto;
+}
+
+.hpicon{
+    font-size: 80px;
+    padding: 50px;
+
+}
+
+
+.footer-purple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(84, 19, 85);
+    height: 450px;
+    clip-path: ellipse(98% 100% at center top);
+}
+
+#footer-purple-header{
+    color:white;
+    font-size: 50px;
+    font-weight: bolder;
+    padding-top:100px;
+    text-align: center;
+    font-family: $Roboto-font;
+}
+
+#footer-button{
+    font-family: $Roboto-font;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    border:none;
+    padding: 10px;
+    height:30px;
+    font-weight: 500;
+    font-size: 12px;
+    color: rgb(84, 19, 85);
+}
+
+#footer-button:hover{
+    opacity: 0.6
+}
+
+
+.footer-content{
+    margin-left:-160px ;
+    margin-top: 50px;
+     margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+     font-family: $Roboto-font;
+}
+
+
+#footer-cat-header{
+    font-weight: bolder;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+#footer-list > li{
+    text-decoration: none;
+    color: black;
+    text-align: left;
+  
+}
+
+.aboutme{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.aboutme a:hover {
+    font-weight: bolder;
+    font-size: 18px;
+    color: blue
+}
+
+#footer-duck{
+    width:350px;
+    height: auto;
 }
 
