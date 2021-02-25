@@ -13,9 +13,9 @@ class Navbar extends React.Component {
                 <span className='left-nav'>
                     <img id="duck" src={window.logo} />
                     <Link id="logo" to="/">Quack</Link> &nbsp;&nbsp;
-                    <a href='https://www.linkedin.com/in/sansan-kung/' id="aboutme" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/SanYung" id="aboutme" target="_blank">GitHub</a>
-                    <a href="https://angel.co/u/san-yung" id="aboutme" target="_blank">AngelList</a>
+                    <a href='https://www.linkedin.com/in/sansan-kung/' className="aboutme" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/SanYung" className="aboutme2" target="_blank">GitHub</a>
+                        <a href="https://angel.co/u/san-yung" className="aboutme3" target="_blank">AngelList</a>
                 </span>
                 <span className="right-nav">
                     <button className="logoutbutton" onClick={this.props.deleteSession}>Log Out</button>
@@ -29,9 +29,9 @@ class Navbar extends React.Component {
                 <span className='left-nav'>
                         <img id="duck" src={window.logo} />
                         <Link id="logo" to="/">Quack</Link> &nbsp;&nbsp;
-                        <a href='https://www.linkedin.com/in/sansan-kung/' id="aboutme" target="_blank">LinkedIn</a>
-                        <a href="https://github.com/SanYung" id="aboutme" target="_blank">GitHub</a>
-                        <a href="https://angel.co/u/san-yung" id="aboutme" target="_blank">AngelList</a>
+                        <a href='https://www.linkedin.com/in/sansan-kung/' className="aboutme" target="_blank">LinkedIn</a>
+                            <a href="https://github.com/SanYung" className="aboutme2" target="_blank">GitHub</a>
+                            <a href="https://angel.co/u/san-yung" className="aboutme3" target="_blank">AngelList</a>
                 </span>
 
                 <span className="right-nav">

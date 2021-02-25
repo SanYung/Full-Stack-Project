@@ -14,3 +14,33 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+window.addEventListener("scroll", function () {
+    var header = document.getElementsByClassName('navbarcontainer')[0];
+    header.classList.toggle("sticky", window.scrollY > 0);
+})
+
+window.addEventListener("scroll", function () {
+    var header = document.getElementsByClassName('navbar')[0];
+    header.classList.toggle("sticky", window.scrollY > 0);
+})
+
+window.addEventListener("scroll", function () {
+    var header = document.getElementById('logo');
+    header.classList.toggle("sticky", window.scrollY > 0);
+})
+
+window.addEventListener("scroll", function () {
+    var header = document.getElementsByClassName('aboutme')[0];
+    header.classList.toggle("sticky", window.scrollY > 0);
+})
+
+window.addEventListener("scroll", function () {
+    var header = document.getElementsByClassName('aboutme2')[0];
+    header.classList.toggle("sticky", window.scrollY > 0);
+})
+
+window.addEventListener("scroll", function () {
+    var header = document.getElementsByClassName('aboutme3')[0];
+    header.classList.toggle("sticky", window.scrollY > 0);
+})

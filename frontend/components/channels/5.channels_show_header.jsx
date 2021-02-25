@@ -62,7 +62,7 @@ class ChannelShowHeader extends React.Component {
                 { channel.is_dm === false ? 
                     <ul id='showheader-content'>
                         <div id="header-and-icons">
-                            <div id="header-channel-title" >{channel.is_private === true ? <RiLockLine /> : < HiOutlineHashtag /> } {channel.title} &nbsp; <span onClick={this.handleStar}> {this.props.channel.is_starred === true ? <span style={{ color: "gold" }}><BsFillStarFill /></span> : <FiStar />}</span></div>
+                            <div id="header-channel-title" >{channel.is_private === true ? <RiLockLine /> : < HiOutlineHashtag /> } {channel.title} &nbsp; <span id='starr'onClick={this.handleStar}> {this.props.channel.is_starred === true ? <span style={{ color: "gold" }}><BsFillStarFill /></span> : <FiStar />}</span></div>
                             <div className="icons"> 
                                 <li id="person" onClick={this.handleDetails} channelid={channel.id}><BsFillPeopleFill />&nbsp;{this.props.count} people in this channel </li>&nbsp; |&nbsp;
                                 {channel.description === "" || null ? 

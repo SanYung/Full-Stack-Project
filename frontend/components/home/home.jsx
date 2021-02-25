@@ -59,9 +59,6 @@ class Home extends React.Component {
                         <a className="hpicon" href="https://www.linkedin.com/in/sansan-kung/" target="_blank"><AiFillLinkedin /></a>
                         <a className="hpicon" href="https://github.com/SanYung" target="_blank"><AiFillGithub /></a>
                         <a className="hpicon" href="https://angel.co/u/san-yung" target="_blank"><FaAngellist /></a>
-
-
-
                     </div>
                 </div>
 

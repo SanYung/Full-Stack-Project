@@ -55,8 +55,8 @@ membership22 = Membership.create(channel_id: channel1.id, member_id: charlie.id)
 membership23 = Membership.create(channel_id: channel6.id, member_id: charlie.id)
 membership24 = Membership.create(channel_id: channel5.id, member_id: jonathan.id)
 membership25 = Membership.create(channel_id: channel8.id, member_id: demo.id)
-membership25 = Membership.create(channel_id: channel8.id, member_id: emma.id)
-membership25 = Membership.create(channel_id: channel7.id, member_id: demo.id)
+membership26 = Membership.create(channel_id: channel8.id, member_id: emma.id)
+membership27 = Membership.create(channel_id: channel7.id, member_id: demo.id)
 
 
 post1 = Post.create(body:"Hi there, welcome to Quack!", user_id: demo.id, channel_id: channel1.id)

@@ -5,6 +5,10 @@
     color: white;
     top: 0px;
 }
+
+.workspace-header:hover{
+  cursor: pointer;
+}
 // #parentdropdown{
 //     position: relative;
 //     margin-left:0px;
@@ -163,4 +167,5 @@
 .dropdown-items li:hover{
     background: rgb(26,79,145);
     color: white;
+    cursor: pointer;
 }

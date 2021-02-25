@@ -21,7 +21,7 @@ $Roboto-font: 'Roboto', sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 120px;
     margin-left: 12%;
     margin-right: 10%;
     align-items: center;
@@ -87,13 +87,20 @@ $Roboto-font: 'Roboto', sans-serif;
 
 .main2{
     display: flex;
+   background-color: rgb(253,253,253);
     align-items: center;
     flex-direction: column;
     margin-left: 12%;
     margin-right: 12%;
     height: 850px;
 }
+
+.home{
+   background-color: rgb(253,253,253);
+
+}
 .main2-header{
+background-color: rgb(253,253,253);
     padding-left: 200px;
     padding-right: 200px;
     text-align: center;
@@ -105,7 +112,8 @@ $Roboto-font: 'Roboto', sans-serif;
 }
 #photo3{
     width: 1100px;
-    height: auto;
+    height: auto;    
+
 }
 
 .hpicon{
@@ -182,8 +190,8 @@ $Roboto-font: 'Roboto', sans-serif;
 
 .aboutme a:hover {
     font-weight: bolder;
-    font-size: 18px;
-    color: blue
+    color: blue;
+    cursor: pointer;
 }
 
 #footer-duck{
