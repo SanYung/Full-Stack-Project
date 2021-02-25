@@ -1,6 +1,6 @@
 # Quack
 
-![](docs/ducklogo.png)
+![]
 
 [Quack Live Link](https://san-quack.herokuapp.com/#/)
 
