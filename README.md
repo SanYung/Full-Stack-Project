@@ -5,8 +5,8 @@
 [Quack Live Link](https://san-quack.herokuapp.com/#/)
 
 # Overview
-Quack, a slack clone, is a communication application intended to enhance teamwork/colloborationto.  Quack allows you to create/join channels(cohorts/subjects), send live messages to one another, and direct message other users. Quack was built in approximately 10 days using Ruby on Rails (backend) and React/Redux (fronted).
-<img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/5.png" width="700">
+Quack, a slack clone, is a communication application intended to enhance teamwork/colloborationto.  Quack allows you to create/join channels(cohorts/subjects), send live messages to one another, and direct message other users. Quack was built in approximately 10 days using Ruby on Rails (backend) and React/Redux (fronted).  
+<img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/7.png" width="700">
 
 # Technologies 
 Quack was created with Ruby on Rails, React, Redux, Node.js, SQL, Action Cable, AJAX, JSX, Jbuilder, CSS3 and JSX.
