@@ -1,24 +1,17 @@
-# README
+# Quack
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![](docs/ducklogo.png)
 
-Things you may want to cover:
+[Quack Live Link](https://san-quack.herokuapp.com/#/)
 
-* Ruby version
+# Overview
+Quack is a slack clone application intended for users to create channels and send live messages to one another. Quack was built in approximately 10 days using Ruby on Rails (backend) and React/Redux (fronted).
 
-* System dependencies
 
-* Configuration
+## Features
 
-* Database creation
 
-* Database initialization
+## Technical Challenges
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Highlight
