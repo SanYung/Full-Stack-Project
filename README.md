@@ -6,6 +6,7 @@
 
 # Overview
 Quack, a slack clone, is a communication application intended to enhance teamwork/colloborationto.  Quack allows you to create/join channels(cohorts/subjects), send live messages to one another, and direct message other users. Quack was built in approximately 10 days using Ruby on Rails (backend) and React/Redux (fronted).  
+</br>
 <img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/7.png" width="700">
 
 # Technologies 
