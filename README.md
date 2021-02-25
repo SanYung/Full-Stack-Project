@@ -19,14 +19,14 @@ Quack was created with Ruby on Rails, React, Redux, Node.js, SQL, Action Cable, 
 - If password/username is incorrect, session form will notify the user of the reason for failed log in 
 - After users log in, refresheshing the page will not log the user out
 - Implemented a demo user for quick access into Quack
-<img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/4.png" width="500">
+<img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/4.png" width="1000">
 
 ### Channels
 - Users can create, update, and view channels 
 - Users can create private or public channels
 - Users cannot join private channels but can only be invited for other users already in the private channel
 - Users can starr favorite channels
-<img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/3.png" width="500">
+<img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/3.png" width="1000">
 
 
 ### Channel Memberships
@@ -36,7 +36,7 @@ Quack was created with Ruby on Rails, React, Redux, Node.js, SQL, Action Cable, 
 - Users can view other members who are joined to a specific channel
 - Users can only be invited to join a private channel, and cannot join private channels themselves
 - Users are unable to post in channels they are not joined to
-<img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/2.png" width="500">
+<img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/2.png" width="1000">
 
 
 ### Direct Messages
@@ -51,5 +51,5 @@ Quack was created with Ruby on Rails, React, Redux, Node.js, SQL, Action Cable, 
 - Search field will automatically pull all matching criteria
 - Users can search by category 
 - Users can click on any search result and be redirected to the corresponding page 
-<img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/1.png" width="500">
+<img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/1.png" width="800">
 
