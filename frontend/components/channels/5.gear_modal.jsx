@@ -57,7 +57,7 @@ class ChannelShowHeader extends React.Component {
                     <li onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</li> 
                 </div> 
                 :
-                <div> className="dropdown-items"
+                <div className="dropdown-items" >
                     <li onClick={this.handleDelete}> Delete <RiLockLine /> {channel.title} </li> 
                     <li onClick={() => this.props.openModal('edittitle')}> Edit Channel Name</li> 
                 </div> }
