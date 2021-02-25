@@ -1,6 +1,7 @@
 # Quack
 
-![]
+<img src="https://github.com/SanYung/Quack---A-Slack-Clone/blob/main/app/assets/images/ducklogo.png" width="300">
+
 
 [Quack Live Link](https://san-quack.herokuapp.com/#/)
 
