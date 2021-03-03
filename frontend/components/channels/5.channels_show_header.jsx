@@ -72,8 +72,15 @@ class ChannelShowHeader extends React.Component {
                         </div>
 
                         <div className="private-gear-add">
-                            {channel.is_private ? <div  onClick={() => this.props.openModal('addToPrivateChannel')}> <span id="add-button">< IoMdPersonAdd /> </span> </div> : <div></div>}
-                            <div id="dropdown-click" onClick={() => this.props.openModal('gear')} > <span id="gear-button"><RiSettings5Fill /></span> </div>
+                            {channel.is_private ? 
+                            <div className= "private-gear-add2">
+                                <div onClick={() => this.props.openModal('addToPrivateChannel')}> <span id="add-button">< IoMdPersonAdd /> </span> </div>
+                                <div  onClick={() => this.props.openModal('gear')} > <span id="gear-button"><RiSettings5Fill /></span> </div>
+                            </div>
+                             : 
+                            <div>
+                                <div  onClick={() => this.props.openModal('gear')} > <span id="gear-button"><RiSettings5Fill /></span> </div>
+                            </div>}
                         </div>
                     </ul>
                     : 

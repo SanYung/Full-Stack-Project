@@ -5,12 +5,19 @@ class Login extends React.Component {
         super(props)
         this.state = this.props.user
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleDemo = this.handleDemo.bind(this)
     }
   
     handleInput(type) {
         return (e) => {
             this.setState({ [type]: e.currentTarget.value });
         };
+    }
+
+    handleDemo(e) {
+        e.preventDefault();
+        this.props.createSession(this.props.demo)
+            .then(() => this.props.history.push('/home/channels/67'));
     }
 
     handleSubmit(e) {
@@ -72,6 +79,7 @@ class Login extends React.Component {
                         />
                     </label>
                     <button className="continue" onClick={this.handleSubmit}><span>Continue</span></button>
+                    <button className='button2' onClick={this.handleDemo}>Sign in as a Demo User</button>
                         {this.renderErrors()}
     
                 </form>

@@ -10,6 +10,11 @@ const msp = ( {errors}) => ({
         email: '',
         password: '',
     },
+    demo: {
+        username: 'DemoUser',
+        email: 'demo@aa.com',
+        password: 'demo123',
+    },
     errors: errors.session
 })
 const mdp = (dispatch) => ({

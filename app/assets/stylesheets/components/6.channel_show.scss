@@ -78,6 +78,7 @@
 #add-button{
     color: rgb(49, 49, 49);
     font-size: 30.5px;
+    margin-bottom:50px;
 }
 
 #parentdropdown{
@@ -106,7 +107,9 @@
 //     padding: 10px;
 //     background-color: #333130;
 
-
+.dropdown-items{
+    width: fit-content
+}
 // }
 
 // .gear-dropdown-items:hover{
@@ -136,11 +139,15 @@
 
 
 .private-gear-add {
+    margin-top: 30px;
+}
+
+.private-gear-add2 {
     display: flex;
-    // flex-direction: row;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    // margin-top: 30px;
 }
 
 
