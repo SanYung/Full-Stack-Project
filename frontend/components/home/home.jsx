@@ -6,7 +6,7 @@ import { FaAngellist, FaReact } from 'react-icons/fa'
 import { SiRedux, SiJavascript, SiPostgresql }  from 'react-icons/si'
 import { DiRuby } from 'react-icons/di'
 import { GrChannel } from 'react-icons/gr'
-import { RiGitRepositoryPrivateFill } from 'react-icons/ri'
+import { RiGitRepositoryPrivateFill, RiProfileLine } from 'react-icons/ri'
 import { BsSearch, BsFillPeopleFill} from 'react-icons/bs'
 
 
@@ -88,6 +88,7 @@ class Home extends React.Component {
                                 <li><a href="https://github.com/SanYung" target="_blank">< AiFillGithub />&nbsp;GitHub</a></li>
 
                                 <li><a href="https://angel.co/u/san-yung" target="_blank">< FaAngellist />&nbsp;AngelList</a></li>
+                                <li> <a href="https://sanyung.dev/" target="_blank"><RiProfileLine/> &nbsp;Portfolio</a></li>
 
                         </ul>
                     </div>
