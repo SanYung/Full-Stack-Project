@@ -6,6 +6,7 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER'
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS"
 export const RECEIVE_USER = 'RECEIVE_USER'
+export const UPDATE_CURRENT_USER = "UPDATE_CURRENT_USER";
 
 
 
@@ -30,6 +31,13 @@ const receiveCurrentUser = (user) => ({
 const logoutCurrentUser = () => ({
     type: LOGOUT_CURRENT_USER
 });
+
+export const updateUser = user => {
+    return {
+        type: UPDATE_CURRENT_USER,
+        user
+    }
+}
 
 export const receiveErrors = (errors) => ({
     type: RECEIVE_SESSION_ERRORS,

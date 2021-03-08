@@ -40,9 +40,13 @@ class ChannelMembersItem extends React.Component {
 
     render() {
         let username = this.props.users[this.props.memberId] ? this.props.users[this.props.memberId].username : ''
+        let user = this.props.users[this.props.memberId] ? this.props.users[this.props.memberId] : ''
         return (
             <div className="align-center-members" onClick={this.handleClick} >
-                <span style={{ fontSize: "30px" }}> <BsPersonSquare /></span> &nbsp;&nbsp;
+
+                {user.photoUrl ? <img id="demoprofile" src={user.photoUrl} />
+                    : <img id="demoprofile" src={this.props.photo1} />}
+                {/* <span style={{ fontSize: "30px" }}> <BsPersonSquare /></span> &nbsp;&nbsp; */}
                 {username}
             </div>
         )

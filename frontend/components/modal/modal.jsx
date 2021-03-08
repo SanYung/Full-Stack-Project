@@ -11,6 +11,7 @@ import AddChannelContainer from '../channels/8.channel_browse_container'
 import DmsCreateContainer from '../dmessages/3.dms_create_container'
 import ChannelPrivateAddUsers from '../channels/10.channel_private_add_users_container'
 import GearOptions from '../channels/5.gear_modal_container'
+import AddPhotoContainer from '../channels/11.add_photo_container'
 // import PeopleListContainer from '../channels/9.channel_members_container'
 
 class Modal extends React.Component {
@@ -39,6 +40,9 @@ class Modal extends React.Component {
                 break;
             case 'createChannel':
                 component = <ChannelCreateContainer />;
+                break;
+            case 'addphoto':
+                component = <AddPhotoContainer />;
                 break;
             case 'editdescription':
                 component = <ChannelEditDescription />;

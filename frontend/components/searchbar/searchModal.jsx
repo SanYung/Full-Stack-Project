@@ -4,7 +4,7 @@ import { HiOutlineHashtag } from 'react-icons/hi'
 import { BsPersonSquare } from 'react-icons/bs'
 import { GrChannel } from 'react-icons/gr'
 import { RiPlantLine } from 'react-icons/ri'
-import { TiMessages } from 'react-icons/ti' 
+import { TiFlowChildren, TiMessages } from 'react-icons/ti' 
 
 class SearchbarModal extends React.Component {
     constructor(props) {
@@ -13,19 +13,15 @@ class SearchbarModal extends React.Component {
         this.state = {
             input: '',
             channel: false,
-            // people: false,
             messages: false,
-            // classModalMargin: '',
             classModal: 'search-modal'
 
         }
       
         this.handleInput = this.handleInput.bind(this);
         this.select = this.select.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChannels = this.handleChannels.bind(this)
         this.handleMessages = this.handleMessages.bind(this)
-        // this.handlePeople = this.handlePeople.bind(this)
         this.handleAll = this.handleAll.bind(this)
 
     }
@@ -39,29 +35,94 @@ class SearchbarModal extends React.Component {
             this.setState({ classModal: 'search-modal-expand'});
         } else {
             this.setState({ classModal: 'search-modal' });
-
         }
         this.setState({ input: event.currentTarget.value, channel: false, messages: false });
     }
 
-    matches() {
-        let matches = [];
-
-        const icons = (id) => {
-            let priv = this.props.allchannels[id].is_private;
-            let dm = this.props.allchannels[id].is_dm
-            if (priv === true && dm === false) {
-                return <RiLockLine />
-            } else if ( dm === true ){
-                return < BsPersonSquare />
-            } else if (priv === false && dm === false) {
-                return < HiOutlineHashtag />
+    photoIcon(id) {
+        let memberships = this.props.memberships
+        let channelmemberships = []
+        memberships.forEach((obj) => {
+            if (this.props.allchannels[obj.channelId].is_dm && obj.channelId === parseInt(id)) {
+                channelmemberships.push(obj)
             }
+        })
+
+        let mydm = []
+        let channels = Object.values(this.props.channels)
+        channels.forEach((obj => {
+            if (obj.is_dm) {
+                mydm.push(obj.id)
+            }
+        }))
+
+
+        let num = 0
+        channelmemberships.forEach(obj => {
+            if (mydm.includes(obj.channelId) && obj.memberId !== this.props.currentUser.id && channelmemberships.length !== 1) {
+                num = obj.memberId
+            } else if (channelmemberships.length === 1) {
+                num = obj.memberId
+            }
+        })
+
+        if (this.props.userss[num] !== undefined ) {
+            return this.props.userss[num].photoUrl  ? <img id="demoprofile" src={this.props.userss[num].photoUrl} /> : <img id="demoprofile" src={this.props.photo1} />
+        } 
+    }
+
+   title (id) {
+        let memberships = this.props.memberships
+        let channelmemberships = []
+       memberships.forEach((obj) => {
+            if (this.props.allchannels[obj.channelId].is_dm && obj.channelId === parseInt(id)) {
+                channelmemberships.push(obj)
+            }
+        })
+
+        let mydm = []
+        let channels = Object.values(this.props.channels)
+        channels.forEach((obj => {
+            if (obj.is_dm) {
+                mydm.push(obj.id)
+            }
+        }))
+
+
+        let num = 0
+        channelmemberships.forEach(obj => {
+            if (mydm.includes(obj.channelId) && obj.memberId !== this.props.currentUser.id && channelmemberships.length !== 1) {
+                num = obj.memberId
+            } else if (channelmemberships.length === 1) {
+                num = obj.memberId
+            }
+        })
+
+        if (this.props.userss[num] !== undefined) {
+            return this.props.userss[num].username
         }
 
-        Object.values(this.props.allchannels).forEach(channel => {
+    }
+
+    icons(id) {
+        let priv = this.props.allchannels[id].is_private;
+        let dm = this.props.allchannels[id].is_dm
+        if (priv === true && dm === false) {
+            return <RiLockLine />
+        } else if (dm === true) {
+            return this.photoIcon(id)
+        } else if (priv === false && dm === false) {
+            return < HiOutlineHashtag />
+        }
+    }
+
+    matches() {
+        let matches = [];
+        Object.values(this.props.currentUserSearch).forEach(channel => {
             if ((channel.title.toLowerCase()).includes(this.state.input.toLowerCase())) {
-                matches.push(<button onMouseDown={() => this.props.history.push(`/home/channels/${channel.id}`)}><span className="icon-align"><span className={channel.is_dm === true ? 'demo-icons' : ''}>{icons(channel.id)}</span>{channel.title}</span></button>);
+                matches.push(<button onMouseDown={() => this.props.history.push(`/home/channels/${channel.id}`)}><span className="icon-align"><span className={channel.is_dm === true ? 'demo-icons' : ''}>
+                    {this.icons(channel.id)}</span>
+                    {this.title(channel.id) ? this.title(channel.id) : channel.title}</span></button>);
             }
         });
 
@@ -77,14 +138,6 @@ class SearchbarModal extends React.Component {
         this.props.closeModal()
     }
 
-    // handleSubmit(event){
-    //     event.preventDefault();
-    //     if (this.matches().length === 1) {
-    //         let channel = this.matches()[0]
-    //         this.setState({ input: channel});
-    //     }
-    // }
-
     handleChannels(event){
         event.preventDefault()
         this.setState({ channel: true, messages: false, classModal: 'search-modal-expand', input: '' });
@@ -95,11 +148,6 @@ class SearchbarModal extends React.Component {
         this.setState({ channel: false, messages: true, classModal: 'search-modal-expand', input: '' });
     }
 
-    // handlePeople(event) {
-    //     event.preventDefault()
-    //     this.setState({ channel: false, people: true, messages: false });
-    // }
-
     handleAll(event) {
         event.preventDefault()
         this.setState({ channel: false, messages: false, classModal: 'search-modal-expand' , input: ''});
@@ -107,7 +155,7 @@ class SearchbarModal extends React.Component {
 
 
     render() {
-            let arr = []
+        let arr = []
             let results
             if (this.state.channel === true) {
                 this.matches().map((result, i) => {

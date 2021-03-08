@@ -45,6 +45,7 @@ class ChannelMembers extends React.Component {
                                         createMembership={this.props.createMembership}
                                         currentUser={this.props.currentUser}
                                         lastItemChannelId={this.props.lastItemChannelId}
+                                        photo1= {this.props.photo1}
                                         />
                                     {/* <div className="align-center-members" onClick={this.handleClick}>
                                         <span style={{fontSize: "30px"}}> <BsPersonSquare /></span> &nbsp;&nbsp;

@@ -8,6 +8,7 @@ const msp = ({errors}) => ({
         username:'',
         email: '',
         password: '',
+        photo: window.profileURL2
         },
     demo: {
         username: 'DemoUser',

@@ -8,14 +8,19 @@ import { RiProfileLine } from 'react-icons/ri'
 class Searchbar extends React.Component {
     constructor(props) {
         super(props);
+     
     }
-    
+
     render() {
 
         return (
 
             <div className="search-bar" >
-                <Link id="duck2" to={'/'}><img src={window.logo} />  </Link>
+                <div className="leftside-search">
+                    <Link to={'/'}><img id="duck2" src={window.logo} />  </Link>
+                    {this.props.currentUser.photoUrl ? <img src={this.props.currentUser.photoUrl} className='profilepicture' /> : <img className='profilepicture' src = { window.profileURL2 } /> }
+                </div>
+
                 <div className="search-bar-content" onClick={()=> this.props.openModal('search')}>
                     <AiOutlineSearch />
                     <p>Search Your Workspace</p>
@@ -25,7 +30,6 @@ class Searchbar extends React.Component {
                     <a href="https://github.com/SanYung" className="aboutme-search" target="_blank"><AiFillGithub /></a>
                     <a href="https://angel.co/u/san-yung" className="aboutme-search" target="_blank"><FaAngellist /></a>
                     <a href="https://sanyung.dev/" className="aboutme-search" target="_blank"><RiProfileLine /></a>
-
                 </div>
 
             </div>

@@ -23,14 +23,16 @@ class DmsCreate extends React.Component {
                     <li key={user.id} >
                         <div  >
                             < DmsCreateItem lastItemChannelId={this.props.lastItemChannelId}
-                                            allDms={this.props.allDms} 
                                             user={user} 
+                                            users = {this.props.users}
                                             channelId= {this.props.channelId}
                                             createMembership={this.props.createMembership}
                                             createChannel={this.props.createChannel} 
                                             closeModal={this.props.closeModal} 
-                                            alreadyExistingDmessages={this.props.alreadyExistingDmessages}
                                             currentUser = {this.props.currentUser}
+                                            memberships = {this.props.memberships}
+                                            membersps={this.props.membersps}
+                                            allchannels={this.props.allchannels}
                                             />
                         </div>
                     </li>

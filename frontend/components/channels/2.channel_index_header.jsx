@@ -18,6 +18,8 @@ class ChannelIndexHeader extends React.Component {
                         <div className="dropdown">
                             <span id="dropdown-click" onClick={()=> this.props.openModal('logout')}> Your Workspace &nbsp; <div id="carrat-down"><BsChevronCompactDown /></div> </span>
                             <div id="user-status"><span id="status-button"> <IoIosRadioButtonOn /></span>&nbsp; {this.props.user.username} &nbsp; </div>
+
+           
                         </div>
                     </div>
                 </div>

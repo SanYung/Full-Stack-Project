@@ -21,7 +21,9 @@ class ChannelPrivateAddUsersItem extends React.Component {
          }
         return (
             <div onClick={() => this.props.closeModal()}>
-                <div id="individ-dms" onClick={this.handleClick}> <span id="demo-profile-dms"> <BsPersonSquare /> </span> {this.props.user.username} </div>
+                <div id="individ-dms" onClick={this.handleClick}> <span id="demo-profile-dms"> 
+                    {this.props.user.photoUrl ? <img id="demoprofile" src={this.props.user.photoUrl} />
+                        : <img id="demoprofile" src={window.profileURL2} />} </span> {this.props.user.username} </div>
 
             </div>
         )

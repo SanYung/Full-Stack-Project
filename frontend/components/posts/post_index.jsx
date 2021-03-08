@@ -94,7 +94,9 @@ class PostIndex extends React.Component {
                         <div className="postList" key={post.id}>
                             { !this.props.users[post.user_id] ? null :
                                 <div className="postList">
-                                    <img id="demoprofile" src={window.profileURL} />
+                                      {this.props.users[post.user_id].photoUrl ? <img id="demoprofile" src={this.props.users[post.user_id].photoUrl } />
+                                          : <img id="demoprofile" src={window.profileURL2} />}
+                                    
                                     <br></br>
                                     <div className="post-content">
                                         <div id="authorstuff">
@@ -130,7 +132,8 @@ class PostIndex extends React.Component {
                     <div className="postList" key={post.id}>
                         { !this.props.users[post.user_id] ? null :
                             <div className="postList">
-                                <img id="demoprofile" src={window.profileURL} />
+                                {this.props.users[post.user_id].photoUrl ? <img id="demoprofile" src={this.props.users[post.user_id].photoUrl} />
+                                    : <img id="demoprofile" src={window.profileURL2} />}
                                 <br></br>
                                 <div className="post-content">
                                     <div id="authorstuff">

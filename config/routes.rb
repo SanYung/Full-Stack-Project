@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     
     resource :session, only:[:create, :destroy]
 
-    resources :users, only:[:create, :show, :index] do
+    resources :users, only:[:create, :show, :index, :update] do
       resources :channels, only:[:index]
     end
 

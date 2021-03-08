@@ -18,7 +18,8 @@ const msp = (state, ownProps) => {
         allDms: allDms(state),
         users:  state.entities.users,
         currentUser: state.session.currentUser,
-        lastItemChannelId: lastItemChannelId(state)
+        lastItemChannelId: lastItemChannelId(state),
+        photo1: window.profileURL2
     })
 }
 

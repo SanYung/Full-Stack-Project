@@ -70,6 +70,36 @@ export const channelMembersCount2 = (state) => {
     return hash
 }
 
+// used on dms_create_item to get find dms memberships pertaining to currentUser 
+export const channelMembers = (state) => {
+    let memberships = Object.values(state.entities.memberships)
+    let users = state.entities.users
+    let currentUser = state.session.currentUser.username
+    let hash = {}
+    let arr = []
+    memberships.forEach((obj) => {
+        hash[obj.channelId] = []
+    })
+
+    memberships.forEach((obj) => {
+        hash[obj.channelId].push(users[obj.memberId].username)
+    })
+
+    Object.values(hash).forEach(item => {
+        if (item.length === 2 && item[0] === currentUser) {
+            arr.push(item[1])
+        } else if (item.length === 2 && item[1] === currentUser){
+            arr.push(item[0])
+        }
+
+        if (item.length === 1 && item[0] === currentUser ){
+            arr.push(item[0])
+        }
+    })
+    return arr
+}
+
+
 
 // returns a list of user ids that are joined to a channel
 export const channelPeopleList = (state, ownProps) => {
@@ -278,6 +308,8 @@ export const lastItemChannelId = (state) => {
 }
 
 
+
+
 export const allDms = (state) => {
     let mychannels = Object.values(state.entities.channels) 
 
@@ -294,20 +326,45 @@ export const allDms = (state) => {
 
 export const allDmsTitle = (state) => {
     let mychannels = Object.values(state.entities.channels)
+    let memberships = Object.values(state.entities.memberships)
+    let users = state.entities.users
+    let currentUser = state.session.currentUser.username
+    let channels = state.entities.allchannels
+    let hash = {}
+    let arr = []
+
+    memberships.forEach((obj) => {
+        hash[obj.channelId] = []
+    })
+
+    memberships.forEach((obj) => {
+        hash[obj.channelId].push(users[obj.memberId].username)
+    })
+
 
     let allDms = []
     mychannels.forEach(obj => {
         if (obj.is_dm === true) {
-            allDms.push(obj.title)
+            allDms.push(obj)
         }
     })
 
+     allDms.forEach(Obj => {
+         if (hash[Obj.id].length === 2 && hash[Obj.id][0] === currentUser){
+             arr.push(hash[Obj.id][1])
+         } else if (hash[Obj.id].length === 2 && hash[Obj.id][1] === currentUser) {
+             arr.push(hash[Obj.id][0])
+         } else if (hash[Obj.id].length === 1 && hash[Obj.id][0] === currentUser) {
+             arr.push(hash[Obj.id][0])
+         }
+     })
 
-    return allDms
+     return arr 
 }
 
 export const allChannelTitle = (state) => {
     let allchannels = Object.values(state.entities.allchannels)
+    
 
     let allDms = []
     allchannels.forEach(obj => {
@@ -320,3 +377,38 @@ export const allChannelTitle = (state) => {
     return allDms
 }
 
+
+// search- showing all nondm channels and all dms that are the currrent users'
+export const currentUserSearch = (state) => {
+    let memberships = Object.values(state.entities.memberships)
+    let users = state.entities.users
+    let currentUser = state.session.currentUser.username
+    let channels = state.entities.allchannels
+    let hash = {}
+    let arr = []
+    
+    memberships.forEach((obj) => {
+        hash[obj.channelId] = []
+    })
+
+    memberships.forEach((obj) => {
+        hash[obj.channelId].push(users[obj.memberId].username)
+    })
+
+    Object.keys(hash).forEach(key => {
+        if (hash[key].includes(currentUser)) {
+            arr.push(channels[key])
+        } else if (channels[key].is_dm && hash[key].length == 1 && hash[key].includes(currentUser)){
+            arr.push(channels[key])
+        // } else if (channels[key].is_dm && hash[key].length == 2 && hash[key][0].includes(currentUser)) {
+        //     arr.push(channels[key])
+        // } else if (channels[key].is_dm && hash[key].length == 2 && hash[key][1].includes(currentUser)) {
+        //     arr.push(channels[key])
+        } else if (!channels[key].is_dm) {
+            arr.push(channels[key])
+        }
+    })
+
+ 
+    return arr
+}

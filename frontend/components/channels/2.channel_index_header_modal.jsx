@@ -3,6 +3,8 @@ import { GrChannel } from 'react-icons/gr'
 import { GrNewWindow } from 'react-icons/gr'
 import { AiOutlineMessage} from 'react-icons/ai'
 import { BiLogOutCircle } from 'react-icons/bi'
+import { HiOutlinePhotograph } from 'react-icons/hi'
+
 
 
 class ChannelIndexHeaderModal extends React.Component {
@@ -13,6 +15,7 @@ class ChannelIndexHeaderModal extends React.Component {
     render() {
         return (
             <div className="dropdown-items">
+                <li onClick={() => this.props.openModal('addphoto')}><HiOutlinePhotograph />&nbsp;Add A Profile Picture</li>
                 <li onClick={() => this.props.openModal('createChannel')}><GrNewWindow />&nbsp;Create A Channel</li>
                 <li onClick={() => this.props.openModal('addChannels')}><GrChannel />&nbsp;Browse Channels</li>
                 <li onClick={() => this.props.openModal('createDms')}><AiOutlineMessage />&nbsp;Direct Message</li>

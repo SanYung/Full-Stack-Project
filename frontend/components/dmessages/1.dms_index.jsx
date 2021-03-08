@@ -23,7 +23,7 @@ class DmsIndex extends React.Component {
         this.props.fetchChannels(this.props.currentUser.id)
         this.props.fetchAllMemberships()
         this.props.fetchUsers()
-        this.props.fetchAllChannels()
+        // this.props.fetchAllChannels()
     }
 
     componentDidUpdate(prevProps) {

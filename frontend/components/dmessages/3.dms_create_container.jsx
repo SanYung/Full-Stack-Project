@@ -6,18 +6,19 @@ import { fetchUsers } from '../../actions/session_action'
 import { closeModal } from '../../actions/modal_actions'
 import { createChannel, fetchAllChannels, fetchChannels } from '../../actions/channel_action'
 import { createMembership } from '../../actions/membership_action'
-import { alreadyExistingDmessages, allDms, lastItemChannelId} from '../../reducers/channel_selector'
+import {lastItemChannelId, channelMembers} from '../../reducers/channel_selector'
 
 
 const msp = (state, ownProps) => {
     return ({
     users: state.entities.users,
-    alreadyExistingDmessages: alreadyExistingDmessages(state),
     currentUser: state.session.currentUser,
     channelId: ownProps.match.params.channelId,
     channels : state.entities.channels,
-    allDms: allDms(state),
-    lastItemChannelId: lastItemChannelId(state)
+    allchannels: state.entities.allchannels,
+    lastItemChannelId: lastItemChannelId(state),
+    memberships: channelMembers(state),
+    membersps: state.entities.memberships
 
 })}
 
