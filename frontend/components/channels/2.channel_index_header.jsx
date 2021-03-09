@@ -10,6 +10,9 @@ class ChannelIndexHeader extends React.Component {
     }
 
     render() {
+        if (!this.props.users[this.props.currentUser.id] ){
+            return null
+        }
         return (
 
                 <div className="workspace-header">
