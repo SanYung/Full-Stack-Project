@@ -27,7 +27,7 @@ class Home extends React.Component {
         }
 
         this.props.createSession(demo)
-            .then(() => this.props.history.push('/home/channels/82'));
+            .then(() => this.props.history.push('/home/channels/1765'));
     }
 
     render(){
