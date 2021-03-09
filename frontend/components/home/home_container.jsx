@@ -8,7 +8,7 @@ const mdp = (dispatch) => {
     createSession: ((user) => dispatch(createSession(user))),
     updateCurrentUser: (user) => dispatch(updateCurrentUser(user)),
     receiveUpdatedUser: (user) => dispatch(receiveUpdatedUser(user)),
-        fetchUsers: (user) => dispatch(fetchUsers(user))
+    fetchUsers: (user) => dispatch(fetchUsers(user))
     }
 };
 

@@ -12,11 +12,13 @@ const msp = ({errors}) => {
         username: '',
         email: '',
         password: '',
+        online: true
     },
     demo: {
         username: 'DemoUser',
         email: 'demo@aa.com',
         password: 'demo123',
+        online: true
     },
     errors: errors.session,
 })}

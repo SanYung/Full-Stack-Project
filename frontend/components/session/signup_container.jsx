@@ -8,12 +8,14 @@ const msp = ({errors}) => ({
         username:'',
         email: '',
         password: '',
-        photo: window.profileURL2
+        photo: window.profileURL2,
+        online: true
         },
     demo: {
         username: 'DemoUser',
         email: 'demo@aa.com',
-        password: 'demo123'
+        password: 'demo123',
+        online: true
     },
     errors: errors.session
 })

@@ -11,7 +11,11 @@ import { dmsTitle } from '../../reducers/channel_selector'
 const msp = (state, ownProps) => {
     return {
         currentUser : state.session.currentUser,
-        dmsTitle: dmsTitle(state, ownProps)
+        dmsTitle: dmsTitle(state, ownProps),
+        users: state.entities.users,
+        memberships: state.entities.memberships,
+        allchannels: state.session.allchannels,
+        channels: state.session.channels
     }
 }
 

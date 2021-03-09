@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaGalacticSenate } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component {
@@ -10,7 +11,7 @@ class Navbar extends React.Component {
 
     handleLogout(e){
         const user = {
-            username: this.props.currentUser.email,
+            username: this.props.currentUser.username,
             email: this.props.currentUser.email,
             id: this.props.currentUser.id,
             online: false,
@@ -45,7 +46,7 @@ class Navbar extends React.Component {
                         <a href="https://sanyung.dev/" className="aboutme3" target="_blank">Portfolio</a>
                 </span>
                 <span className="right-nav">
-                        <button className="logoutbutton" onClick={this.props.deleteSession}>Log Out</button>
+                        <button className="logoutbutton" onClick={this.handleLogout}>Log Out</button>
                 </span>
 
             </div>

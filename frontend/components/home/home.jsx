@@ -24,17 +24,17 @@ class Home extends React.Component {
             username: 'DemoUser',
             email: 'demo@aa.com',
             password: 'demo123',
-            online: false, 
+            online: true, 
         }
 
         this.props.createSession(demo)
-        .then((res) => {
-            this.props.updateCurrentUser({
-                id: res.user.id,
-                email: res.user.email,
-                username: res.user.username,
-                online: true })
-            })
+            .then((res) => {
+                this.props.updateCurrentUser({
+                    id: res.user.id,
+                    email: res.user.email,
+                    username: res.user.username,
+                    online: true })
+                })
         
             // .then((res) => {
             //     console.log('user patched, creating sub')
@@ -51,7 +51,6 @@ class Home extends React.Component {
             //             },
             //         }
             //     );
-                // return res;
             // })
             // .then((res) => {
             //     console.log('sub created, speaking')
@@ -65,7 +64,7 @@ class Home extends React.Component {
             //     });
             // })
             // .then(this.props.fetchUsers())
-        .then((res) => this.props.history.push('/home/channels/1765'));
+        .then(() => this.props.history.push('/home/channels/1783'));
 
     }
       

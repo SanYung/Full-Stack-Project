@@ -48,13 +48,33 @@
 #user-status{
     display: flex;
 }
-#status-button {
+#online-button2 {
+    font-family: Lato, sans-serif;
+    font-size:13px;
+    color: #4ca543;
+}
+
+#online-button {
     display: flex;
     font-family: Lato, sans-serif;
     font-size:13px;
     align-items: center;
     justify-content: center;
     color: #4ca543;
+}
+
+#offline-button2 {
+
+    font-size:13px;
+
+
+}
+#offline-button {
+    display: flex;
+    font-family: Lato, sans-serif;
+    font-size:13px;
+    align-items: center;
+    justify-content: center;
 
 }
 
