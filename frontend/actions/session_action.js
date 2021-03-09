@@ -35,6 +35,13 @@ const logoutCurrentUser = () => ({
 });
 
 
+export const updateUser = user => {
+    return {
+        type: UPDATE_CURRENT_USER,
+        user
+    }
+}
+
 export const receiveErrors = (errors) => ({
     type: RECEIVE_SESSION_ERRORS,
     errors
