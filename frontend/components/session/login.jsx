@@ -17,13 +17,26 @@ class Login extends React.Component {
     handleDemo(e) {
         e.preventDefault();
         this.props.createSession(this.props.demo)
-            .then(() => this.props.history.push('/home/channels/82'));
+        // .then((res) => {
+        //     this.props.updateCurrentUser({
+        //         id: res.user.id,
+        //         email: res.user.email,
+        //         username: res.user.username,
+        //         online: true }) })
+        .then(() => this.props.history.push('/home/channels/82'))
     }
 
     handleSubmit(e) {
         e.preventDefault();
         this.props.createSession(this.state)
-            .then(() => this.props.history.push('/home/channels/82'));
+        // .then((res) => {
+        //     this.props.updateCurrentUser({
+        //         id: res.user.id,
+        //         email: res.user.email,
+        //         username: res.user.username,
+        //         online: true})
+        // })
+        .then(() => this.props.history.push('/home/channels/82'))
     }
 
     renderErrors(){

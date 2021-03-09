@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { BsPersonSquare } from 'react-icons/bs'
+import { IoIosRadioButtonOn } from 'react-icons/io'
 
 
 class DmsIndexItem extends React.Component {
@@ -45,7 +45,7 @@ class DmsIndexItem extends React.Component {
         
         return (
             <div id="individualchannel">
-                <Link to={`/home/channels/${this.props.channel.id}`}><BsPersonSquare />&nbsp; {this.state.title}</Link> 
+                <Link to={`/home/channels/${this.props.channel.id}`}><IoIosRadioButtonOn />&nbsp; {this.state.title}</Link> 
             </div>
         )
     }

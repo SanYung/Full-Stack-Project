@@ -24,11 +24,52 @@ class Home extends React.Component {
             username: 'DemoUser',
             email: 'demo@aa.com',
             password: 'demo123',
+            online: false, 
         }
 
         this.props.createSession(demo)
-            .then(() => this.props.history.push('/home/channels/82'));
+        .then((res) => {
+            this.props.updateCurrentUser({
+                id: res.user.id,
+                email: res.user.email,
+                username: res.user.username,
+                online: true })
+            })
+        
+            // .then((res) => {
+            //     console.log('user patched, creating sub')
+            //     App.cable.subscriptions.create(
+            //         { channel: "UsersChannel" },
+            //         {
+            //             received: (data) => {
+            //                 console.log('received on userchannel:', data)
+            //                 this.props.receiveUpdatedUser(data);
+            //             },
+            //             speak: function (data) {
+            //                 console.log('spoken on userchannel:', data)
+            //                 this.perform("speak", data);
+            //             },
+            //         }
+            //     );
+                // return res;
+            // })
+            // .then((res) => {
+            //     console.log('sub created, speaking')
+            //     App.cable.subscriptions.subscriptions[1].speak({
+            //         user: {
+            //             id: res.user.id,
+            //             username: res.user.username,
+            //             email: res.user.email,
+            //             online: true,
+            //         },
+            //     });
+            // })
+            // .then(this.props.fetchUsers())
+        .then((res) => this.props.history.push('/home/channels/1765'));
+
     }
+      
+    
 
     render(){
         return(

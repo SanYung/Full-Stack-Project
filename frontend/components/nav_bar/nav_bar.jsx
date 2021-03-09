@@ -4,8 +4,34 @@ import { Link } from 'react-router-dom';
 class Navbar extends React.Component {
     constructor(props){
         super(props)
+        this.handleLogout = this.handleLogout.bind(this);
     }
     
+
+    handleLogout(e){
+        const user = {
+            username: this.props.currentUser.email,
+            email: this.props.currentUser.email,
+            id: this.props.currentUser.id,
+            online: false,
+        };
+        e.preventDefault();
+        this.props.updateCurrentUser(user)
+            // .then((res) => {
+            //     if (App.cable.subscriptions.subscriptions[1]) {
+            //         App.cable.subscriptions.subscriptions[1].speak({
+            //             user: user,
+            //         });
+            //     }
+
+            //     return res;
+            // })
+            // .then(() => {
+            //     App.cable.subscriptions.subscriptions = [];
+            // });
+
+        .then((res) => this.props.deleteSession(res))
+    }
     display(){ 
         return(this.props.currentUser ? (
         <div className="navbarcontainer">
@@ -19,7 +45,7 @@ class Navbar extends React.Component {
                         <a href="https://sanyung.dev/" className="aboutme3" target="_blank">Portfolio</a>
                 </span>
                 <span className="right-nav">
-                    <button className="logoutbutton" onClick={this.props.deleteSession}>Log Out</button>
+                        <button className="logoutbutton" onClick={this.props.deleteSession}>Log Out</button>
                 </span>
 
             </div>
