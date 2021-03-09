@@ -64,7 +64,7 @@ class Home extends React.Component {
             //     });
             // })
             // .then(this.props.fetchUsers())
-        .then(() => this.props.history.push('/home/channels/1783'));
+        .then(() => this.props.history.push('/home/channels/101'));
 
     }
       

@@ -26,7 +26,7 @@ class Signup extends React.Component {
                 username: res.user.username,
                 online: true})
             })
-        .then(() => this.props.history.push('/home/channels/82'));
+        .then(() => this.props.history.push('/home/channels/101'));
     }
 
     handleDemo(e){
@@ -39,7 +39,7 @@ class Signup extends React.Component {
                 username: res.user.username,
                 online: true})
             })
-        .then(() => this.props.history.push('/home/channels/82'));
+        .then(() => this.props.history.push('/home/channels/101'));
     }
 
     renderErrors() {

@@ -23,7 +23,7 @@ class Login extends React.Component {
                 email: res.user.email,
                 username: res.user.username,
                 online: true }) })
-        .then(() => this.props.history.push('/home/channels/82'))
+        .then(() => this.props.history.push('/home/channels/101'))
     }
 
     handleSubmit(e) {
@@ -36,7 +36,7 @@ class Login extends React.Component {
                 username: res.user.username,
                 online: true})
         })
-        .then(() => this.props.history.push('/home/channels/82'))
+        .then(() => this.props.history.push('/home/channels/101'))
     }
 
     renderErrors(){
