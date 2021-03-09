@@ -7,7 +7,7 @@ import { HiOutlinePencilAlt } from 'react-icons/hi'
 import { RiSettings5Fill } from 'react-icons/ri'
 import { RiLockLine } from 'react-icons/ri'
 import { IoMdPersonAdd } from 'react-icons/io'
-
+import { IoIosRadioButtonOn } from 'react-icons/io'
 
 class ChannelShowHeader extends React.Component {
     constructor(props) {
@@ -50,6 +50,20 @@ class ChannelShowHeader extends React.Component {
         }
     }
 
+    userId(title) {
+        let users = Object.values(this.props.users)
+        let arr = []
+        users.forEach((obj) => {
+            if (obj.username === title && obj.online === true) {
+                arr.push(obj.id)
+            }
+        })
+        if (arr.length !== 0) {
+            return true
+        }
+    }
+
+
     
 
     render() {
@@ -86,7 +100,9 @@ class ChannelShowHeader extends React.Component {
                     : 
                     <ul id='showheader-content'>
                         <div id="header-and-icons">
-                            <div id="header-channel-title" > {this.props.dmsTitlex}</div>
+                            <div id="header-channel-title" >  {this.userId(this.props.dmsTitlex) === true ?
+                                <span id="online-button2"> <IoIosRadioButtonOn /></span> :
+                                <span id="offline-button2"> <IoIosRadioButtonOn /></span>}  {this.props.dmsTitlex}</div>
                             <div className="icons">
                                 <li id="person" onClick={this.handleDetails} channelid={channel.id}><BsFillPeopleFill />&nbsp;{this.props.count} people in this chat </li>&nbsp;
                             </div>

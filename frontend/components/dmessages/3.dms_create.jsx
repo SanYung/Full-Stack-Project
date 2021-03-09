@@ -19,8 +19,8 @@ class DmsCreate extends React.Component {
 
         return (
             <div className="dms-create-container">
-                {Object.values(this.props.users).map((user) => (
-                    <li key={user.id} >
+                {Object.values(this.props.users).map((user, i) => (
+                    <li key={i} >
                         <div  >
                             < DmsCreateItem lastItemChannelId={this.props.lastItemChannelId}
                                             user={user} 

@@ -10,9 +10,6 @@ class ChannelIndexHeader extends React.Component {
     }
 
     render() {
-        if (!this.props.users[this.props.currentUser.id] ){
-            return null
-        }
         return (
 
                 <div className="workspace-header">
@@ -21,9 +18,7 @@ class ChannelIndexHeader extends React.Component {
                         <div className="dropdown">
                             <span id="dropdown-click" onClick={()=> this.props.openModal('logout')}> Your Workspace &nbsp; <div id="carrat-down"><BsChevronCompactDown /></div> </span>
                             <div id="user-status">
-                            {this.props.users[this.props.currentUser.id].online === true ? 
-                            <span id="online-button"> <IoIosRadioButtonOn /></span> : 
-                            <span id="offline-button"> <IoIosRadioButtonOn /></span>  }
+                            <span id="online-button"> <IoIosRadioButtonOn /></span> 
                             &nbsp; {this.props.currentUser.username} &nbsp; </div>
                         </div>
                     </div>

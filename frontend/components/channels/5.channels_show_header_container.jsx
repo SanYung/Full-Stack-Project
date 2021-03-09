@@ -15,6 +15,7 @@ const msp = (state, ownProps) => {
     count: channelMembersCount(state, ownProps),
     dmsTitlex: dmsTitlex(state, ownProps),
     currentChannel: state.entities.allchannels[ownProps.match.params.channelId],
+    users : state.entities.users
 
 
     })}
