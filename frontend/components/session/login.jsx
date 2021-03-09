@@ -24,6 +24,7 @@ class Login extends React.Component {
         e.preventDefault();
         this.props.createSession(this.state)
             .then(() => this.props.history.push('/home/channels/1765'));
+            
     }
 
     renderErrors(){
