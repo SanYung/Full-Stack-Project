@@ -38,14 +38,14 @@ class ChannelMembers extends React.Component {
                                 <li key={i} >
                                     < ChannelMembersItem 
                                         memberId={memberId}
-                                        alreadyExistingDmessages={this.props.alreadyExistingDmessages}
-                                        allDms={this.props.allDms}
                                         createChannel={this.props.createChannel}
                                         users={this.props.users}
                                         createMembership={this.props.createMembership}
                                         currentUser={this.props.currentUser}
                                         lastItemChannelId={this.props.lastItemChannelId}
                                         photo1= {this.props.photo1}
+                                        memberships = {this.props.memberships}
+                                        allchannels = {this.props.allchannels}
                                         />
                                     {/* <div className="align-center-members" onClick={this.handleClick}>
                                         <span style={{fontSize: "30px"}}> <BsPersonSquare /></span> &nbsp;&nbsp;

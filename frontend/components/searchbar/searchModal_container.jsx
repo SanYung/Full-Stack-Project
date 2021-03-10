@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import SearchbarModal from './searchModal';
 import { closeModal } from '../../actions/modal_actions';
 import { fetchAllChannels } from '../../actions/channel_action';
-import { allDmsTitle, allChannelTitle, currentUserSearch} from '../../reducers/channel_selector'
+import { allDmsTitle, currentUserSearch} from '../../reducers/channel_selector'
 
 const msp = state => {
 
@@ -15,7 +15,6 @@ const msp = state => {
     allchannels: state.entities.allchannels,
     channels: state.entities.channels,
     allDmsTitle: allDmsTitle(state),
-    allChannelTitle: allChannelTitle(state),
     memberships: Object.values(state.entities.memberships),
     currentUserSearch: currentUserSearch(state),
     photo1: window.profileURL2

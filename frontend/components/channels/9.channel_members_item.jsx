@@ -15,16 +15,49 @@ class ChannelMembersItem extends React.Component {
         }
     }
 
+    alreadyExistingDmessages(otherUser){
+
+        let memberships = Object.values(this.props.memberships)
+        let users = this.props.users
+        let currentUser = this.props.currentUser.username
+        let allchannels = this.props.allchannels
+        let hash = {}
+        let arr = []
+        memberships.forEach((obj) => {
+            hash[obj.channelId] = []
+        })
+
+        memberships.forEach((obj) => {
+            hash[obj.channelId].push(users[obj.memberId].username)
+        })
+
+        Object.keys(hash).forEach(key => {
+            
+            if (allchannels[key].is_dm && hash[key].length === 2 && hash[key][0] === currentUser && hash[key][1] === otherUser) {
+                arr.push(key)
+                arr.push('true')
+            }
+            else if (allchannels[key].is_dm && hash[key].length === 2 && hash[key][1] === currentUser && hash[key][0] === otherUser){
+                arr.push(key)
+                arr.push('true')
+            }
+            else if (allchannels[key].is_dm && hash[key].length === 1 && hash[key][0] === otherUser) {
+                arr.push(key)
+                arr.push('true')
+            }
+        })
+        console.log(arr)
+        return arr
+
+    }
+
+
     handleClick() {
         let user = this.props.users[this.props.memberId]
         let num = parseInt(this.props.lastItemChannelId + 1)
 
-        if (this.props.alreadyExistingDmessages.includes(user.username)) {
-            this.props.allDms.forEach(obj => {
-                if (obj.title === user.username) {
-                    window.location.href = `#/home/channels/${obj.id}`
-                }
-            })
+        if (this.alreadyExistingDmessages(user.username)[1] === 'true') {
+            window.location.href = `#/home/channels/${this.alreadyExistingDmessages(user.username)[0]}`
         } else if (this.props.users[this.props.memberId].username === this.props.currentUser.username) {
             this.setState({title: this.props.currentUser.username})
             this.props.createChannel(this.state)

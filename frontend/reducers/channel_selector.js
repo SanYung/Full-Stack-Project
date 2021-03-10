@@ -172,29 +172,6 @@ export const channelMembership = (state, ownProps) => {
 }
 
 
-export const alreadyExistingDmessages = (state) => {
-    let channels = Object.values(state.entities.channels)
-    let existingChannels = []
-    channels.forEach((obj) => {
-        existingChannels.push(obj.title)
-    })
-
-    let arr = Object.values(state.entities.users)
-    let recievers = []
-    arr.forEach((obj) => {
-        recievers.push(obj.username)
-    })
-
-    let alreadyExistingDms= []
-    recievers.forEach(person => {
-        if (existingChannels.includes(person)){
-            alreadyExistingDms.push(person)
-        } 
-    })
-    return alreadyExistingDms
-}
-
-
 
 export const dmsChannelId = (state, ownProps) => {
     let allchannels = Object.values(state.entities.allchannels)
@@ -307,29 +284,11 @@ export const lastItemChannelId = (state) => {
     return num
 }
 
-
-
-
-export const allDms = (state) => {
-    let mychannels = Object.values(state.entities.channels) 
-
-    let allDms = []
-    mychannels.forEach(obj => {
-        if (obj.is_dm === true) {
-            allDms.push(obj)
-        }
-    })
-
-
-    return allDms
-}
-
 export const allDmsTitle = (state) => {
-    let mychannels = Object.values(state.entities.channels)
     let memberships = Object.values(state.entities.memberships)
     let users = state.entities.users
     let currentUser = state.session.currentUser.username
-    let channels = state.entities.allchannels
+    let channels = Object.values(state.entities.allchannels)
     let hash = {}
     let arr = []
 
@@ -343,7 +302,7 @@ export const allDmsTitle = (state) => {
 
 
     let allDms = []
-    mychannels.forEach(obj => {
+    channels.forEach(obj => {
         if (obj.is_dm === true) {
             allDms.push(obj)
         }
@@ -358,24 +317,10 @@ export const allDmsTitle = (state) => {
              arr.push(hash[Obj.id][0])
          }
      })
-
      return arr 
 }
 
-export const allChannelTitle = (state) => {
-    let allchannels = Object.values(state.entities.allchannels)
-    
 
-    let allDms = []
-    allchannels.forEach(obj => {
-        if (obj.is_dm !== true) {
-            allDms.push(obj.title)
-        }
-    })
-
-
-    return allDms
-}
 
 
 // search- showing all nondm channels and all dms that are the currrent users'

@@ -119,7 +119,8 @@ class SearchbarModal extends React.Component {
     matches() {
         let matches = [];
         Object.values(this.props.currentUserSearch).forEach(channel => {
-            if ((channel.title.toLowerCase()).includes(this.state.input.toLowerCase())) {
+            let title = this.title(channel.id) ? this.title(channel.id) : "channels"
+            if ((title.toLowerCase()).includes(this.state.input.toLowerCase())) {
                 matches.push(<button onMouseDown={() => this.props.history.push(`/home/channels/${channel.id}`)}><span className="icon-align"><span className={channel.is_dm === true ? 'demo-icons' : ''}>
                     {this.icons(channel.id)}</span>
                     {this.title(channel.id) ? this.title(channel.id) : channel.title}</span></button>);
@@ -153,13 +154,25 @@ class SearchbarModal extends React.Component {
         this.setState({ channel: false, messages: false, classModal: 'search-modal-expand' , input: ''});
     }
 
+    allChannelTitle() {
+        let allchannels = Object.values(this.props.allchannels)
+        let channelNames = []
+        allchannels.forEach(obj => {
+            if (obj.is_dm !== true) {
+                channelNames.push(obj.title)
+            }
+        })
+        return channelNames
+    }
+
+
 
     render() {
         let arr = []
             let results
             if (this.state.channel === true) {
                 this.matches().map((result, i) => {
-                    if (this.props.allChannelTitle.includes(result.props.children.props.children[1])) {
+                    if (this.allChannelTitle().includes(result.props.children.props.children[1])) {
                         arr.push(result)
                          results = arr.map((result, i) => {
                             return (

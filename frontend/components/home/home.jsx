@@ -20,14 +20,14 @@ class Home extends React.Component {
 
     handleDemo(e) {
         e.preventDefault();
-        const demo = {
+        const user = {
             username: 'DemoUser',
             email: 'demo@aa.com',
             password: 'demo123',
             online: true, 
         }
 
-        this.props.createSession(demo)
+        this.props.createSession(user)
             .then((res) => {
                 this.props.updateCurrentUser({
                     id: res.user.id,
@@ -35,7 +35,6 @@ class Home extends React.Component {
                     username: res.user.username,
                     online: true })
                 })
-        
             // .then((res) => {
             //     console.log('user patched, creating sub')
             //     App.cable.subscriptions.create(
@@ -51,20 +50,21 @@ class Home extends React.Component {
             //             },
             //         }
             //     );
+            //     return res;
             // })
             // .then((res) => {
-            //     console.log('sub created, speaking')
+            //     console.log(App.cable.subscriptions.subscriptions[1])
             //     App.cable.subscriptions.subscriptions[1].speak({
             //         user: {
             //             id: res.user.id,
-            //             username: res.user.username,
             //             email: res.user.email,
+            //             username: res.user.username,
             //             online: true,
             //         },
             //     });
             // })
-            // .then(this.props.fetchUsers())
-        .then(() => this.props.history.push('/home/channels/101'));
+            .then(() => this.props.history.push('/home/channels/101'));
+    
 
     }
       

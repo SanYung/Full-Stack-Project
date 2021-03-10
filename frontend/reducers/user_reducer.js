@@ -9,8 +9,8 @@ const usersReducer = (oldState = {}, action) => {
         case RECEIVE_CURRENT_USER:
             newState = { [action.user.id]: action.user };
             return newState
-        case RECEIVE_UPDATED_USER:
-            return Object.assign({}, { user: { ...oldState.currentUser, ...action.user } })
+        // case RECEIVE_UPDATED_USER:
+        //     return Object.assign({}, { user: { ...oldState.currentUser, ...action.user } })
         case UPDATE_CURRENT_USER:
             newState[action.user.id] = action.user
             return newState;
