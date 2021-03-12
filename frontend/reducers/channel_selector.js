@@ -349,7 +349,10 @@ export const currentUserSearch = (state) => {
         //     arr.push(channels[key])
         // } else if (channels[key].is_dm && hash[key].length == 2 && hash[key][1].includes(currentUser)) {
         //     arr.push(channels[key])
-        } else if (!channels[key].is_dm) {
+        } else if (channels[key].is_private && hash[key].includes(currentUser)){
+            arr.push(channels[key])
+        }
+        else if (!channels[key].is_dm && !channels[key].is_private) {
             arr.push(channels[key])
         }
     })

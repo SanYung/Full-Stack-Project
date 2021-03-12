@@ -125,7 +125,7 @@ class SearchbarModal extends React.Component {
             let title = this.title(channel.id) ? this.title(channel.id) : channel.title
             if ((title.toLowerCase()).includes(this.state.input.toLowerCase())) {
                 matches.push(<button onMouseDown={() => this.props.history.push(`/home/channels/${channel.id}`)}><span className="icon-align"><span className={channel.is_dm === true ? 'demo-icons' : ''}>
-                    {this.icons(channel.id)}</span>
+                    {this.icons(channel.id)}</span>&nbsp;
                     {this.title(channel.id) ? this.title(channel.id) : channel.title}</span></button>);
             }
         });
