@@ -29,40 +29,41 @@ class Home extends React.Component {
 
         this.props.createSession(user)
             .then((res) => {
+                return(
                 this.props.updateCurrentUser({
                     id: res.user.id,
                     email: res.user.email,
                     username: res.user.username,
-                    online: true })
+                    online: true }))
                 })
-            // .then((res) => {
-            //     console.log('user patched, creating sub')
-            //     App.cable.subscriptions.create(
-            //         { channel: "UsersChannel" },
-            //         {
-            //             received: (data) => {
-            //                 console.log('received on userchannel:', data)
-            //                 this.props.receiveUpdatedUser(data);
-            //             },
-            //             speak: function (data) {
-            //                 console.log('spoken on userchannel:', data)
-            //                 this.perform("speak", data);
-            //             },
-            //         }
-            //     );
-            //     return res;
-            // })
-            // .then((res) => {
-            //     console.log(App.cable.subscriptions.subscriptions[1])
-            //     App.cable.subscriptions.subscriptions[1].speak({
-            //         user: {
-            //             id: res.user.id,
-            //             email: res.user.email,
-            //             username: res.user.username,
-            //             online: true,
-            //         },
-            //     });
-            // })
+            .then((res) => {
+                    console.log(res)
+                App.cable.subscriptions.create(
+                    { channel: "UsersChannel" },
+                    {
+                        received: (data) => {
+                            console.log('received on userchannel:', data)
+                            this.props.receiveUpdatedUser(data);
+                        },
+                        speak: function (data) {
+                            console.log('spoken on userchannel:', data)
+                            this.perform("speak", data);
+                        },
+                    }
+                );
+                return res;
+            })
+            .then((res) => {
+                console.log(App.cable.subscriptions.subscriptions[1])
+                App.cable.subscriptions.subscriptions[1].speak({
+                    user: {
+                        id: res.user.id,
+                        email: res.user.email,
+                        username: res.user.username,
+                        online: true,
+                    },
+                });
+            })
             .then(() => this.props.history.push('/home/channels/101'));
     
 

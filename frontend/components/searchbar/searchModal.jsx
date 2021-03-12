@@ -104,6 +104,9 @@ class SearchbarModal extends React.Component {
 
     }
 
+
+
+
     icons(id) {
         let priv = this.props.allchannels[id].is_private;
         let dm = this.props.allchannels[id].is_dm
@@ -119,7 +122,7 @@ class SearchbarModal extends React.Component {
     matches() {
         let matches = [];
         Object.values(this.props.currentUserSearch).forEach(channel => {
-            let title = this.title(channel.id) ? this.title(channel.id) : "channels"
+            let title = this.title(channel.id) ? this.title(channel.id) : channel.title
             if ((title.toLowerCase()).includes(this.state.input.toLowerCase())) {
                 matches.push(<button onMouseDown={() => this.props.history.push(`/home/channels/${channel.id}`)}><span className="icon-align"><span className={channel.is_dm === true ? 'demo-icons' : ''}>
                     {this.icons(channel.id)}</span>
