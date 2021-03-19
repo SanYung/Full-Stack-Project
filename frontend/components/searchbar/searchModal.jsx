@@ -175,7 +175,8 @@ class SearchbarModal extends React.Component {
             let results
             if (this.state.channel === true) {
                 this.matches().map((result, i) => {
-                    if (this.allChannelTitle().includes(result.props.children.props.children[1])) {
+                    console.log(result)
+                    if (this.allChannelTitle().includes(result.props.children.props.children[2])) {
                         arr.push(result)
                          results = arr.map((result, i) => {
                             return (
@@ -186,7 +187,7 @@ class SearchbarModal extends React.Component {
                 })
             } else if (this.state.messages === true ) {
                 this.matches().map((result, i) => {
-                    if (this.props.allDmsTitle.includes(result.props.children.props.children[1])) {
+                    if (this.props.allDmsTitle.includes(result.props.children.props.children[2])) {
                         arr.push(result)
                          results = arr.map((result, i) => {
                             return (
